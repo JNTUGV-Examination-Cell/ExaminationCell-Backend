@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+const sequelize = require('../config/connection');
 const Regulation_Courses = require('./Regulation_Courses');
 
 const Regulation_Course_Set = sequelize.define('regulation_course_sets',{

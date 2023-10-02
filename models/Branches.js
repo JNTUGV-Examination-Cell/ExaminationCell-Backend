@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+const sequelize = require('../config/connection');
 const Course = require('./Courses');
 
 const Branch = sequelize.define('branches',{

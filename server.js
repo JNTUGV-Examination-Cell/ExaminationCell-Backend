@@ -1,21 +1,18 @@
 const express = require('express');
 const cors = require('cors');
+const sequelize = require("./config/connection");
 const multer = require('multer'); // Import multer
 const app = express();
-const Attendence = require('./models/Attendence');
-const Batch = require('./models/Batch');
-const College = require('./models/Batch');
-const Otp = require('./models/Otp');
-const Staff = require('./models/Staff');
-const Student = require('./models/Student');
-const User = require('./models/User');
+const http = require("http");
+const server = http.createServer(app);
 const collegeRoutes = require('./routes/collegeRoutes');
 const staffRoutes = require('./routes/staffRoutes');
 const batchRoutes = require('./routes/batchRoutes');
 const studentRoutes = require('./routes/studentRoutes');
 const userRoutes= require('./routes/userRoutes');
+const createTablesIfNotExists = require('./config/tables');
 
-
+const port = 9000;
 // Enable CORS
 app.use(cors());
 
@@ -35,33 +32,29 @@ app.use('/api/staff', staffRoutes);
 app.use('/api/batch', batchRoutes);
 
 
-//database synchronization
-College.sync().then(() => {
-    console.log("College Model synced");
-});
-Staff.sync().then(() => {
-    console.log("Staff Model synced");
-});
-Batch.sync().then(() => {
-    console.log("Batch Model synced");
-});
-User.sync().then(() => {
-    console.log("User Model synced");
-});
-Otp.sync().then(() => {
-    console.log("Otp Model synced");
-});
-Attendence.sync().then(() => {
-    console.log("Attendence Model synced");
+const setupDatabase = async () => {
+
+    await createTablesIfNotExists();
+  };
+
+  sequelize
+  .authenticate()
+  .then(async () => {
+    console.log("Connected to the database!");
+
+    setupDatabase()
+      .then(() => {
+        console.log("Database setup complete.");
+
+        // Start the server
+        server.listen(port, () => {
+          console.log(`Server running on port ${port}`);
+        });
+      })
+      .catch((error) => {
+        console.error("Error setting up the database:", error);
+      });
+  })
+  .catch((error) => {
+    console.error("Unable to connect to the database:", error);
   });
-Student.sync().then(() => {
-    console.log("Student Model synced");
-});
-
-
-const port = process.env.PORT || 9000;
-
-// Start server
-app.listen(port, function () {
-    console.log('Server is running on port 9000');
-});

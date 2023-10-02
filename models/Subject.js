@@ -1,5 +1,5 @@
 const { DataTypes, STRING } = require('sequelize');
-const sequelize = require('../config/database');
+const sequelize = require('../config/connection');
 const Regulation_Course_Set  = require('./Regulation_Course_Set');
 const Regulation_Course  = require('./Regulation_Courses');
 const Branch  = require('./Branches');
