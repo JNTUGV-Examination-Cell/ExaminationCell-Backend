@@ -1,0 +1,251 @@
+[
+    {
+      "batch_college_code": "H9",
+      "study_type": "B.TECH",
+      "regulation": "R19",
+      "starting_year": 2023,
+      "ending_year": 2027
+    },
+    {
+      "batch_college_code": "H9",
+      "study_type": "M.TECH",
+      "regulation": "R19",
+      "starting_year": 2023,
+      "ending_year": 2025
+    },
+    {
+      "batch_college_code": "H9",
+      "study_type": "MCA",
+      "regulation": "R20",
+      "starting_year": 2023,
+      "ending_year": 2024
+    },
+    {
+      "batch_college_code": "H9",
+      "study_type": "B.TECH",
+      "regulation": "R20",
+      "starting_year": 2024,
+      "ending_year": 2028
+    },
+    {
+      "batch_college_code": "H9",
+      "study_type": "M.TECH",
+      "regulation": "R19",
+      "starting_year": 2024,
+      "ending_year": 2026
+    },
+    {
+      "batch_college_code": "9D",
+      "study_type": "B.TECH",
+      "regulation": "R19",
+      "starting_year": 2023,
+      "ending_year": 2027
+    },
+    {
+      "batch_college_code": "9D",
+      "study_type": "M.TECH",
+      "regulation": "R19",
+      "starting_year": 2023,
+      "ending_year": 2025
+    },
+    {
+      "batch_college_code": "9D",
+      "study_type": "MCA",
+      "regulation": "R20",
+      "starting_year": 2023,
+      "ending_year": 2024
+    },
+    {
+      "batch_college_code": "9D",
+      "study_type": "B.TECH",
+      "regulation": "R20",
+      "starting_year": 2024,
+      "ending_year": 2028
+    },
+    {
+      "batch_college_code": "9D",
+      "study_type": "M.TECH",
+      "regulation": "R19",
+      "starting_year": 2024,
+      "ending_year": 2026
+    },
+    {
+      "batch_college_code": "JG",
+      "study_type": "B.TECH",
+      "regulation": "R19",
+      "starting_year": 2023,
+      "ending_year": 2027
+    },
+    {
+      "batch_college_code": "JG",
+      "study_type": "M.TECH",
+      "regulation": "R19",
+      "starting_year": 2023,
+      "ending_year": 2025
+    },
+    {
+      "batch_college_code": "JG",
+      "study_type": "MCA",
+      "regulation": "R20",
+      "starting_year": 2023,
+      "ending_year": 2024
+    },
+    {
+      "batch_college_code": "JG",
+      "study_type": "B.TECH",
+      "regulation": "R20",
+      "starting_year": 2024,
+      "ending_year": 2028
+    },
+    {
+      "batch_college_code": "JG",
+      "study_type": "M.TECH",
+      "regulation": "R19",
+      "starting_year": 2024,
+      "ending_year": 2026
+    },
+    {
+        "batch_college_code": "2Z",
+        "study_type": "B.TECH",
+        "regulation": "R19",
+        "starting_year": 2023,
+        "ending_year": 2027
+      },
+      {
+        "batch_college_code": "2Z",
+        "study_type": "M.TECH",
+        "regulation": "R19",
+        "starting_year": 2023,
+        "ending_year": 2025
+      },
+      {
+        "batch_college_code": "2Z",
+        "study_type": "MCA",
+        "regulation": "R20",
+        "starting_year": 2023,
+        "ending_year": 2024
+      },
+      {
+        "batch_college_code": "2Z",
+        "study_type": "B.TECH",
+        "regulation": "R20",
+        "starting_year": 2024,
+        "ending_year": 2028
+      },
+      {
+        "batch_college_code": "2Z",
+        "study_type": "M.TECH",
+        "regulation": "R19",
+        "starting_year": 2024,
+        "ending_year": 2026
+      },
+
+      {
+        "batch_college_code": "W2",
+        "study_type": "B.TECH",
+        "regulation": "R19",
+        "starting_year": 2023,
+        "ending_year": 2027
+      },
+      {
+        "batch_college_code": "W2",
+        "study_type": "M.TECH",
+        "regulation": "R19",
+        "starting_year": 2023,
+        "ending_year": 2025
+      },
+      {
+        "batch_college_code": "W2",
+        "study_type": "MCA",
+        "regulation": "R20",
+        "starting_year": 2023,
+        "ending_year": 2024
+      },
+      {
+        "batch_college_code": "W2",
+        "study_type": "B.TECH",
+        "regulation": "R20",
+        "starting_year": 2024,
+        "ending_year": 2028
+      },
+      {
+        "batch_college_code": "W2",
+        "study_type": "M.TECH",
+        "regulation": "R19",
+        "starting_year": 2024,
+        "ending_year": 2026
+      },
+
+      {
+        "batch_college_code": "HP",
+        "study_type": "B.TECH",
+        "regulation": "R19",
+        "starting_year": 2023,
+        "ending_year": 2027
+      },
+      {
+        "batch_college_code": "HP",
+        "study_type": "M.TECH",
+        "regulation": "R19",
+        "starting_year": 2023,
+        "ending_year": 2025
+      },
+      {
+        "batch_college_code": "HP",
+        "study_type": "MCA",
+        "regulation": "R20",
+        "starting_year": 2023,
+        "ending_year": 2024
+      },
+      {
+        "batch_college_code": "HP",
+        "study_type": "B.TECH",
+        "regulation": "R20",
+        "starting_year": 2024,
+        "ending_year": 2028
+      },
+      {
+        "batch_college_code": "HP",
+        "study_type": "M.TECH",
+        "regulation": "R19",
+        "starting_year": 2024,
+        "ending_year": 2026
+      },
+      {
+        "batch_college_code": "6H",
+        "study_type": "B.TECH",
+        "regulation": "R19",
+        "starting_year": 2023,
+        "ending_year": 2027
+      },
+      {
+        "batch_college_code": "6H",
+        "study_type": "M.TECH",
+        "regulation": "R19",
+        "starting_year": 2023,
+        "ending_year": 2025
+      },
+      {
+        "batch_college_code": "6H",
+        "study_type": "MCA",
+        "regulation": "R20",
+        "starting_year": 2023,
+        "ending_year": 2024
+      },
+      {
+        "batch_college_code": "6H",
+        "study_type": "B.TECH",
+        "regulation": "R20",
+        "starting_year": 2024,
+        "ending_year": 2028
+      },
+      {
+        "batch_college_code": "6H",
+        "study_type": "M.TECH",
+        "regulation": "R19",
+        "starting_year": 2024,
+        "ending_year": 2026
+      }
+
+  ]
+  
