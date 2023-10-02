@@ -18,7 +18,7 @@ const batchRoutes = require('./routes/batchRoutes');
 const studentRoutes = require('./routes/studentRoutes');
 const userRoutes= require('./routes/userRoutes');
 const createTablesIfNotExists = require('./config/tables');
-const createDatabaseIfNotExists = require('./config/database');
+
 const port = 9000;
 // Enable CORS
 app.use(cors());
@@ -40,7 +40,6 @@ app.use('/api/batch', batchRoutes);
 
 
 const setupDatabase = async () => {
-    await createDatabaseIfNotExists();
     await createTablesIfNotExists();
   };
 
