@@ -11,7 +11,7 @@ const Regulation_Course_Set = sequelize.define('regulation_course_sets',{
         type:DataTypes.STRING,
         references:{
             model: Regulation_Courses,
-            key:'regulation_course_title'
+            key:'regulation_courses_title'
         },
         allowNull:false
     },

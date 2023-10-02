@@ -27,7 +27,7 @@ const Course = sequelize.define('courses',{
 
     },
     entrance_exam:{
-        type:DataTypes.VARCHAR,
+        type:DataTypes.STRING,
         allowNull: false
     }
 
