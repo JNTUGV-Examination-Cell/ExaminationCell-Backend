@@ -33,7 +33,6 @@ app.use('/api/batch', batchRoutes);
 
 
 const setupDatabase = async () => {
-
     await createTablesIfNotExists();
   };
 
