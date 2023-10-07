@@ -2,6 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const College = require('./College');
 const Batch = require('./Batch');
+const Branches = require('./Branches');
 
 const Student = sequelize.define('students', {
   student_id:{
@@ -39,6 +40,22 @@ const Student = sequelize.define('students', {
     type: DataTypes.STRING,
     allowNull: false
 
+  },
+  branch: {
+    type:DataTypes.STRING,
+    references:{
+      model : Branches,
+      key : 'course'
+    },
+    allowNull: false
+  },
+  mobile : {
+    type:DataTypes.STRING,
+    allowNull:false
+  },
+  email : {
+    type:DataTypes.STRING,
+    allowNull:false
   }
   
 }, {
