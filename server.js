@@ -21,7 +21,8 @@ const staffRoutes = require('./routes/staffRoutes');
 const batchRoutes = require('./routes/batchRoutes');
 const studentRoutes = require('./routes/studentRoutes');
 const userRoutes= require('./routes/userRoutes');
-
+const Ipaddress = require('./routes/Ipaddress');
+const Notification = require('./routes/Notification');
 
 // Enable CORS
 app.use(cors());
