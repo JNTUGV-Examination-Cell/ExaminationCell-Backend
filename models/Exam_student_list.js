@@ -41,4 +41,4 @@ const Exam_students_list = sequelize.define('exam_students_list', {
 
 
 );
-
+module.exports = Exam_students_list;
