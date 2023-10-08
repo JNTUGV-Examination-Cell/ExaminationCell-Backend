@@ -24,12 +24,8 @@ const User = sequelize.define('user', {
         key: 'college_code'
       },
     allowNull: false
-  },
-  mobile: {
-    type: DataTypes.STRING,
-    allowNull: false
-
   }
+
   
 }, {
   tableName: 'user',    
