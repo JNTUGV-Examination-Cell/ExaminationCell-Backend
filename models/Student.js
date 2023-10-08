@@ -45,7 +45,7 @@ const Student = sequelize.define('students', {
     type:DataTypes.STRING,
     references:{
       model : Branches,
-      key : 'course'
+      key : 'branch'
     },
     allowNull: false
   },
