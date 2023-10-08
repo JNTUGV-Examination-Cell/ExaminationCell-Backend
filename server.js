@@ -47,7 +47,7 @@ app.use('/api/staff', staffRoutes);
 app.use('/api/batch', batchRoutes);
 
 
-const models = [Attendence,Batch,Branch,College,Course,District,examination,examination_students_list,Ipaddress,Notification,Otp,Regulation,Regulation_Courses, Regulation_Courses_Set, Subject,Staff,Student,User];
+const models = [College, Staff,Attendence,Course, Branch, Regulation, Regulation_Courses, Batch, User, Student,Otp, District, Regulation_Courses_Set, Subject,examination,Ipaddress,Notification,examination_students_list];
 
 Promise.all(models.map(model => model.sync()))
   .then(() => {
