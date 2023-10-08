@@ -1,7 +1,7 @@
 const { DataTypes, STRING } = require('sequelize');
 const sequelize = require('../config/connection');
 const Regulation_Course_Set  = require('./Regulation_Courses_Set');
-const Regulation_Course  = require('./Regulation_Courses');
+const Regulation_Course  = require('./Regulation_Course');
 const Branch  = require('./Branches');
 const Course = require('./Courses')
 

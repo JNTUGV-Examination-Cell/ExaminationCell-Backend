@@ -14,7 +14,7 @@ const District = require('./models/Districts');
 const Course = require('./models/Courses');
 const Branch = require('./models/Branches');
 const Regulation = require('./models/Regulation');
-const Regulation_Courses = require('./models/Regulation_Courses');
+const Regulation_Courses = require('./models/Regulation_Course');
 const Regulation_Courses_Set = require('./models/Regulation_Courses_Set');
 const Subject = require('./models/Subject');
 const Ipaddress = require('./models/Ipaddress');
@@ -47,7 +47,7 @@ app.use('/api/staff', staffRoutes);
 app.use('/api/batch', batchRoutes);
 
 
-const models = [College, Staff, User,Attendence, Otp, Batch, Student, District, Course, Branch, Regulation, Regulation_Courses, Regulation_Courses_Set, Subject,examination,Ipaddress,Notification,examination_students_list];
+const models = [Attendence,Batch,Branch,College,Course,District,examination,examination_students_list,Ipaddress,Notification,Otp,Regulation,Regulation_Courses, Regulation_Courses_Set, Subject,Staff,Student,User];
 
 Promise.all(models.map(model => model.sync()))
   .then(() => {

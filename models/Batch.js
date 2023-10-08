@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const College = require('./College');
-const Regulation_courses = require('./regulation_courses');
+// const College = require('./College');
+const Regulation_courses = require('./Regulation_Course');
 const Courses = require('./Courses');
 
 const Batch = sequelize.define('batches', {
@@ -10,14 +10,14 @@ const Batch = sequelize.define('batches', {
     primaryKey: true,
     autoIncrement: true,
   },
-  batch_college_code: {
-    type: DataTypes.STRING,
-    references: {
-      model: College,
-      key: 'college_code',
-    },
-    allowNull: false,
-  },
+  // batch_college_code: {
+  //   type: DataTypes.STRING,
+  //   references: {
+  //     model: College,
+  //     key: 'college_code',
+  //   },
+  //   allowNull: false,
+  // },
   study_type: {
     type: DataTypes.STRING,
     allowNull: false,
