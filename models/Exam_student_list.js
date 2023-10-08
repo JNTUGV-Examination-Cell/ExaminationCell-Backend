@@ -6,6 +6,11 @@ const Students = require('./Student');
 
 
 const Exam_students_list = sequelize.define('exam_students_list', {
+    id:{
+        type:DataTypes.INTEGER,
+        autoincrement:true,
+        primaryKey:true
+    },
     exam_code:{
         type:DataTypes.STRING,
         references:{
@@ -15,20 +20,17 @@ const Exam_students_list = sequelize.define('exam_students_list', {
         allowNull: false
     },
     student_id:{
-        type:DataTypes.STRING,
+        type:DataTypes.INTEGER,
         references:{
-            model:Students ,
-            key: 'student_id'
+            model:Students,
+            key:'student_id'
         },
         allowNull: false
 
     },
-    id:{
-        type:DataTypes.INTEGER,
-        primaryKey:true
-    },
     qualified_status:{
-        type:DataTypes.STRING
+        type:DataTypes.STRING,
+        allowNull: false
     }
 
     

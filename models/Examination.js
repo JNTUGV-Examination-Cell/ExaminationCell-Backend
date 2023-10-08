@@ -5,10 +5,15 @@ const Batch = require('./Batch');
 const Regulation_course_set = require('./Regulation_Courses_Set');
 
 
-const Examination = sequelize.define('examinations', {
+const Examinations = sequelize.define('examinations', {
     id:{
         type : DataTypes.INTEGER,
         autoIncrement: true,
+    },
+    exam_code:{
+        type : DataTypes.STRING,
+        primaryKey: true
+
     },
     college_code:{
         type : DataTypes.STRING,
@@ -19,7 +24,7 @@ const Examination = sequelize.define('examinations', {
         allowNull: false
     },
     batch_id:{
-        type : DataTypes.STRING,
+        type : DataTypes.INTEGER,
         references:{
             model: Batch,
             key: 'batch_id'
@@ -37,16 +42,9 @@ const Examination = sequelize.define('examinations', {
 
 
     },
-    exam_code:{
-        type : DataTypes.STRING,
-        primaryKey: true
-
-    }
-
-
 },{
 
     tableName: 'examinations',    
     timestamps: false  
 });
-module.exports = Examination;
+module.exports = Examinations;

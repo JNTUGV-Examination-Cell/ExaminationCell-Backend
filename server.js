@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const multer = require('multer'); // Import multer
 const app = express();
+
 const Attendence = require('./models/Attendence');
 const Batch = require('./models/Batch');
 const College = require('./models/College');
@@ -16,13 +17,16 @@ const Regulation = require('./models/Regulation');
 const Regulation_Courses = require('./models/Regulation_Courses');
 const Regulation_Courses_Set = require('./models/Regulation_Courses_Set');
 const Subject = require('./models/Subject');
+const Ipaddress = require('./models/Ipaddress');
+const Notification = require('./models/Notification');
+const examination = require('./models/Examination');
+const examination_students_list = require('./models/Exam_student_list');
+
 const collegeRoutes = require('./routes/collegeRoutes');
 const staffRoutes = require('./routes/staffRoutes');
 const batchRoutes = require('./routes/batchRoutes');
 const studentRoutes = require('./routes/studentRoutes');
 const userRoutes= require('./routes/userRoutes');
-const Ipaddress = require('./routes/Ipaddress');
-const Notification = require('./routes/Notification');
 
 // Enable CORS
 app.use(cors());
@@ -43,7 +47,7 @@ app.use('/api/staff', staffRoutes);
 app.use('/api/batch', batchRoutes);
 
 
-const models = [College, Staff, User,Attendence, Otp, Batch, Student, District, Course, Branch, Regulation, Regulation_Courses, Regulation_Courses_Set, Subject];
+const models = [College, Staff, User,Attendence, Otp, Batch, Student, District, Course, Branch, Regulation, Regulation_Courses, Regulation_Courses_Set, Subject,examination,Ipaddress,Notification,examination_students_list];
 
 Promise.all(models.map(model => model.sync()))
   .then(() => {
