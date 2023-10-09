@@ -3,36 +3,34 @@ const sequelize = require('../config/connection');
 const User = require('./User');
 
 const Otp = sequelize.define('otp', {
-  otp_id:{
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
+  otp_id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
   },
   user_id: {
     type: DataTypes.INTEGER,
     references: {
-        model: User,
-        key: 'user_id'
-      },
-    allowNull: false
+      model: User,
+      key: 'user_id',
+    },
+    allowNull: false,
   },
   otp: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: false,
   },
   created_at: {
-    type: DataTypes.STRING,
-    allowNull: false
-
+    type: DataTypes.DATE, // Change the data type to DataTypes.DATE
+    allowNull: false,
   },
-  expiry_at:{
-    type: DataTypes.STRING,
-    allowNull: false
-  }
-  
+  expiry_at: {
+    type: DataTypes.DATE, // Change the data type to DataTypes.DATE
+    allowNull: false,
+  },
 }, {
-  tableName: 'otp',    
-  timestamps: false     
+  tableName: 'otp',
+  timestamps: false,
 });
 
 module.exports = Otp;

@@ -1,0 +1,36 @@
+[
+    {
+        "staff_id": 1234567890,
+        "id_no": 12345,
+        "full_name": "Vamshi",
+        "mobile": "7731958862",
+        "email": "vamshi.ganghadhar365@gmail.com",
+        "role": "Professor",
+        "staff_status": "active",
+        "staff_college_code": "H9",
+        "qr_code": "qr_code_1.png"
+    },
+    {
+        "staff_id": 9876543210,
+        "id_no": 54321,
+        "full_name": "kowshik",
+        "mobile": "8008977052",
+        "email": "harikowshik.molugu@gmail.com",
+        "role": "Administrator",
+        "staff_status": "active",
+        "staff_college_code": "9D",
+        "qr_code": "qr_code_2.png"
+    },
+    {
+        "staff_id": 5555555555,
+        "id_no": 67890,
+        "full_name": "Alice Johnson",
+        "mobile": "555-555-5555",
+        "email": "alice.johnson@example.com",
+        "role": "Instructor",
+        "staff_status": "active",
+        "staff_college_code": "JG",
+        "qr_code": "qr_code_3.png"
+    }
+
+]
