@@ -61,8 +61,6 @@ const syncModels = async () => {
 
 syncModels();
 
-
-
 const port = process.env.PORT || 9000;
 
 // Start server
