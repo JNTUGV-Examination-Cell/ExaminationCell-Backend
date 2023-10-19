@@ -19,6 +19,10 @@ const Ipaddress = sequelize.define('ipaddress',{
         },
         allowNull:false
     },
+    ipAddress:{
+        type:DataTypes.STRING,
+        allowNull:false
+    }
 },
 
 {
