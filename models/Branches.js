@@ -6,6 +6,7 @@ const Branch = sequelize.define('branches',{
 
     branch_id:{
         type:DataTypes.INTEGER,
+        primaryKey:true,
         autoIncrement:true
     },
     course:{
@@ -18,11 +19,11 @@ const Branch = sequelize.define('branches',{
     },
     branch:{
         type:DataTypes.STRING,
-        primaryKey:true,
+        allowNull:false
     },
     branch_full_name:{
         type:DataTypes.STRING,
-        alloull:false
+        allowNull:false
     },
     branch_specialization:{
         type:DataTypes.STRING,

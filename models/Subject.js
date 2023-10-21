@@ -1,20 +1,21 @@
 const { DataTypes, STRING } = require('sequelize');
 const sequelize = require('../config/connection');
 const Regulation_Course_Set  = require('./Regulation_Courses_Set');
-const Regulation_Course  = require('./Regulation_Courses');
+const Regulation_Course  = require('./Regulation_Course');
 const Branch  = require('./Branches');
 const Course = require('./Courses')
 
 const Subject = sequelize.define('subjects',{
     sub_id:{
         type:DataTypes.INTEGER,
-        primaryKey:true
+        primaryKey:true,
+        autoIncrement:true
     },
-    regulation_course_set:{
-        type:DataTypes.STRING,
+    regulation_courses_set_id:{
+        type:DataTypes.INTEGER,
         references:{
             model: Regulation_Course_Set,
-            key:'regulation_course_set'
+            key:'regulation_courses_set_id'
         },
         allowNull:false,
     },
@@ -22,15 +23,15 @@ const Subject = sequelize.define('subjects',{
         type:DataTypes.STRING,
         references:{
             model: Regulation_Course,
-            key:'regulation_courses_title'
+            key:'regulation_courses_title' 
         },
         allowNull:false,
     },
-    branch:{
-        type:DataTypes.STRING,
+    branch_id:{
+        type:DataTypes.INTEGER,
         references:{
             model: Branch,
-            key: 'branch'
+            key: 'branch_id'
         },
         allowNull:false,
     },

@@ -1,0 +1,72 @@
+[
+  {
+    "regulation_courses_id": 1,
+    "regulation_courses_title": "B.Tech R20",
+    "course": "B.Tech",
+    "regulation": "R20",
+    "studying_year": 1,
+    "duration": 4
+    
+  },
+  {
+    "regulation_courses_id": 2,
+    "regulation_courses_title": "MBA R19",
+    "course": "MBA",
+    "regulation": "R19",
+    "studying_year": 2,
+    "duration": 2
+    
+  },
+  {
+    "regulation_courses_id": 3,
+    "regulation_courses_title": "MCA R20",
+    "course": "MCA",
+    "regulation": "R20",
+    "studying_year": 1,
+    "duration": 2
+    
+  },
+  {
+    "regulation_courses_id": 4,
+    "regulation_courses_title": "M.Tech R19",
+    "course": "M.Tech",
+    "regulation": "R19",
+    "studying_year": 2,
+    "duration": 2
+    
+  },
+
+  {
+    "regulation_courses_id": 6,
+    "regulation_courses_title": "M.Pharmacy",
+    "course": "M.Pharm",
+    "regulation": "R18-PCI",
+    "studying_year": 1,
+    "duration": 2
+  },
+  {
+    "regulation_courses_id": 7,
+    "regulation_courses_title": "B.Pharmacy R16",
+    "course": "B.Pharm",
+    "regulation": "R13 B.Pharm",
+    "studying_year": 3,
+    "duration": 4
+  },
+  {
+    "regulation_courses_id": 8,
+    "regulation_courses_title": "Pharm.D",
+    "course": "Pharm.D",
+    "regulation": "R08-Pharm.D",
+    "studying_year": 4,
+    "duration": 6
+  },
+
+  {
+    "regulation_courses_id": 10,
+    "regulation_courses_title": "B.Tech R16",
+    "course": "Pharm.D-PB",
+    "regulation": "R16",
+    "studying_year": 2,
+    "duration": 4
+  }
+]
