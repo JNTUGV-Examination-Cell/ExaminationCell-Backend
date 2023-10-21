@@ -1,0 +1,33 @@
+[
+    {
+      "district_id": 1,
+      "district_name": "Srikakulam",
+      "district_slug": "srikakulam"
+    },
+    {
+      "district_id": 2,
+      "district_name": "Parvathipuram",
+      "district_slug": "parvathipuram"
+    },
+    {
+      "district_id": 3,
+      "district_name": "Vizianagaram",
+      "district_slug": "vizianagaram"
+    },
+    {
+      "district_id": 4,
+      "district_name": "Visakhapatnam",
+      "district_slug": "visakhapatnam"
+    },
+    {
+      "district_id": 5,
+      "district_name": "Paderu",
+      "district_slug": "paderu"
+    },
+    {
+      "district_id": 6,
+      "district_name": "Anakapalli",
+      "district_slug": "anakapalli"
+    }
+
+  ]

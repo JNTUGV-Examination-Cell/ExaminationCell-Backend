@@ -25,10 +25,10 @@ const examination_students_list = require('./models/Exam_student_list');
 const collegeRoutes = require('./routes/collegeRoutes');
 const staffRoutes = require('./routes/staffRoutes');
 const batchRoutes = require('./routes/batchRoutes');
-const studentRoutes = require('./routes/studentRoutes');
 const userRoutes= require('./routes/userRoutes');
-
-// Enable CORS
+const districtRoutes=require('./routes/districtRoutes');
+const notificationRoutes =require('./routes/notificationRoutes');
+// Enable CORS 
 app.use(cors());
 
 // middleware
@@ -41,10 +41,12 @@ app.use(upload.any());
 
 //routes
 app.use('/api/college',collegeRoutes);
-app.use('/api/student', studentRoutes);
+
 app.use('/api/user', userRoutes);
 app.use('/api/staff', staffRoutes);
 app.use('/api/batch', batchRoutes);
+app.use('/api/district',districtRoutes);
+app.use('/api/notification',notificationRoutes);
 
 //images accesseble links
 app.use('/images/qr_codes', express.static(__dirname + '/images/qr_codes'));

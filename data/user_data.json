@@ -1,0 +1,44 @@
+[
+    {
+      
+      "user_staff_id": 1234567890,  
+      "user_college_code": "H9"
+    },
+    {
+      
+      "user_staff_id": 9876543210,  
+      "user_college_code": "H9"
+    },
+    {
+        
+        "user_staff_id": 5555555555,  
+        "user_college_code": "9D"
+      },
+      {
+        
+        "user_staff_id": 9876543210,  
+        "user_college_code": "JG"
+      },
+      {
+        
+        "user_staff_id": 5555555555,  
+        "user_college_code": "2Z"
+      },
+      {
+       
+        "user_staff_id": 9876543210,  
+        "user_college_code": "W2"
+      },
+      {
+      
+        "user_staff_id":  1234567890,  
+        "user_college_code":"6H"
+      },
+      {
+
+        "user_staff_id": 9876543210,  
+        "user_college_code":"HP"
+      }
+  
+  ]
+  
