@@ -22,6 +22,8 @@ const Notification = require('./models/Notification');
 const examination = require('./models/Examination');
 const examination_students_list = require('./models/Exam_student_list');
 
+
+
 const collegeRoutes = require('./routes/collegeRoutes');
 const staffRoutes = require('./routes/staffRoutes');
 const batchRoutes = require('./routes/batchRoutes');
@@ -46,13 +48,20 @@ app.use('/api/user', userRoutes);
 app.use('/api/staff', staffRoutes);
 app.use('/api/batch', batchRoutes);
 
+//images accesseble links
+app.use('/images/qr_codes', express.static(__dirname + '/images/qr_codes'));
+app.use('/images/student_profiles', express.static(__dirname + '/images/Student_profiles'));
 
-const models = [College, Staff,Course, Branch,Regulation, Regulation_Courses, Batch, User,Attendence, Student,Otp, District, Regulation_Courses_Set, Subject,examination,Ipaddress,Notification,examination_students_list];
-Promise.all(models.map(model => model.sync()))
-  .then(() => {
-    console.log("All models synced");
-  });
+const models = [College, Staff, User,Attendence,Course, Branch, Regulation, Regulation_Courses, Batch, Student,Otp, District, Regulation_Courses_Set, Subject,examination,Ipaddress,Notification,examination_students_list];
 
+const syncModels = async () => {
+  for (const model of models) {
+    await model.sync();
+  }
+  console.log("All models synced");
+};
+
+syncModels();
 
 const port = process.env.PORT || 9000;
 

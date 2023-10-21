@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const College = require('./College');
-const Regulation_courses = require('./regulation_courses');
+const Regulation_courses = require('./Regulation_Courses');
 const Courses = require('./Courses');
 
 const Batch = sequelize.define('batches', {
