@@ -28,6 +28,8 @@ exports.addBatches = async (req, res) => {
 };
 
 
+
+
 exports.getAllBatches= async (req, res) => {
    const {college_code} = req.params;
 
@@ -43,3 +45,11 @@ exports.getAllBatches= async (req, res) => {
    }
 
 };
+
+
+
+
+
+
+
+

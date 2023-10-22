@@ -29,6 +29,7 @@ const staffRoutes = require('./routes/staffRoutes');
 const batchRoutes = require('./routes/batchRoutes');
 const studentRoutes = require('./routes/studentRoutes');
 const userRoutes= require('./routes/userRoutes');
+const ipAddressRoutes = require('./routes/ipAddressRoutes');
 
 // Enable CORS
 app.use(cors());
@@ -47,7 +48,7 @@ app.use('/api/student', studentRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/staff', staffRoutes);
 app.use('/api/batch', batchRoutes);
-
+app.use('/api/ipaddress',ipAddressRoutes);
 //images accesseble links
 app.use('/images/qr_codes', express.static(__dirname + '/images/qr_codes'));
 app.use('/images/student_profiles', express.static(__dirname + '/images/Student_profiles'));
