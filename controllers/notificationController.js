@@ -11,8 +11,7 @@ exports.addNotifications = async (req, res) => {
 
     for (const item of data) {
       await Notifications.create({
-        notification_id: item.notification_id,
-        date: item.date,
+       
         notification_title:item.notification_title,
       });
     }

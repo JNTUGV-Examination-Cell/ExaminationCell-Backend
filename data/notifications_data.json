@@ -1,27 +1,22 @@
 [
     {
-      "notification_id": 1,
-      "date": "2023-10-21",
+      
       "notification_title": "Important Announcement"
     },
     {
-      "notification_id": 2,
-      "date": "2023-10-20",
+      
       "notification_title": "Meeting Reminder"
     },
     {
-      "notification_id": 3,
-      "date": "2023-10-19",
+      
       "notification_title": "Upcoming Event"
     },
     {
-        "notification_id": 4,
-        "date": "2023-10-19",
+        
         "notification_title": "Upcoming Event"
       },
       {
-        "notification_id": 5,
-        "date": "2023-10-19",
+       
         "notification_title": "Upcoming Event"
       }
 
