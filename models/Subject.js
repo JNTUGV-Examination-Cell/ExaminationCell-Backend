@@ -72,11 +72,11 @@ const Subject = sequelize.define('subjects',{
         allowNull:false
     },
     subject_type:{
-        type:DataTypes.INTEGER,
+        type:DataTypes.STRING,
         allowNull:false
     },
     subject_status:{
-        type:DataTypes.INTEGER,
+        type:DataTypes.STRING,
         allowNull:false
     }
 

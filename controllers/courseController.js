@@ -2,6 +2,7 @@ const course = require("../models/Courses");
 const regulation=require("../models/Regulation")
 const regulation_courses=require("../models/Regulation_Course")
 const regulation_course_set=require("../models/Regulation_Courses_Set")
+const subjects=require("../models/Subject")
 
 const fs = require('fs');
 const path = require('path');
@@ -11,6 +12,7 @@ const jsonFilePath1 = path.join(__dirname, '../data/courses_data.json');
 const jsonFilePath2 = path.join(__dirname, '../data/regulations_data.json');
 const jsonFilePath3 = path.join(__dirname, '../data/regulationcourses_data.json');
 const jsonFilePath4 = path.join(__dirname, '../data/regulationcoursesset_data.json');
+const jsonFilePath5 = path.join(__dirname, '../data/subjects_data.json');
 
 
 
@@ -113,3 +115,39 @@ exports.addRegulationcoursesset=async(req,res)=>{
     res.status(500).json({ message: "Error in adding Regulation_courses_set data" });
   }
 }; 
+
+
+//
+//
+
+exports.addSubject = async(req,res) => {
+  try{
+    const jsonData = fs.readFileSync(jsonFilePath5, 'utf8');
+    const data = JSON.parse(jsonData);
+
+    for (const item of data) {
+      await subjects.create({
+        regulation_courses_set_id: item.regulation_courses_set_id,
+        regulation_course_title: item.regulation_course_title,
+        branch_id: item.branch_id,
+        subject_code: item.subject_code,
+        subject_name: item.subject_name,
+        course: item.course,
+        external_pass_mark: item.external_pass_mark,
+        total_pass_mark: item.total_pass_mark,
+        total_external_mark: item.total_external_mark,
+        subject_total_mark: item.subject_total_mark,
+        credits: item.credits,
+        subject_type: item.subject_type,
+        subject_status: item.subject_status
+      });
+    }
+
+    res.status(200).json({ message: "Subject data added successfully" });
+
+  }
+  catch(error){
+      console.error(error);
+      res.status(500).json({message:"Error in adding the Subject"});
+  }
+};

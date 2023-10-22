@@ -23,4 +23,10 @@ router.post('/addRegulationCourses',courseController.addRegulationcourses)
 //api:  /api/course/addRegulationCoursesset
 router.post('/addRegulationCoursesset',courseController.addRegulationcoursesset)
 
+//adding subject
+//METHOD: post
+//api:  /api/course/addSubject
+router.post('/addSubject',courseController.addSubject)
+
+
 module.exports = router;
