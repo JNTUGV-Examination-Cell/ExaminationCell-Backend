@@ -1,36 +1,29 @@
 [
     {
-      "regulation_id": 1,
       "regulation": "R20",
       "regulation_start_year": 2020
     },
     {
-      "regulation_id": 2,
       "regulation": "R19",
       "regulation_start_year": 2019
     },
     {
-      "regulation_id": 3,
       "regulation": "R18-PCI",
       "regulation_start_year": 2017
     },
     {
-      "regulation_id": 4,
       "regulation": "R16",
       "regulation_start_year": 2016
     },
     {
-      "regulation_id": 5,
       "regulation": "R08-Pharm.D",
       "regulation_start_year": 2016
     },
     {
-      "regulation_id": 6,
       "regulation": "R13",
       "regulation_start_year": 2008
     },
     {
-      "regulation_id": 7,
       "regulation": "R13 B.Pharm",
       "regulation_start_year": 2013
     }

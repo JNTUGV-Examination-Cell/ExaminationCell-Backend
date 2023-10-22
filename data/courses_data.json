@@ -1,6 +1,6 @@
 [
     {
-        "course_id": "1",
+        
         "course": "B.Tech",
         "course_full_name": "Bachelor of Technology",
         "course_code": "A",
@@ -8,7 +8,6 @@
         "entrance_exam": "AP EAPCET"
     },
     {
-        "course_id": "2",
         "course": "M.Tech",
         "course_full_name": "Master of Technology",
         "course_code": "D",
@@ -16,7 +15,6 @@
         "entrance_exam": "AP PGCET"
     },
     {
-        "course_id": "3",
         "course": "B.Pharm",
         "course_full_name": "Bachelor of Technology",
         "course_code": "R",
@@ -24,7 +22,6 @@
         "entrance_exam": "AP EAPCET"
     },
     {
-        "course_id": "4",
         "course": "MBA",
         "course_full_name": "Master of Business Administration",
         "course_code": "E",
@@ -32,15 +29,13 @@
         "entrance_exam": "AP PGCET"
     },
     {
-        "course_id": "5",
-        "course": "MCA",
+         "course": "MCA",
         "course_full_name": "Master in Computer Applications",
         "course_code": "F",
         "course_type": "pg",
         "entrance_exam": "AP ICET"
     },
     {
-        "course_id": "6",
         "course": "M.Pharm",
         "course_full_name": "Master of Pharmacy",
         "course_code": "S",
@@ -48,7 +43,6 @@
         "entrance_exam": "AP ICET"
     },
     {
-        "course_id": "7",
         "course": "Pharm.D",
         "course_full_name": "Doctorate of Pharmacy",
         "course_code": "T",
@@ -56,7 +50,6 @@
         "entrance_exam": "AP EAPCET"
     },
     {
-        "course_id": "8",
         "course": "Pharm.D-PB",
         "course_full_name": "Doctorate of Pharmacy(Post Baccalaureate)",
         "course_code": "1T",
