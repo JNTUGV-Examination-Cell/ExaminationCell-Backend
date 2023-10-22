@@ -1,0 +1,30 @@
+[
+    {
+      "regulation": "R20",
+      "regulation_start_year": 2020
+    },
+    {
+      "regulation": "R19",
+      "regulation_start_year": 2019
+    },
+    {
+      "regulation": "R18-PCI",
+      "regulation_start_year": 2017
+    },
+    {
+      "regulation": "R16",
+      "regulation_start_year": 2016
+    },
+    {
+      "regulation": "R08-Pharm.D",
+      "regulation_start_year": 2016
+    },
+    {
+      "regulation": "R13",
+      "regulation_start_year": 2008
+    },
+    {
+      "regulation": "R13 B.Pharm",
+      "regulation_start_year": 2013
+    }
+  ]

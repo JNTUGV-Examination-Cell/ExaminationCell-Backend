@@ -32,11 +32,11 @@ const Examinations = sequelize.define('examinations', {
         allowNull: false
 
     },
-    regulation_course_set:{
-        type : DataTypes.STRING,
+    regulation_courses_set_id:{
+        type : DataTypes.INTEGER,
         references:{
             model: Regulation_course_set,
-            key: 'regulation_course_set'
+            key: 'regulation_courses_set_id'
         },
         allowNull: false
 
