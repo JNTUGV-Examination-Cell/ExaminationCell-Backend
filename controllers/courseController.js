@@ -30,13 +30,13 @@ exports.addCourse = async(req,res) => {
           entrance_exam: item.entrance_exam,
         });
       }
-
-      res.status(200).json({ message: "Course data added successfully" });
+      console.log('Course data added successfully');
+      
 
     }
     catch(error){
         console.error(error);
-        res.status(500).json({message:"Error in adding the courrse"});
+       
     }
 };
 
@@ -53,12 +53,13 @@ exports.addRegulation=async(req,res)=>{
         regulation_start_year: item.regulation_start_year,
       });
     }
+    console.log('Regulations data added successfully')
 
-    res.status(200).json({ message: "Regulations data added successfully" });
+    
 
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Error in adding Regulations data" });
+    
   }
 };
 
@@ -81,11 +82,11 @@ exports.addRegulationcourses=async(req,res)=>{
       });
     }
 
-    res.status(200).json({ message: "Regulation_courses data added successfully" });
+    console.log('Regulation_courses data added successfully');
+
 
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Error in adding Regulation_courses data" });
   }
 };
 
@@ -108,11 +109,12 @@ exports.addRegulationcoursesset=async(req,res)=>{
       });
     }
 
-    res.status(200).json({ message: "Regulation_courses_set data added successfully" });
+    console.log('Regulation_courses_set data added successfull');
+    
 
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Error in adding Regulation_courses_set data" });
+ 
   }
 }; 
 
@@ -143,11 +145,12 @@ exports.addSubject = async(req,res) => {
       });
     }
 
-    res.status(200).json({ message: "Subject data added successfully" });
+    console.log('Subject data added successfully')
+    
 
   }
   catch(error){
       console.error(error);
-      res.status(500).json({message:"Error in adding the Subject"});
+     
   }
 };
