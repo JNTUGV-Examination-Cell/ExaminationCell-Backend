@@ -22,7 +22,7 @@ const Branch = sequelize.define('branches',{
     },
     branch_full_name:{
         type:DataTypes.STRING,
-        alloull:false
+        allowNull:false
     },
     branch_specialization:{
         type:DataTypes.STRING,
