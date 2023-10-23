@@ -26,11 +26,12 @@ exports.addStaff = async (req, res) => {
         });
       }
   
-      res.status(200).json({ message: "Staff data added successfully" });
+      console.log('Staff data added successfully');
+   
   
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: "Error in adding staff data" });
+      
     }
 };
 

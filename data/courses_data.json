@@ -1,0 +1,59 @@
+[
+    {
+        
+        "course": "B.Tech",
+        "course_full_name": "Bachelor of Technology",
+        "course_code": "A",
+        "course_type": "ug",
+        "entrance_exam": "AP EAPCET"
+    },
+    {
+        "course": "M.Tech",
+        "course_full_name": "Master of Technology",
+        "course_code": "D",
+        "course_type": "pg",
+        "entrance_exam": "AP PGCET"
+    },
+    {
+        "course": "B.Pharm",
+        "course_full_name": "Bachelor of Technology",
+        "course_code": "R",
+        "course_type": "ug",
+        "entrance_exam": "AP EAPCET"
+    },
+    {
+        "course": "MBA",
+        "course_full_name": "Master of Business Administration",
+        "course_code": "E",
+        "course_type": "pg",
+        "entrance_exam": "AP PGCET"
+    },
+    {
+         "course": "MCA",
+        "course_full_name": "Master in Computer Applications",
+        "course_code": "F",
+        "course_type": "pg",
+        "entrance_exam": "AP ICET"
+    },
+    {
+        "course": "M.Pharm",
+        "course_full_name": "Master of Pharmacy",
+        "course_code": "S",
+        "course_type": "pg",
+        "entrance_exam": "AP ICET"
+    },
+    {
+        "course": "Pharm.D",
+        "course_full_name": "Doctorate of Pharmacy",
+        "course_code": "T",
+        "course_type": "ug",
+        "entrance_exam": "AP EAPCET"
+    },
+    {
+        "course": "Pharm.D-PB",
+        "course_full_name": "Doctorate of Pharmacy(Post Baccalaureate)",
+        "course_code": "1T",
+        "course_type": "pg",
+        "entrance_exam": "AP PGCET"
+    }
+]

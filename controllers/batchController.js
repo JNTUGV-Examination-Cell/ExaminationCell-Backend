@@ -19,11 +19,12 @@ exports.addBatches = async (req, res) => {
       });
     }
 
-    res.status(200).json({ message: "Batches data added successfully" });
+    console.log('Batches data added successfully');
+
 
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Error in adding Batches data" });
+
   }
 };
 
