@@ -1,0 +1,58 @@
+[
+    {
+        "regulation_courses_title": "B.Tech R20",
+        "regulation_course_set": "A",
+        "regualtion_course_set_type": "ug",
+        "sets": 2,
+        "laterals_allowed": "yes"
+    },
+    {
+        "regulation_courses_title": "M.Tech R19",
+        "regulation_course_set": "B",
+        "regualtion_course_set_type": "pg",
+        "sets": 1,
+        "laterals_allowed": "no" 
+    },
+    {
+        "regulation_courses_title": "MBA R19",
+        "regulation_course_set": "C",
+        "regualtion_course_set_type": "pg",
+        "sets": 2,
+        "laterals_allowed": "no"
+    },
+    {
+        "regulation_courses_title": "MCA R20",
+        "regulation_course_set": "D",
+        "regualtion_course_set_type": "pg",
+        "sets": 1,
+        "laterals_allowed": "yes"
+    },
+    {
+        "regulation_courses_title": "M.Pharmacy",
+        "regulation_course_set": "E",
+        "regualtion_course_set_type": "pg",
+        "sets": 2,
+        "laterals_allowed": "no"
+    },
+    {
+        "regulation_courses_title": "B.Pharmacy R16",
+        "regulation_course_set": "F",
+        "regualtion_course_set_type": "ug",
+        "sets": 2,
+        "laterals_allowed": "yes"
+    },
+    {
+        "regulation_courses_title": "Pharm.D",
+        "regulation_course_set": "G",
+        "regualtion_course_set_type": "ug",
+        "sets": 2,
+        "laterals_allowed": "yes"
+    },
+    {
+        "regulation_courses_title": "B.Tech R16",
+        "regulation_course_set": "H",
+        "regualtion_course_set_type": "ug",
+        "sets": 1,
+        "laterals_allowed": "yes"
+    }
+]

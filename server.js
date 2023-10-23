@@ -14,7 +14,7 @@ const District = require('./models/Districts');
 const Course = require('./models/Courses');
 const Branch = require('./models/Branches');
 const Regulation = require('./models/Regulation');
-const Regulation_Courses = require('./models/Regulation_Courses');
+const Regulation_Courses = require('./models/Regulation_Course');
 const Regulation_Courses_Set = require('./models/Regulation_Courses_Set');
 const Subject = require('./models/Subject');
 const Ipaddress = require('./models/Ipaddress');
@@ -29,6 +29,8 @@ const staffRoutes = require('./routes/staffRoutes');
 const batchRoutes = require('./routes/batchRoutes');
 const studentRoutes = require('./routes/studentRoutes');
 const userRoutes= require('./routes/userRoutes');
+const courseRoutes=require('./routes/coursesRoutes');
+const branchRoutes=require('./routes/branchesRoutes');
 
 // Enable CORS
 app.use(cors());
@@ -47,6 +49,9 @@ app.use('/api/student', studentRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/staff', staffRoutes);
 app.use('/api/batch', batchRoutes);
+app.use('/api/course', courseRoutes);
+app.use('/api/branch',branchRoutes)
+
 
 //images accesseble links
 app.use('/images/qr_codes', express.static(__dirname + '/images/qr_codes'));
