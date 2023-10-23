@@ -11,7 +11,7 @@ router.post('/addipaddress',ipaddressController.addipaddress);
 //METHOD: get
 //api/ipaddress/verifyIpaddress
 // Description: To verify whether a given IP is present in the database ot not
-router.get('/verifyIpaddress',ipaddressController.verifyIpaddress);
+router.get('/verifyIpaddress/:ip',ipaddressController.verifyIpaddress);
 
 //METHOD: post
 //api/ipaddress/updateipaddress
