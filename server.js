@@ -24,6 +24,7 @@ const examination_students_list = require('./models/Exam_student_list');
 
 
 
+
 const collegeRoutes = require('./routes/collegeRoutes');
 const staffRoutes = require('./routes/staffRoutes');
 const batchRoutes = require('./routes/batchRoutes');
@@ -31,6 +32,7 @@ const studentRoutes = require('./routes/studentRoutes');
 const userRoutes= require('./routes/userRoutes');
 const courseRoutes=require('./routes/coursesRoutes');
 const branchRoutes=require('./routes/branchesRoutes');
+const ipAddressRoutes = require('./routes/ipAddressRoutes');
 
 // Enable CORS
 app.use(cors());
@@ -50,7 +52,8 @@ app.use('/api/user', userRoutes);
 app.use('/api/staff', staffRoutes);
 app.use('/api/batch', batchRoutes);
 app.use('/api/course', courseRoutes);
-app.use('/api/branch',branchRoutes)
+app.use('/api/branch',branchRoutes);
+app.use('/api/ipAddress',ipAddressRoutes);
 
 
 //images accesseble links
