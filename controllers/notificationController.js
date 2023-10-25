@@ -10,9 +10,15 @@ exports.addNotifications = async (req, res) => {
     const data = JSON.parse(jsonData);
 
     for (const item of data) {
+        let today = new Date();
+        let dd = String(today.getDate()).padStart(2, '0');
+        let mm = String(today.getMonth() + 1).padStart(2, '0');
+        let yyyy = today.getFullYear();
+        let formattedDate = yyyy + '-' + mm + '-' + dd;
       await Notifications.create({
-       
-        notification_title:item.notification_title,
+        date:formattedDate,
+        notification_title:item.notification_title
+        
       });
     }
 
