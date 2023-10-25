@@ -41,11 +41,11 @@ const Student = sequelize.define('students', {
     allowNull: false
 
   },
-  branch: {
-    type:DataTypes.STRING,
+  branch_id: {
+    type:DataTypes.INTEGER,
     references:{
       model : Branches,
-      key : 'branch'
+      key : 'branch_id'
     },
     allowNull: false
   },

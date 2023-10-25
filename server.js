@@ -14,7 +14,7 @@ const District = require('./models/Districts');
 const Course = require('./models/Courses');
 const Branch = require('./models/Branches');
 const Regulation = require('./models/Regulation');
-const Regulation_Courses = require('./models/Regulation_Courses');
+const Regulation_Courses = require('./models/Regulation_Course');
 const Regulation_Courses_Set = require('./models/Regulation_Courses_Set');
 const Subject = require('./models/Subject');
 const Ipaddress = require('./models/Ipaddress');
@@ -22,13 +22,22 @@ const Notification = require('./models/Notification');
 const examination = require('./models/Examination');
 const examination_students_list = require('./models/Exam_student_list');
 
+
+
 const collegeRoutes = require('./routes/collegeRoutes');
 const staffRoutes = require('./routes/staffRoutes');
 const batchRoutes = require('./routes/batchRoutes');
 const userRoutes= require('./routes/userRoutes');
+
 const districtRoutes=require('./routes/districtRoutes');
 const notificationRoutes =require('./routes/notificationRoutes');
 // Enable CORS 
+
+const courseRoutes=require('./routes/coursesRoutes');
+const branchRoutes=require('./routes/branchesRoutes');
+
+// Enable CORS
+
 app.use(cors());
 
 // middleware
@@ -45,8 +54,14 @@ app.use('/api/college',collegeRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/staff', staffRoutes);
 app.use('/api/batch', batchRoutes);
+
 app.use('/api/district',districtRoutes);
 app.use('/api/notification',notificationRoutes);
+
+app.use('/api/course', courseRoutes);
+app.use('/api/branch',branchRoutes)
+
+
 
 //images accesseble links
 app.use('/images/qr_codes', express.static(__dirname + '/images/qr_codes'));

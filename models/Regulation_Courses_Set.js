@@ -1,13 +1,14 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const Regulation_Courses = require('./Regulation_Courses');
+const Regulation_Courses = require('./Regulation_Course');
 
 const Regulation_Course_Set = sequelize.define('regulation_course_sets',{
     regulation_courses_set_id:{
         type:DataTypes.INTEGER,
+        primaryKey:true,
         autoIncrement:true
     },
-    regulation_course_title:{
+    regulation_courses_title:{
         type:DataTypes.STRING,
         references:{
             model: Regulation_Courses,
@@ -17,14 +18,14 @@ const Regulation_Course_Set = sequelize.define('regulation_course_sets',{
     },
     regulation_course_set:{
         type:DataTypes.STRING,
-        primaryKey:true,
+        allowNull:false
     },
     regualtion_course_set_type:{
-        type:DataTypes.STRING,
+        type:DataTypes.STRING, 
         allowNull:false
     },
     sets:{
-        type:DataTypes.INTEGER,
+        type:DataTypes.INTEGER, 
         allowNull:false
     },
     laterals_allowed:{
@@ -33,7 +34,7 @@ const Regulation_Course_Set = sequelize.define('regulation_course_sets',{
     }
 
 },{
-    tableName: 'regulation_courses_sets',
+    tableName: 'regulation_course_sets',
     timestamps:false
 });
 
