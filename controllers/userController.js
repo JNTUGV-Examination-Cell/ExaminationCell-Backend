@@ -19,10 +19,11 @@ exports.addUsers = async (req, res) => {
       });
     }
 
-    res.status(200).json({ message: "Users data added successfully" });
+    console.log("Users data added successfully");
+
 
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Error in adding Users data" });
+
   }
 };

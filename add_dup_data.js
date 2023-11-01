@@ -2,6 +2,11 @@ const courseController = require('./controllers/courseController');
 const collegesController = require('./controllers/collegeController');
 const branchController = require('./controllers/branchController');
 const staffController = require('./controllers/staffController');
+const batchController = require('./controllers/batchController');
+const userController = require('./controllers/userController');
+const districtController = require('./controllers/districtsController');
+const ipaddressController = require('./controllers/ipaddressController');
+const notificationController = require('./controllers/notificationController');
 
 const controllers = [
     collegesController.addColleges,
@@ -11,7 +16,12 @@ const controllers = [
     courseController.addRegulationcourses,
     courseController.addRegulationcoursesset,
     courseController.addSubject,
-    staffController.addStaff
+    staffController.addStaff,
+    batchController.addBatches,
+    userController.addUsers,
+    notificationController.addNotifications,
+    ipaddressController.addipaddress,
+    districtController.addDistricts
   ];
   
   const executeSequentially = async () => {
