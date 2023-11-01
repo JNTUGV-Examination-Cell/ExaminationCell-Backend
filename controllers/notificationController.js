@@ -16,16 +16,16 @@ exports.addNotifications = async (req, res) => {
         let yyyy = today.getFullYear();
         let formattedDate = yyyy + '-' + mm + '-' + dd;
       await Notifications.create({
-        date:formattedDate,
+        date: formattedDate,
         notification_title:item.notification_title
         
       });
     }
-
-    res.status(200).json({ message: "Notifications data added successfully" });
+    console.log("Notifications data added successfully");
+    
 
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Error in adding Notifications data" });
+    
   }
 };

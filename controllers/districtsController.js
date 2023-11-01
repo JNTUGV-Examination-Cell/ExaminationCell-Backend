@@ -17,10 +17,11 @@ exports.addDistricts = async (req, res) => {
       });
     }
 
-    res.status(200).json({ message: "Districts data added successfully" });
+    console.log("Districts data added successfully");
+    
 
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Error in adding Districts data" });
+
   }
 };

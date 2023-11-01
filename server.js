@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const multer = require('multer'); // Import multer
+const multer = require('multer'); 
 const app = express();
 
 const Attendence = require('./models/Attendence');
@@ -49,14 +49,11 @@ app.use(upload.any());
 
 //routes
 app.use('/api/college',collegeRoutes);
-
 app.use('/api/user', userRoutes);
 app.use('/api/staff', staffRoutes);
 app.use('/api/batch', batchRoutes);
-
 app.use('/api/district',districtRoutes);
 app.use('/api/notification',notificationRoutes);
-
 app.use('/api/course', courseRoutes);
 app.use('/api/branch',branchRoutes);
 app.use('/api/ipAddress',ipAddressRoutes);
