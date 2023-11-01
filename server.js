@@ -24,17 +24,16 @@ const examination_students_list = require('./models/Exam_student_list');
 
 
 
+
 const collegeRoutes = require('./routes/collegeRoutes');
 const staffRoutes = require('./routes/staffRoutes');
 const batchRoutes = require('./routes/batchRoutes');
 const userRoutes= require('./routes/userRoutes');
-
 const districtRoutes=require('./routes/districtRoutes');
 const notificationRoutes =require('./routes/notificationRoutes');
-// Enable CORS 
-
 const courseRoutes=require('./routes/coursesRoutes');
 const branchRoutes=require('./routes/branchesRoutes');
+const ipAddressRoutes = require('./routes/ipAddressRoutes');
 
 // Enable CORS
 
@@ -59,7 +58,8 @@ app.use('/api/district',districtRoutes);
 app.use('/api/notification',notificationRoutes);
 
 app.use('/api/course', courseRoutes);
-app.use('/api/branch',branchRoutes)
+app.use('/api/branch',branchRoutes);
+app.use('/api/ipAddress',ipAddressRoutes);
 
 
 
