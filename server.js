@@ -34,6 +34,7 @@ const notificationRoutes =require('./routes/notificationRoutes');
 const courseRoutes=require('./routes/coursesRoutes');
 const branchRoutes=require('./routes/branchesRoutes');
 const ipAddressRoutes = require('./routes/ipAddressRoutes');
+const examinationRoutes = require('./routes/examinationRoutes');
 
 // Enable CORS
 
@@ -57,6 +58,7 @@ app.use('/api/notification',notificationRoutes);
 app.use('/api/course', courseRoutes);
 app.use('/api/branch',branchRoutes);
 app.use('/api/ipAddress',ipAddressRoutes);
+app.use('/api/examination',examinationRoutes);
 
 
 
