@@ -1,0 +1,80 @@
+[
+    {
+      "student_id": 1,
+      "student_college_code": "H9",
+      "student_batch_id": 3,
+      "roll_no": "R001",
+      "student_name": "John Doe",
+      "student_image": "image1.jpg",
+      "branch_id": 3,
+      "mobile": "123-456-7890",
+      "email": "john.doe@example.com"
+    },
+    {
+      "student_id": 2,
+      "student_college_code": "6H",
+      "student_batch_id": 33,
+      "roll_no": "R002",
+      "student_name": "Jane Smith",
+      "student_image": "image2.jpg",
+      "branch_id": 6,
+      "mobile": "987-654-3210",
+      "email": "jane.smith@example.com"
+    },
+    {
+      "student_id": 3,
+      "student_college_code": "9D",
+      "student_batch_id": 9,
+      "roll_no": "R003",
+      "student_name": "Alice Johnson",
+      "student_image": "image3.jpg",
+      "branch_id": 9,
+      "mobile": "555-555-5555",
+      "email": "alice.johnson@example.com"
+    },
+    {
+      "student_id": 4,
+      "student_college_code": "JG",
+      "student_batch_id": 14,
+      "roll_no": "R004",
+      "student_name": "Bob Smith",
+      "student_image": "image4.jpg",
+      "branch_id": 1,
+      "mobile": "777-777-7777",
+      "email": "bob.smith@example.com"
+    },
+    {
+      "student_id": 5,
+      "student_college_code": "2Z",
+      "student_batch_id": 20,
+      "roll_no": "R005",
+      "student_name": "Eve Johnson",
+      "student_image": "image5.jpg",
+      "branch_id": 4,
+      "mobile": "999-999-9999",
+      "email": "eve.johnson@example.com"
+    },
+    {
+      "student_id": 6,
+      "student_college_code": "W2",
+      "student_batch_id": 24,
+      "roll_no": "R006",
+      "student_name": "Dave Johnson",
+      "student_image": "image6.jpg",
+      "branch_id": 2,
+      "mobile": "888-888-8888",
+      "email": "dave.johnson@example.com"
+    },
+    {
+      "student_id": 7,
+      "student_college_code": "HP",
+      "student_batch_id": 30,
+      "roll_no": "R007",
+      "student_name": "Grace Johnson",
+      "student_image": "image7.jpg",
+      "branch_id": 5,
+      "mobile": "666-666-6666",
+      "email": "grace.johnson@example.com"
+    }
+  ]
+  
