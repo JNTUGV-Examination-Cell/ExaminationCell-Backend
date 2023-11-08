@@ -18,7 +18,7 @@ const jsonFilePath5 = path.join(__dirname, '../data/subjects_data.json');
 
 exports.addCourse = async(req,res) => {
     try{
-      const jsonData = fs.readFileSync(jsonFilePath1, 'utf8');
+      const jsonData = fs.readFileSync(jsonFilePath1,'utf8');
       const data = JSON.parse(jsonData);
 
       for (const item of data) {

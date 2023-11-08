@@ -13,10 +13,10 @@ exports.addExams = async (req,res) => {
 
       for (const item of data) {
         await Exam.create({
+          exam_code: item.exam_code,
           college_code: item.college_code,
           batch_id: item.batch_id,
-          regulation_courses_set_id: item.regulation_course_set,
-          exam_code: item.exam_code,
+          regulation_courses_set_id: item.regulation_courses_set_id,
           type: item.type,
           month:item.month,
           year:item.year

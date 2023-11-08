@@ -1,0 +1,76 @@
+[
+    {
+      "exam_code": "RD110225",
+      "student_id": 1,
+      "id": 1,
+      "qualified_status": "qualified"
+    },
+    {
+      "exam_code": "R111223",
+      "student_id": 2,
+      "id": 2,
+      "qualified_status": "qualified"
+    },
+    {
+      "exam_code": "R111223",
+      "student_id": 3,
+      "id": 3,
+      "qualified_status": "detained"
+    },
+    {
+      "exam_code": "RI33011",
+      "student_id": 4,
+      "id": 4,
+      "qualified_status": "qualified"
+    },
+    {
+      "exam_code": "RI33011",
+      "student_id": 5,
+      "id": 5,
+      "qualified_status": "qualified"
+    },
+    {
+      "exam_code": "RI33011",
+      "student_id": 6,
+      "id": 6,
+      "qualified_status": "detained"
+    },
+    {
+      "exam_code": "RC110223",
+      "student_id": 7,
+      "id": 7,
+      "qualified_status": "qualified"
+    },
+    {
+      "exam_code": "RC110223",
+      "student_id": 1,
+      "id": 8,
+      "qualified_status": "qualified"
+    },
+    {
+      "exam_code": "RC110223",
+      "student_id": 3,
+      "id": 9,
+      "qualified_status": "detained"
+    },
+    {
+      "exam_code": "RK35012",
+      "student_id": 4,
+      "id": 10,
+      "qualified_status": "qualified"
+    },
+    {
+      "exam_code": "RK35012",
+      "student_id": 6,
+      "id": 11,
+      "qualified_status": "qualified"
+    },
+    {
+      "exam_code": "RK35012",
+      "student_id": 2,
+      "id": 12,
+      "qualified_status": "detained"
+    }
+    
+  ]
+  

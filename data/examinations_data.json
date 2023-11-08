@@ -2,271 +2,75 @@
     {
         "college_code":"H9",
         "batch_id":1,
-        "regulation_course_set":1,
+        "regulation_courses_set_id":1,
         "exam_code":"RE110325",
         "type":"main",
         "month":"December",
-        "year":"2023"
+        "year":2023
     },
     {
       "college_code":"9D",
       "batch_id":2,
-      "regulation_course_set":2,
+      "regulation_courses_set_id":2,
       "exam_code":"RD110225",
       "type":"supply",
       "month":"April",
-      "year":"2024" 
+      "year":2024 
     },
     {
       "college_code":"JG",
       "batch_id":3,
-      "regulation_course_set":3,
+      "regulation_courses_set_id":3,
       "exam_code":"RC110223",
       "type":"supply",
       "month":"June",
-      "year":"2023" 
+      "year":2023 
     },
     {
       "college_code":"2Z",
       "batch_id":4,
-      "regulation_course_set":4,
+      "regulation_courses_set_id":4,
       "exam_code":"RS11223",
       "type":"main",
       "month":"January",
-      "year":"2024" 
+      "year":2024 
     },
     {
       "college_code":"W2",
       "batch_id":5,
-      "regulation_course_set":5,
+      "regulation_courses_set_id":5,
       "exam_code":"R111223",
       "type":"main",
       "month":"November",
-      "year":"2023" 
+      "year":2023 
     },
     {
       "college_code":"HP",
       "batch_id":6,
-      "regulation_course_set":6,
+      "regulation_courses_set_id":6,
       "exam_code":"RM220113",
       "type":"supply",
       "month":"May",
-      "year":"2023" 
+      "year":2023 
     },
     {
       "college_code":"6H",
       "batch_id":7,
-      "regulation_course_set":7,
+      "regulation_courses_set_id":7,
       "exam_code":"RI33011",
       "type":"main",
       "month":"March",
-      "year":"2024" 
+      "year":2024 
     },
     {
       "college_code":"6H",
       "batch_id":8,
-      "regulation_course_set":8,
+      "regulation_courses_set_id":8,
       "exam_code":"RK35012",
       "type":"main",
       "month":"March",
-      "year":"2024" 
-    },
-    {
-      "college_code":"HP",
-      "batch_id":9,
-      "regulation_course_set":9,
-      "exam_code":"RT011258",
-      "type":"supply",
-      "month":"July",
-      "year":"2023" 
-    },
-    {
-      "college_code":"HP",
-      "batch_id":10,
-      "regulation_course_set":10,
-      "exam_code":"RD56499",
-      "type":"main",
-      "month":"November",
-      "year":"2024" 
-    },
-    {
-      "college_code":"HP",
-      "batch_id":11,
-      "regulation_course_set":11,
-      "exam_code":"RS45007",
-      "type":"supply",
-      "month":"May",
-      "year":"2025" 
-    },
-    {
-      "college_code":"9D",
-      "batch_id":12,
-      "regulation_course_set":12,
-      "exam_code":"RR100385",
-      "type":"main",
-      "month":"September",
-      "year":"2025" 
-    },
-    {
-      "college_code":"9D",
-      "batch_id":13,
-      "regulation_course_set":13,
-      "exam_code":"RQ554137",
-      "type":"main",
-      "month":"October",
-      "year":"2025" 
-    },
-    {
-      "college_code":"H9",
-      "batch_id":14,
-      "regulation_course_set":14,
-      "exam_code":"RW755120",
-      "type":"supply",
-      "month":"August",
-      "year":"2022" 
-    },
-    {
-      "college_code":"H9",
-      "batch_id":15,
-      "regulation_course_set":15,
-      "exam_code":"RH304557",
-      "type":"main",
-      "month":"September",
-      "year":"2023" 
-    },
-    {
-      "college_code":"JG",
-      "batch_id":16,
-      "regulation_course_set":16,
-      "exam_code":"RQ413756",
-      "type":"supply",
-      "month":"August",
-      "year":"2025" 
-    },
-    {
-      "college_code":"JG",
-      "batch_id":17,
-      "regulation_course_set":17,
-      "exam_code":"RS88014",
-      "type":"main",
-      "month":"March",
-      "year":"2025" 
-    },
-    {
-      "college_code":"JG",
-      "batch_id":18,
-      "regulation_course_set":18,
-      "exam_code":"RE45509",
-      "type":"supply",
-      "month":"December",
-      "year":"2025" 
-    },
-    {
-      "college_code":"2Z",
-      "batch_id":19,
-      "regulation_course_set":19,
-      "exam_code":"RQ322104",
-      "type":"supply",
-      "month":"May",
-      "year":"2024" 
-    },
-    {
-      "college_code":"2Z",
-      "batch_id":20,
-      "regulation_course_set":20,
-      "exam_code":"RK69778",
-      "type":"main",
-      "month":"October",
-      "year":"2025" 
-    },
-    {
-      "college_code":"2Z",
-      "batch_id":21,
-      "regulation_course_set":21,
-      "exam_code":"RF40558",
-      "type":"main",
-      "month":"January",
-      "year":"2023" 
-    },
-    {
-      "college_code":"2Z",
-      "batch_id":22,
-      "regulation_course_set":22,
-      "exam_code":"RS69845",
-      "type":"supply",
-      "month":"August",
-      "year":"2025" 
-    },
-    {
-      "college_code":"W2",
-      "batch_id":23,
-      "regulation_course_set":23,
-      "exam_code":"RD10028",
-      "type":"supply",
-      "month":"May",
-      "year":"2025" 
-    },
-    {
-      "college_code":"W2",
-      "batch_id":24,
-      "regulation_course_set":24,
-      "exam_code":"RF50047",
-      "type":"main",
-      "month":"December",
-      "year":"2024" 
-    },
-    {
-      "college_code":"W2",
-      "batch_id":25,
-      "regulation_course_set":25,
-      "exam_code":"RA81022",
-      "type":"main",
-      "month":"January",
-      "year":"2025" 
-    },
-    {
-      "college_code":"H9",
-      "batch_id":26,
-      "regulation_course_set":26,
-      "exam_code":"RG25461",
-      "type":"supply",
-      "month":"November",
-      "year":"2023" 
-    },
-    {
-      "college_code":"W2",
-      "batch_id":27,
-      "regulation_course_set":27,
-      "exam_code":"RG14620",
-      "type":"main",
-      "month":"June",
-      "year":"2024" 
-    },
-    {
-      "college_code":"2Z",
-      "batch_id":28,
-      "regulation_course_set":28,
-      "exam_code":"R457025",
-      "type":"supply",
-      "month":"November",
-      "year":"2025" 
-    },
-    {
-      "college_code":"JG",
-      "batch_id":29,
-      "regulation_course_set":29,
-      "exam_code":"RC04584",
-      "type":"supply",
-      "month":"December",
-      "year":"2025" 
-    },
-    {
-      "college_code":"W2",
-      "batch_id":30,
-      "regulation_course_set":30,
-      "exam_code":"RT15432",
-      "type":"main",
-      "month":"August",
-      "year":"2024" 
+      "year":2024 
     }
+    
+    
 ]
