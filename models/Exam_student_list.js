@@ -29,7 +29,7 @@ const Exam_students_list = sequelize.define('exam_students_list', {
 
     },
     qualified_status:{
-        type:DataTypes.STRING,
+        type:DataTypes.ENUM('qualified','detained','condonated'),
         allowNull: false
     }
 
