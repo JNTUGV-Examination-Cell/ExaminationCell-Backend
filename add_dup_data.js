@@ -22,6 +22,7 @@ const controllers = [
     notificationController.addNotifications,
     ipaddressController.addipaddress,
     districtController.addDistricts
+    
   ];
   
   const executeSequentially = async () => {
