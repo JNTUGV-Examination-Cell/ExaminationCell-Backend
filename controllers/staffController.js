@@ -137,7 +137,7 @@ exports.verifyOtp = async (req, res) => {
                 if (otpRecord !== null) {
                     if (currentDateTime < new Date(otpRecord.expiry_at)) {
                         // OTP is valid, user can log in
-                        res.status(200).json({ message: "OTP verified successfully and user can log in now!" });
+                        res.status(200).json({"userData":userData});
                     } else {
                         // OTP is expired
                         res.status(200).json({ message: "OTP has expired. Please request a new OTP." });
