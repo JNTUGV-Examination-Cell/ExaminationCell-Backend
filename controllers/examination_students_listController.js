@@ -1,4 +1,5 @@
 const Exam_students_list = require("../models/Exam_student_list");
+const Student =require("../models/Student");
 const fs = require('fs');
 const path = require('path');
 
@@ -29,7 +30,33 @@ exports.addExam_students = async (req,res) => {
         console.error(error);
         res.status(500).json({message:"Error in adding the Examinations_students data"});
     }
-};
+  }
+
+
+exports.fetchQualifiedStudents = async (req, res) => {
+      const exam_code = req.params.exam_code;
+      try {
+        const qualified_students = await Exam_students_list.findAll({where: { exam_code: exam_code, qualified_status: 'qualified' }
+        });
+    
+        // Check if any qualified students were found
+        if (qualified_students.length === 0) {
+            console.log("No students found for the provided exam code");
+            return res.status(404).json({ message: "No students found" });
+        }
+        const studentIds = qualified_students.map(Student => Student.student_id);
+    
+        const student_details= await Student.findAll({where:{student_id:studentIds}})
+    
+        res.status(200).json(student_details);
+      
+    } catch (error) {
+        console.error("Error in fetching student data:", error);
+        res.status(500).json({ message: "Error in fetching student data" });
+    }
+    };
+
+
 
 
 

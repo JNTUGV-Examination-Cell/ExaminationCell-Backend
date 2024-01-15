@@ -10,19 +10,15 @@ const router = express.Router();
 router.post('/addExams',examinationController.addExams);
 
 
-
-
-
 //METHOD: get
 //api/examination/fetchExamData
 // Description: To fetch examination data based on college_code
 router.get('/fetchExamData/:college_code',examinationController.fetchExamData);
 
-//METHOD: post
-//api:  /api/examination/addExam_students
-// Description: Adding examination students list data
-
-router.post('/addExam_students',examination_students_listController.addExam_students);
+//METHOD: get
+//api/examination/fetchQualifiedStudents
+// Description: To fetch qualified students data based on exam_code
+router.get('/fetchQualifiedStudents/:exam_code',examination_students_listController.fetchQualifiedStudents);
 
 
 module.exports = router;
