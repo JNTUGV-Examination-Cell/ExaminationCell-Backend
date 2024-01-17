@@ -117,7 +117,7 @@ exports.verifyOtp = async (req, res) => {
     try {
         const data = await staff.findOne(
             { where: { email: email } },
-            { attributes: ['staff_id'] }
+            { attributes: ['staff_id','staff_college_code','role','full_name'] }
         );
 
         if (data) {
@@ -137,7 +137,7 @@ exports.verifyOtp = async (req, res) => {
                 if (otpRecord !== null) {
                     if (currentDateTime < new Date(otpRecord.expiry_at)) {
                         // OTP is valid, user can log in
-                        res.status(200).json({"userData":userData});
+                        res.status(200).json({"username":data.full_name,"collegeCode": data.staff_college_code, "role": data.role});
                     } else {
                         // OTP is expired
                         res.status(200).json({ message: "OTP has expired. Please request a new OTP." });
