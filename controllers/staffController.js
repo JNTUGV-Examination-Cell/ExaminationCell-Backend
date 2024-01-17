@@ -117,7 +117,7 @@ exports.verifyOtp = async (req, res) => {
     try {
         const data = await staff.findOne(
             { where: { email: email } },
-            { attributes: ['staff_id','staff_college_code','role','full_name'] }
+            { attributes: ['staff_id'] }
         );
 
         if (data) {
