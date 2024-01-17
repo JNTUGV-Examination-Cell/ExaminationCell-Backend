@@ -137,23 +137,23 @@ exports.verifyOtp = async (req, res) => {
                 if (otpRecord !== null) {
                     if (currentDateTime < new Date(otpRecord.expiry_at)) {
                         // OTP is valid, user can log in
-                        res.status(200).json({"username":data.full_name,"collegeCode": data.staff_college_code, "role": data.role});
+                        res.status(200).json({"isLogin": true, "username":data.full_name,"collegeCode": data.staff_college_code, "role": data.role});
                     } else {
                         // OTP is expired
-                        res.status(200).json({ message: "OTP has expired. Please request a new OTP." });
+                        res.status(200).json({"isLogin": false, message: "OTP has expired. Please request a new OTP." });
                     }
                 } else {
                     // User entered the wrong OTP
-                    res.status(200).json({ message: "User entered the wrong OTP" });
+                    res.status(200).json({"isLogin": false, message: "User entered the wrong OTP" });
                 }
             } else {
-                res.status(200).json({ message: "No User found with this email" });
+                res.status(200).json({"isLogin": false, message: "No User found with this email" });
             }
         } else {
-            res.status(200).json({ message: "No Staff found with this email" });
+            res.status(200).json({ "isLogin": false,message: "No Staff found with this email" });
         }
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: "Error occurred in verifying OTP to user" });
+        res.status(500).json({"isLogin": false, message: "Error occurred in verifying OTP to user" });
     }
 };
