@@ -21,6 +21,6 @@ router.post('/user/sendOtp',staffController.sendOtp);
 //METHOD: GET
 //api: /api/staff/user/verifyOtp
 //Description: verify the otp for the user who tried to login
-router.get('/user/verifyOtp',staffController.verifyOtp);
+router.post('/user/verifyOtp',staffController.verifyOtp);
 
 module.exports = router;

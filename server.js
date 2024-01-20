@@ -22,9 +22,6 @@ const Notification = require('./models/Notification');
 const examination = require('./models/Examination');
 const examination_students_list = require('./models/Exam_student_list');
 
-
-
-
 const collegeRoutes = require('./routes/collegeRoutes');
 const staffRoutes = require('./routes/staffRoutes');
 const batchRoutes = require('./routes/batchRoutes');

@@ -38,9 +38,8 @@ exports.addBatches = async (req, res) => {
 
 exports.getAllBatches= async (req, res) => {
    const {college_code} = req.params;
-
    try{
-    const Batches = await Batch.findAll({where:{college_code:college_code}});
+    const Batches = await Batch.findAll({where:{batch_college_code:college_code}});
 
     res.status(200).json(Batches);
 

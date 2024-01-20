@@ -18,7 +18,6 @@ exports.addExam_students = async (req,res) => {
         await Exam_students_list.create({
          exam_code: item.exam_code,
          student_id: item.student_id,
-          id: item.id,
          qualified_status: item.qualified_status,
         });
       }
