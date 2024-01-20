@@ -10,7 +10,7 @@ exports.addExams = async (req,res) => {
     try{
       const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
       const data = JSON.parse(jsonData);
-
+ 
       for (const item of data) {
         await Exam.create({
           exam_code: item.exam_code,
