@@ -2,17 +2,18 @@ const Students = require('../models/Student');
 const fs = require('fs');
 const path = require('path');
 const Batch = require('../models/Batch');
+const College = require("../models/College");
+
 
 const jsonFilePath = path.join(__dirname, '../data/Students_data.json');
 
 exports.addStudent = async (req, res) => {
   try {
-    const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
-    const data = JSON.parse(jsonData);
+    const data = req.body;
+
 
     for (const item of data) {
       await Students.create({
-      student_id: item.student_id,
       student_college_code: item.student_college_code,
       student_batch_id: item.student_batch_id,
       roll_no: item.roll_no,
@@ -53,6 +54,28 @@ exports.fetchStudentsData = async(req,res) =>{
     }catch(error){
         res.status(500).json({message:"Error in fetching Students data"});
     }
+
+
+}
+
+//GET API to fetch data from students table based on student_college_code
+exports.fetchStudentsDataCollegeCode = async(req,res) =>{
+
+  const student_college_code = req.params.student_college_code;
+
+  try{
+    console.log(student_batch_id);
+      const student = await Students.findAll({where:{student_college_code:student_college_code}});
+
+      if(student.length ===0){
+          console.log("No Students found for provided  given college code");
+      }
+
+      res.status(200).json(student);
+      
+  }catch(error){
+      res.status(500).json({message:"Error in fetching Students data"});
+  }
 
 
 }

@@ -5,7 +5,7 @@
         "full_name": "Vamshi",
         "mobile": "7731958862",
         "email": "vamshi.gangadhar365@gmail.com",
-        "role": "Professor",
+        "role": "UNIVERSITY-HEAD",
         "staff_status": "active",
         "staff_college_code": "H9",
         "qr_code": "qr_code_1.png"
@@ -16,7 +16,7 @@
         "full_name": "kowshik",
         "mobile": "8008977052",
         "email": "harikowshik.molugu@gmail.com",
-        "role": "Administrator",
+        "role": "COLLEGE-HEAD",
         "staff_status": "active",
         "staff_college_code": "9D",
         "qr_code": "qr_code_2.png"
@@ -27,7 +27,7 @@
         "full_name": "Alice Johnson",
         "mobile": "555-555-5555",
         "email": "alice.johnson@example.com",
-        "role": "Instructor",
+        "role": "CELL-INSTRUCTOR",
         "staff_status": "active",
         "staff_college_code": "JG",
         "qr_code": "qr_code_3.png"
