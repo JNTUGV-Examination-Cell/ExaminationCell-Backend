@@ -8,7 +8,7 @@ const Students = require('./Student');
 const Exam_students_list = sequelize.define('exam_students_list', {
     id:{
         type:DataTypes.INTEGER,
-        autoincrement:true,
+        autoIncrement:true,
         primaryKey:true
     },
     exam_code:{

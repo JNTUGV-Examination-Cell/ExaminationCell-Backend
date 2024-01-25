@@ -1,56 +1,56 @@
 [
     {
         "regulation_courses_title": "B.Tech R20",
-        "regulation_course_set": "A",
+        "regulation_course_set": "I - I Sem",
         "regualtion_course_set_type": "ug",
         "sets": 2,
         "laterals_allowed": "yes"
     },
     {
         "regulation_courses_title": "M.Tech R19",
-        "regulation_course_set": "B",
+        "regulation_course_set": "I - II Sem",
         "regualtion_course_set_type": "pg",
         "sets": 1,
         "laterals_allowed": "no" 
     },
     {
         "regulation_courses_title": "MBA R19",
-        "regulation_course_set": "C",
+        "regulation_course_set": "II - I SemC",
         "regualtion_course_set_type": "pg",
         "sets": 2,
         "laterals_allowed": "no"
     },
     {
         "regulation_courses_title": "MCA R20",
-        "regulation_course_set": "D",
+        "regulation_course_set": "I - I Sem",
         "regualtion_course_set_type": "pg",
         "sets": 1,
         "laterals_allowed": "yes"
     },
     {
         "regulation_courses_title": "M.Pharmacy",
-        "regulation_course_set": "E",
+        "regulation_course_set": "I - I Sem",
         "regualtion_course_set_type": "pg",
         "sets": 2,
         "laterals_allowed": "no"
     },
     {
         "regulation_courses_title": "B.Pharmacy R16",
-        "regulation_course_set": "F",
+        "regulation_course_set": "I - I Sem",
         "regualtion_course_set_type": "ug",
         "sets": 2,
         "laterals_allowed": "yes"
     },
     {
         "regulation_courses_title": "Pharm.D",
-        "regulation_course_set": "G",
+        "regulation_course_set": "I - I Sem",
         "regualtion_course_set_type": "ug",
         "sets": 2,
         "laterals_allowed": "yes"
     },
     {
         "regulation_courses_title": "B.Tech R16",
-        "regulation_course_set": "H",
+        "regulation_course_set": "I - I Sem",
         "regualtion_course_set_type": "ug",
         "sets": 1,
         "laterals_allowed": "yes"
