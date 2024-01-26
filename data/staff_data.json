@@ -53,6 +53,28 @@
         "staff_status": "active",
         "staff_college_code": "JG",
         "qr_code": "qr_code_3.png"
+    },
+    {
+        "staff_id": 6379735748,
+        "id_no": 67410,
+        "full_name": "Deekshitha",
+        "mobile": "9492948540",
+        "email": "deekshithapedapati03@gmail.com",
+        "role": "COLLEGE_HEAD_LEVEL",
+        "staff_status": "active",
+        "staff_college_code": "2Z",
+        "qr_code": "qr_code_3.png"
+    },
+    {
+        "staff_id": 7382652738,
+        "id_no": 45624,
+        "full_name": "Sharmila",
+        "mobile": "6305391594",
+        "email": "sharmilashaik341@gmail.com",
+        "role": "COLLEGE_HEAD_LEVEL",
+        "staff_status": "active",
+        "staff_college_code": "W2",
+        "qr_code": "qr_code_3.png"
     }
 
 ]
