@@ -1,38 +1,52 @@
 const Exam_students_list = require("../models/Exam_student_list");
-const fs = require('fs');
-const path = require('path');
 const Student =require("../models/Student");
 const Examination=require("../models/Examination")
 const { Op } = require('sequelize');
 
-const jsonFilePath = path.join(__dirname, '../data/exam_students_list_data.json');
 
 
-//POST API to Add examinations data
-exports.addExam_students = async (req,res) => {
-    try{
-      const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
-      const data = JSON.parse(jsonData);
+// //POST API to Add examinations data
+exports.addExam_students = async (req, res) => {
+    try {
+        const data = req.body;
 
-      for (const item of data) {
-        await Exam_students_list.create({
-         exam_code: item.exam_code,
-         student_id: item.student_id,
-         qualified_status: item.qualified_status,
-        });
-      }
+        for (const item of data) {
+            // Check if required fields are present
+            if (!item.exam_code || !item.student_id || item.qualified_status === undefined) {
+                return res.status(400).json({ message: "Invalid data format. Missing required fields." });
+            }
 
-      console.log('Examination_students data added successfully');
-      
+            // Check if a record with the same values already exists
+            const existingRecord = await Exam_students_list.findOne({
+                where: {
+                    exam_code: item.exam_code,
+                    student_id: item.student_id,
+                    qualified_status: item.qualified_status,
+                },
+            });
 
-    }
-    catch(error){
-        console.error(error);
-        res.status(500).json({message:"Error in adding the Examinations_students data"});
+            // If a matching record doesn't exist, insert the data
+            if (!existingRecord) {
+                await Exam_students_list.create({
+                    exam_code: item.exam_code,
+                    student_id: item.student_id,
+                    qualified_status: item.qualified_status,
+                });
+            }
+            else{
+                console.log(`Record already exists for ${item.exam_code}, ${item.student_id}, ${item.qualified_status}`);
+
+                res.status(400).json({ message: "data already exists" });
+                return
+            }
+        }
+
+        res.status(200).json({ message: "Students added successfully" });
+    } catch (error) {
+        console.error("Error in adding Exam_students data:", error);
+        res.status(500).json({ message: "Error in adding the Exam_students data", error: error.message });
     }
 };
-
-
 
 
 

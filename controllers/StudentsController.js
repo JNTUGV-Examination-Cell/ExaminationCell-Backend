@@ -1,14 +1,11 @@
 const Students = require('../models/Student');
 const fs = require('fs');
-const path = require('path');
 const Batch = require('../models/Batch');
 
-const jsonFilePath = path.join(__dirname, '../data/Students_data.json');
 
 exports.addStudent = async (req, res) => {
   try {
-    const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
-    const data = JSON.parse(jsonData);
+    const data = req.body;
 
     for (const item of data) {
       await Students.create({

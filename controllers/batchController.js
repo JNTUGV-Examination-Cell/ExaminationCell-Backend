@@ -1,13 +1,8 @@
 const Batch = require('../models/Batch');
-const fs = require('fs');
-const path = require('path');
-
-const jsonFilePath = path.join(__dirname, '../data/batches_data.json');
 
 exports.addBatches = async (req, res) => {
   try {
-    const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
-    const data = JSON.parse(jsonData);
+    const data = req.body;
 
     for (const item of data) {
       await Batch.create({

@@ -1,16 +1,12 @@
 const Exam = require("../models/Examination");
-const fs = require('fs');
 const path = require('path');
-
-const jsonFilePath = path.join(__dirname, '../data/examinations_data.json');
 
 
 //POST API to Add examinations data
 exports.addExams = async (req,res) => {
     try{
-      const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
-      const data = JSON.parse(jsonData);
- 
+      const data = req.body;
+
       for (const item of data) {
         await Exam.create({
           exam_code: item.exam_code,

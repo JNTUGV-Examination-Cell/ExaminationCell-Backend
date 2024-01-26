@@ -1,15 +1,9 @@
 const Ipaddress = require('../models/Ipaddress');
 const fs = require('fs');
-const path = require('path');
-
-const jsonFilePath = path.join(__dirname, '../data/ipaddress.json');
 
 exports.addipaddress = async (req, res) => {
   try {
-
-    
-    const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
-    const data = JSON.parse(jsonData);
+    const data = req.body;
 
     for (const item of data) {
       await Ipaddress.create({

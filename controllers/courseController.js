@@ -4,22 +4,12 @@ const regulation_courses=require("../models/Regulation_Course")
 const regulation_course_set=require("../models/Regulation_Courses_Set")
 const subjects=require("../models/Subject")
 
-const fs = require('fs');
-const path = require('path');
 require('dotenv').config({ path: 'cred.env' });
-
-const jsonFilePath1 = path.join(__dirname, '../data/courses_data.json');
-const jsonFilePath2 = path.join(__dirname, '../data/regulations_data.json');
-const jsonFilePath3 = path.join(__dirname, '../data/regulationcourses_data.json');
-const jsonFilePath4 = path.join(__dirname, '../data/regulationcoursesset_data.json');
-const jsonFilePath5 = path.join(__dirname, '../data/subjects_data.json');
-
 
 
 exports.addCourse = async(req,res) => {
     try{
-      const jsonData = fs.readFileSync(jsonFilePath1,'utf8');
-      const data = JSON.parse(jsonData);
+      const data = req.body;
 
       for (const item of data) {
         await course.create({
@@ -30,8 +20,9 @@ exports.addCourse = async(req,res) => {
           entrance_exam: item.entrance_exam,
         });
       }
-      console.log('Course data added successfully');
-      
+      // console.log('Course data added successfully');
+      res.status(200).json({ message: "Course data added successfully" });
+
 
     }
     catch(error){
@@ -44,8 +35,7 @@ exports.addCourse = async(req,res) => {
  //
 exports.addRegulation=async(req,res)=>{
   try { 
-    const jsonData = fs.readFileSync(jsonFilePath2, 'utf8');
-    const data = JSON.parse(jsonData);
+    const data = req.body;
 
     for (const item of data) {
       await regulation.create({
@@ -53,8 +43,8 @@ exports.addRegulation=async(req,res)=>{
         regulation_start_year: item.regulation_start_year,
       });
     }
-    console.log('Regulations data added successfully')
-
+    // console.log('Regulations data added successfully')
+    res.status(200).json({ message: "Regulations data added successfully" });
     
 
   } catch (error) {
@@ -69,8 +59,8 @@ exports.addRegulation=async(req,res)=>{
 //
 exports.addRegulationcourses=async(req,res)=>{
   try { 
-    const jsonData = fs.readFileSync(jsonFilePath3, 'utf8');
-    const data = JSON.parse(jsonData);
+    const data = req.body;
+
 
     for (const item of data) {
       await regulation_courses.create({
@@ -82,7 +72,8 @@ exports.addRegulationcourses=async(req,res)=>{
       });
     }
 
-    console.log('Regulation_courses data added successfully');
+    // console.log('Regulation_courses data added successfully');
+    res.status(200).json({ message: "Regulation_courses data added successfully" });
 
 
   } catch (error) {
@@ -96,8 +87,8 @@ exports.addRegulationcourses=async(req,res)=>{
 //
 exports.addRegulationcoursesset=async(req,res)=>{
   try { 
-    const jsonData = fs.readFileSync(jsonFilePath4, 'utf8');
-    const data = JSON.parse(jsonData);
+    const data = req.body;
+
 
     for (const item of data) {
       await regulation_course_set.create({
@@ -109,7 +100,8 @@ exports.addRegulationcoursesset=async(req,res)=>{
       });
     }
 
-    console.log('Regulation_courses_set data added successfull');
+    res.status(200).json({ message: "Regulation_courses_set data added successfull" });
+    // console.log('Regulation_courses_set data added successfull');
     
 
   } catch (error) {
@@ -124,8 +116,8 @@ exports.addRegulationcoursesset=async(req,res)=>{
 
 exports.addSubject = async(req,res) => {
   try{
-    const jsonData = fs.readFileSync(jsonFilePath5, 'utf8');
-    const data = JSON.parse(jsonData);
+    const data = req.body;
+
 
     for (const item of data) {
       await subjects.create({
@@ -144,8 +136,9 @@ exports.addSubject = async(req,res) => {
         subject_status: item.subject_status
       });
     }
+    res.status(200).json({ message: "Subject data added successfully" });
 
-    console.log('Subject data added successfully')
+    // console.log('Subject data added successfully')
     
 
   }

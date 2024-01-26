@@ -1,13 +1,10 @@
 const Notifications= require('../models/Notification');
-const fs = require('fs');
-const path = require('path');
 
-const jsonFilePath = path.join(__dirname, '../data/notifications_data.json');
 
 exports.addNotifications = async (req, res) => {
   try {
-    const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
-    const data = JSON.parse(jsonData);
+    const data = req.body;
+
 
     for (const item of data) {
         let today = new Date();
@@ -22,7 +19,7 @@ exports.addNotifications = async (req, res) => {
       });
     }
     console.log("Notifications data added successfully");
-    
+     
 
   } catch (error) {
     console.error(error);
