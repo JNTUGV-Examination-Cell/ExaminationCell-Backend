@@ -8,9 +8,9 @@ const jsonFilePath = path.join(__dirname, '../data/examinations_data.json');
 //POST API to Add examinations data
 exports.addExams = async (req,res) => {
     try{
-      const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
-      // const data = req.body;
-      const data = JSON.parse(jsonData);
+      // const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
+      const data = req.body;
+      // const data = JSON.parse(jsonData);
  
       for (const item of data) {
         await Exam.create({
