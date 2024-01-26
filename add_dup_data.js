@@ -24,8 +24,8 @@ const controllers = [
     notificationController.addNotifications,
     ipaddressController.addipaddress,
     districtController.addDistricts,
-    // StudentsController.addStudent,
-    // examinationController.addExams,
+    StudentsController.addStudent,
+    examinationController.addExams,
     // examination_students_listController.addExam_student,
   ];
   

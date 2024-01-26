@@ -9,31 +9,30 @@ const jsonFilePath = path.join(__dirname, '../data/Students_data.json');
 
 exports.addStudent = async (req, res) => {
   try {
-    const data = req.body;
+    const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
+    const data = JSON.parse(jsonData);
 
-
-    for (const item of data) {
+    await Promise.all(data.map(async (item) => {
       await Students.create({
-      student_college_code: item.student_college_code,
-      student_batch_id: item.student_batch_id,
-      roll_no: item.roll_no,
-      student_name: item.student_name,
-      student_image: item.student_image,
-      branch_id: item.branch_id,
-      mobile: item.mobile,
-      email: item.email
+        student_college_code: item.student_college_code,
+        student_batch_id: item.student_batch_id,
+        roll_no: item.roll_no,
+        student_name: item.student_name,
+        student_image: item.student_image,
+        branch_id: item.branch_id,
+        mobile: item.mobile,
+        email: item.email
       });
-    }
+    }));
 
     console.log("Students data added successfully");
-    
-
+    res.status(200).json({ message: "Students data added successfully" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({message:"Error in adding the Examinations data"});
-
+    res.status(500).json({ message: "Error in adding the Examinations data" });
   }
 };
+
 
 //GET API to fetch data from students table based on student_batch_id
 
