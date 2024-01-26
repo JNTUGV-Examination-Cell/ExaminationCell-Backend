@@ -6,6 +6,7 @@ const jsonFilePath = path.join(__dirname, '../data/examinations_data.json');
 
 
 //POST API to Add examinations data
+
 exports.addExams = async (req,res) => {
     try{
       const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
@@ -53,28 +54,5 @@ exports.fetchExamData = async(req,res) =>{
     }catch(error){
         res.status(500).json({message:"Error in fetching examination data"});
     }
-
-  //GET API to fetch data of students who are qualified based on exam_code
-
-exports.fetchQualifiedStudents = async(req,res) =>{
-
-  const exam_code = req.params.exam_code;
-
-  try{
-      const qualified_students = await Exam_students_list.findAll({where:{exam_code:exam_code,qualified_status:'qualified'}});
-
-      if(exams.length ===0){
-          console.log("No students found for provided exam code");
-      }
-
-      res.status(200).json(qualified_students);
-      
-  }catch(error){
-      res.status(500).json({message:"Error in fetching student data"});
-  }
-
-
-}
-
 
 }
