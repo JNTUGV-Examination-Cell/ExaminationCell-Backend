@@ -24,9 +24,9 @@ const controllers = [
     notificationController.addNotifications,
     ipaddressController.addipaddress,
     districtController.addDistricts,
-    StudentsController.addStudent,
+    // StudentsController.addStudent,
     examinationController.addExams,
-    // examination_students_listController.addExam_student,
+    // examination_students_listController.addExam_students,
   ];
   
   const executeSequentially = async () => {

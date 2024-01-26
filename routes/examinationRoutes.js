@@ -16,8 +16,10 @@ router.post('/addExams',examinationController.addExams);
 router.get('/fetchExamData/:college_code',examinationController.fetchExamData);
 
 
-
-
+//METHOD: get
+//api/examination/fetchAllExams
+// Description: To fetch All Examination happening in all colleges
+router.get('/fetchAllExams',examinationController.fetchAllExams);
 
 
 

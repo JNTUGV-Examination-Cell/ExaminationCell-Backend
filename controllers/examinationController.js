@@ -9,6 +9,7 @@ const jsonFilePath = path.join(__dirname, '../data/examinations_data.json');
 exports.addExams = async (req,res) => {
     try{
       const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
+      // const data = req.body;
       const data = JSON.parse(jsonData);
  
       for (const item of data) {
@@ -19,11 +20,14 @@ exports.addExams = async (req,res) => {
           regulation_courses_set_id: item.regulation_courses_set_id,
           type: item.type,
           month:item.month,
-          year:item.year
+          year:item.year,
+          date: item.date
         });
       }
 
-      console.log('Examinations data added successfully');
+      res.status(200).json({
+        message: 'Examinations data added successfully',
+      })
       
 
     }
@@ -51,12 +55,22 @@ exports.fetchExamData = async (req, res) => {
       const regulation = await regulation_course_set.findOne({ where: { regulation_courses_set_id: exam.regulation_courses_set_id } });
       exam.dataValues.regulation_course = regulation.regulation_courses_title;
       exam.dataValues.regulation_course_set = regulation.regulation_course_set;
-      
     }
     console.log(exams)
     res.status(200).json(exams);
 
   } catch (error) {
     res.status(500).json({ message: "Error in fetching examination data" });
+  }
+}
+
+exports.fetchAllExams = async(req,res) => {
+  try{
+
+    const exams = await Exam.findAll();
+
+    res.status(200).json({data: exams,status:"sucess"});
+  }catch (error) {
+    res.status(500).json({ message: "Error in fetching all exam data" });
   }
 }

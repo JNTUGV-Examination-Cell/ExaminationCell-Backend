@@ -51,6 +51,10 @@ const Examination = sequelize.define('examinations', {
     year:{
         type : DataTypes.INTEGER,
         allowNull: false
+    },
+    date:{
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
 },{
 
