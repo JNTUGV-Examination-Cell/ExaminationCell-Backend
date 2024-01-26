@@ -5,7 +5,29 @@
         "full_name": "Vamshi",
         "mobile": "7731958862",
         "email": "vamshi.gangadhar365@gmail.com",
-        "role": "Professor",
+        "role": "PROFESSOR_LEVEL",
+        "staff_status": "active",
+        "staff_college_code": "H9",
+        "qr_code": "qr_code_1.png"
+    },
+    {
+        "staff_id": 1234568888,
+        "id_no": 12345,
+        "full_name": "Vamshi",
+        "mobile": "7731958862",
+        "email": "hvamshigangadhar@gmail.com",
+        "role": "COLLEGE_HEAD_LEVEL",
+        "staff_status": "active",
+        "staff_college_code": "H9",
+        "qr_code": "qr_code_1.png"
+    },
+    {
+        "staff_id": 1234566666,
+        "id_no": 12345,
+        "full_name": "JNTUGV College",
+        "mobile": "7410852963",
+        "email": "jntugvexaminationcell@gmail.com",
+        "role": "UNIVERSITY_HEAD_LEVEL",
         "staff_status": "active",
         "staff_college_code": "H9",
         "qr_code": "qr_code_1.png"

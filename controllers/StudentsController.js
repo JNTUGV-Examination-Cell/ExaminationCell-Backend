@@ -7,30 +7,47 @@ const jsonFilePath = path.join(__dirname, '../data/Students_data.json');
 
 exports.addStudent = async (req, res) => {
   try {
-    const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
-    const data = JSON.parse(jsonData);
+    const data = req.body;
 
     for (const item of data) {
+      // Check if roll_no already exists
+      const existingStudent = await Students.findOne({
+        where: {
+          roll_no: item.roll_no
+        }
+      });
+
+      if (existingStudent) {
+        // If roll_no already exists, skip this iteration or handle it as needed
+        console.log(`Student with roll_no ${item.roll_no} already exists. Skipping.`);
+        return res.status(409).json({
+          message: "Student data is duplicates",
+          issueStudent: `${item.roll_no}`,
+          success: false,
+        }); 
+      }
+
+      // If roll_no doesn't exist, create a new student entry
       await Students.create({
-      student_id: item.student_id,
-      student_college_code: item.student_college_code,
-      student_batch_id: item.student_batch_id,
-      roll_no: item.roll_no,
-      student_name: item.student_name,
-      student_image: item.student_image,
-      branch_id: item.branch_id,
-      mobile: item.mobile,
-      email: item.email
+        student_id: item.student_id,
+        student_college_code: item.student_college_code,
+        student_batch_id: item.student_batch_id,
+        roll_no: item.roll_no,
+        student_name: item.student_name,
+        student_image: item.student_image,
+        branch_id: item.branch_id,
+        mobile: item.mobile,
+        email: item.email
       });
     }
 
-    console.log("Students data added successfully");
-    
-
+    res.status(201).json({
+      success: true,
+      message: "Successfully admission done",
+    });    
   } catch (error) {
     console.error(error);
-    res.status(500).json({message:"Error in adding the Examinations data"});
-
+    res.status(500).json({ message: "Error in adding the Examinations data" });
   }
 };
 
