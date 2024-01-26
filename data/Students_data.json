@@ -1,6 +1,6 @@
 [
     {
-      "student_id": 1,
+  
       "student_college_code": "H9",
       "student_batch_id": 3,
       "roll_no": "R001",
@@ -11,7 +11,7 @@
       "email": "john.doe@example.com"
     },
     {
-      "student_id": 2,
+ 
       "student_college_code": "6H",
       "student_batch_id": 33,
       "roll_no": "R002",
@@ -22,7 +22,7 @@
       "email": "jane.smith@example.com"
     },
     {
-      "student_id": 3,
+
       "student_college_code": "9D",
       "student_batch_id": 9,
       "roll_no": "R003",
@@ -33,7 +33,7 @@
       "email": "alice.johnson@example.com"
     },
     {
-      "student_id": 4,
+
       "student_college_code": "JG",
       "student_batch_id": 14,
       "roll_no": "R004",
@@ -44,7 +44,7 @@
       "email": "bob.smith@example.com"
     },
     {
-      "student_id": 5,
+
       "student_college_code": "2Z",
       "student_batch_id": 20,
       "roll_no": "R005",
@@ -55,7 +55,7 @@
       "email": "eve.johnson@example.com"
     },
     {
-      "student_id": 6,
+
       "student_college_code": "W2",
       "student_batch_id": 24,
       "roll_no": "R006",
@@ -66,7 +66,7 @@
       "email": "dave.johnson@example.com"
     },
     {
-      "student_id": 7,
+
       "student_college_code": "HP",
       "student_batch_id": 30,
       "roll_no": "R007",

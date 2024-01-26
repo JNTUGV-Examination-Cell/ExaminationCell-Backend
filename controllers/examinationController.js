@@ -1,4 +1,5 @@
 const Exam = require("../models/Examination");
+const Student =require("../models/Student");
 const fs = require('fs');
 const path = require('path');
 const regulation_course_set = require('../models/Regulation_Courses_Set');
@@ -20,7 +21,8 @@ exports.addExams = async (req,res) => {
           regulation_courses_set_id: item.regulation_courses_set_id,
           type: item.type,
           month:item.month,
-          year:item.year
+          year:item.year,
+          date: item.date
         });
       }
 
@@ -60,5 +62,16 @@ exports.fetchExamData = async (req, res) => {
 
   } catch (error) {
     res.status(500).json({ message: "Error in fetching examination data" });
+  }
+}
+
+exports.fetchAllExams = async(req,res) => {
+  try{
+
+    const exams = await Exam.findAll();
+
+    res.status(200).json({data: exams,status:"sucess"});
+  }catch (error) {
+    res.status(500).json({ message: "Error in fetching all exam data" });
   }
 }

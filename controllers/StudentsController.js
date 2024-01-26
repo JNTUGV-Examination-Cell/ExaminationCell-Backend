@@ -2,6 +2,8 @@ const Students = require('../models/Student');
 const fs = require('fs');
 const path = require('path');
 const Batch = require('../models/Batch');
+const College = require("../models/College");
+
 
 const jsonFilePath = path.join(__dirname, '../data/Students_data.json');
 
@@ -39,7 +41,7 @@ exports.addStudent = async (req, res) => {
         mobile: item.mobile,
         email: item.email
       });
-    }
+    };
 
     res.status(201).json({
       success: true,
@@ -50,6 +52,7 @@ exports.addStudent = async (req, res) => {
     res.status(500).json({ message: "Error in adding the Examinations data" });
   }
 };
+
 
 //GET API to fetch data from students table based on student_batch_id
 
@@ -70,6 +73,28 @@ exports.fetchStudentsData = async(req,res) =>{
     }catch(error){
         res.status(500).json({message:"Error in fetching Students data"});
     }
+
+
+}
+
+//GET API to fetch data from students table based on student_college_code
+exports.fetchStudentsDataCollegeCode = async(req,res) =>{
+
+  const student_college_code = req.params.student_college_code;
+
+  try{
+    console.log(student_batch_id);
+      const student = await Students.findAll({where:{student_college_code:student_college_code}});
+
+      if(student.length ===0){
+          console.log("No Students found for provided  given college code");
+      }
+
+      res.status(200).json(student);
+      
+  }catch(error){
+      res.status(500).json({message:"Error in fetching Students data"});
+  }
 
 
 }

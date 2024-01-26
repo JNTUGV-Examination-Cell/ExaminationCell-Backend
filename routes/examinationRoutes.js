@@ -16,23 +16,18 @@ router.post('/addExams',examinationController.addExams);
 router.get('/fetchExamData/:college_code',examinationController.fetchExamData);
 
 
-
-
-
-
-
-
-
-//METHOD: post
-//api:  /api/examination/addExam_students
-// Description: Adding examination students list data
-
-router.post('/addExam_students',examination_students_listController.addExam_students);
-
 //METHOD: get
-//api/examination/fetchStudentData
-// Description: To fetch examination data based on college_code
-router.get('/fetchdisqualifiedStudentData/:exam_code/:college_code',examination_students_listController.fetchdisqualifiedStudentData);
+//api/examination/fetchAllExams
+// Description: To fetch All Examination happening in all colleges
+router.get('/fetchAllExams',examinationController.fetchAllExams);
+
+
+
+
+
+
+
+
  
 
 

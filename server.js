@@ -65,7 +65,7 @@ app.use('/api/Students',StudentsRoutes);
 app.use('/images/qr_codes', express.static(__dirname + '/images/qr_codes'));
 app.use('/images/student_profiles', express.static(__dirname + '/images/Student_profiles'));
 
-const models = [College, Staff, User,Attendence,Course, Branch, Regulation, Regulation_Courses, Batch, Student,Otp, District, Regulation_Courses_Set, Subject,examination,Ipaddress,Notification];
+const models = [College, Staff, User,Attendence,Course, Branch, Regulation, Regulation_Courses, Batch, Student,Otp, District, Regulation_Courses_Set, Subject,examination,Ipaddress,Notification,examination_students_list];
 
 const syncModels = async () => {
   for (const model of models) {
