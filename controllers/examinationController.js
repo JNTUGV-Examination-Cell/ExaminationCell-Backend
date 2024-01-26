@@ -1,4 +1,5 @@
 const Exam = require("../models/Examination");
+const Student =require("../models/Student");
 const fs = require('fs');
 const path = require('path');
 const regulation_course_set = require('../models/Regulation_Courses_Set');
