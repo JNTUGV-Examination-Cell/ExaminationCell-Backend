@@ -26,8 +26,7 @@ exports.addCourse = async(req,res) => {
 
     }
     catch(error){
-        console.error(error);
-       
+      res.status(500).json({ message: "Error in adding courses data" });       
     }
 };
 

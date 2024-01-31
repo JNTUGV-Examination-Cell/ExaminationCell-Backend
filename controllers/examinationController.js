@@ -19,8 +19,9 @@ exports.addExams = async (req,res) => {
         });
       }
 
-      console.log('Examinations data added successfully');
-      
+      // console.log('Examinations data added successfully');
+      res.status(200).json({message:"Examinations data added successfully"});
+
 
     }
     catch(error){
@@ -41,7 +42,8 @@ exports.fetchExamData = async(req,res) =>{
         const exams = await Exam.findAll({where:{college_code:college_code}});
 
         if(exams.length ===0){
-            console.log("No examinations found for provided college code");
+           res.status(200).json({message:"No examinations found for provided college code"});
+
         }
 
         res.status(200).json(exams);

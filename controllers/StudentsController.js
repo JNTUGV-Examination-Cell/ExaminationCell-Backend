@@ -20,13 +20,11 @@ exports.addStudent = async (req, res) => {
       email: item.email
       });
     }
-
-    console.log("Students data added successfully");
-    
+    res.status(200).json({message:"Students data added successfully"});    
 
   } catch (error) {
     console.error(error);
-    res.status(500).json({message:"Error in adding the Examinations data"});
+    res.status(500).json({message:"Error in adding the students data"});
 
   }
 };

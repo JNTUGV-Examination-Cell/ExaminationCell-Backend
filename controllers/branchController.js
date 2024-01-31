@@ -16,9 +16,7 @@ exports.addBranches = async(req,res) => {
         });
       }
 
-      res.status(200).json({message:"Branches data added successfully"});
-      // console.log('Branches data added successfully');
-      
+      res.status(200).json({message:"Branches data added successfully"});      
 
     }
     catch(error){

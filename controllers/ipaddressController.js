@@ -12,12 +12,13 @@ exports.addipaddress = async (req, res) => {
         ipAddress : item.ipAddress
       });
     }
-
-    console.log("Ip addresses added successfully");
+    res.status(200).json({ message: "IP address added successfully" });    
   
 
   } catch (error) {
     console.error(error);
+    res.status(500).json({ message: "Error in dding the IP address" });
+
    
   }
 };
@@ -36,10 +37,11 @@ exports.updateipaddress  =  async (req, res) => {
     const result= await Ipaddress.update({ ipAddress:data.newIpAddress}, {where: {id:data.ipId}} );
     console.log(result)
     // Respond with a success message
-    console.log('IP address updated successfully' );
+    res.status(200).json({ message: "IP address updated successfully" });    
   } catch (error) {
     console.error(error);
-    console.log ('Error in updating the IP address');
+    res.status(500).json({ message: "Error in updating the IP address" });
+
   }
 };
 

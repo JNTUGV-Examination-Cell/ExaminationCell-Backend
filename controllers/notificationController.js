@@ -18,11 +18,14 @@ exports.addNotifications = async (req, res) => {
         
       });
     }
-    console.log("Notifications data added successfully");
+    res.status(200).json({ message: "Notifications data added successfully" });
+
      
 
   } catch (error) {
     console.error(error);
+    res.status(500).json({ message: "Error in adding the notification data" });
+
     
   }
 };
