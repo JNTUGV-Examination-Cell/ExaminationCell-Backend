@@ -12,7 +12,7 @@ exports.addExam_students = async (req, res) => {
 
         for (const item of data) {
             // Check if required fields are present
-            if (!item.exam_code || !item.student_id || item.qualified_status === undefined) {
+            if (!item.exam_code || !item.student_id || !item.qualified_status) {
                 return res.status(400).json({ message: "Invalid data format. Missing required fields." });
             }
 
@@ -34,10 +34,10 @@ exports.addExam_students = async (req, res) => {
                 });
             }
             else{
-                console.log(`Record already exists for ${item.exam_code}, ${item.student_id}, ${item.qualified_status}`);
-
-                res.status(400).json({ message: "data already exists" });
-                return
+                // console.log(`Record already exists for ${item.exam_code}, ${item.student_id}, ${item.qualified_status}`);
+                const errormessage=`Record already exists for ${item.exam_code}, ${item.student_id}, ${item.qualified_status} `;
+                res.status(400).json({ message: errormessage });
+                return  
             }
         }
 
@@ -47,7 +47,6 @@ exports.addExam_students = async (req, res) => {
         res.status(500).json({ message: "Error in adding the Exam_students data", error: error.message });
     }
 };
-
 
 
 

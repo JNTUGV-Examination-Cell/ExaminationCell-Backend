@@ -33,6 +33,7 @@ const branchRoutes=require('./routes/branchesRoutes');
 const ipAddressRoutes = require('./routes/ipAddressRoutes');
 const examinationRoutes = require('./routes/examinationRoutes');
 const StudentsRoutes = require('./routes/StudentsRoutes');
+const examstudentRoutes=require('./routes/examstudentsRoutes');
 
 // Enable CORS
 
@@ -58,7 +59,7 @@ app.use('/api/branch',branchRoutes);
 app.use('/api/ipAddress',ipAddressRoutes);
 app.use('/api/examination',examinationRoutes);
 app.use('/api/Students',StudentsRoutes);
-
+app.use('/api/examstudents',examstudentRoutes);
 
 
 //images accesseble links
