@@ -8,4 +8,10 @@ const router = express.Router();
 // Description: Add all the branches
 router.post('/addBranches',branchController.addBranches);
 
+
+
+
+
+
+
 module.exports = router;
