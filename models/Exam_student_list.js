@@ -32,7 +32,6 @@ const Exam_students_list = sequelize.define('exam_students_list', {
         type:DataTypes.ENUM('qualified','detained','condonated'),
         allowNull: false
     }
-
     
 
     },{

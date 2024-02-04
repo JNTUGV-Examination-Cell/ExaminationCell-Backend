@@ -80,7 +80,7 @@ exports.fetchStudentsData = async(req,res) =>{
 //GET API to fetch data from students table based on student_college_code
 exports.fetchStudentsDataCollegeCode = async(req,res) =>{
 
-  const student_college_code = req.params.student_college_code;
+  const student_college_code = req.params.college_code;
 
   try{
     console.log(student_batch_id);
