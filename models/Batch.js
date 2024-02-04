@@ -9,7 +9,7 @@ const Batch = sequelize.define('batches', {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
-  },
+  }, 
   batch_college_code: {
     type: DataTypes.STRING,
     references: {

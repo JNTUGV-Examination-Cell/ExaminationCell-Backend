@@ -4,19 +4,36 @@ const examination_students_listController = require("../controllers/examination_
 const router = express.Router();
 
 //METHOD: post
-//api:  /api/examination/addExam_students
+//api:  /api/examstudents/addExam_students
 // Description: Adding examination students list data
-
 router.post('/addExam_students',examination_students_listController.addExam_students);
 
-
+//METHOD: get
+//api/examstudents/fetchdisqualifiedStudentData/
+// Description: To fetch examination data based on college_code
+router.get('/fetchdisqualifiedStudentData/:exam_code/:college_code',examination_students_listController.fetchdisqualifiedStudentData);
+ 
 
 //METHOD: get
-//api/examination/fetchQualifiedStudents
+//api/examstudents/fetchexamregisteredStudentData
+// Description: To fetch registered students data of a particular exam
+router.get('/fetchexamregisteredStudentData/:exam_code',examination_students_listController.fetchexamregisteredStudentData);
+ 
+//METHOD: get
+//api/examstudents/fetchexamunregisteredStudentData
+// Description: To fetch unregistered students data of a particular exam
+router.get('/fetchexamunregisteredStudentData/:exam_code',examination_students_listController.fetchexamunregisteredStudentData);
+
+//METHOD: get
+//api/examstudents/fetchQualifiedStudents
 // Description: To fetch qualified students data based on exam_code
 router.get('/fetchQualifiedStudents/:exam_code',examination_students_listController.fetchQualifiedStudents);
 
-//METHOD: get
-//api/examination/fetchStudentData
-// Description: To fetch examination data based on college_code
-router.get('/fetchdisqualifiedStudentData/:exam_code/:college_code',examination_students_listController.fetchdisqualifiedStudentData);
+
+//Method: post
+// api/examstudents/addCollegeExam Registration
+// Description : Registering the college for the specific exam
+router.post('/addCollegeExamRegistration',examination_students_listController.addCollegeExamRegistration);
+
+
+module.exports = router;  

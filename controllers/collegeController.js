@@ -1,13 +1,8 @@
 const College = require('../models/College');
-const fs = require('fs');
-const path = require('path');
-
-const jsonFilePath = path.join(__dirname, '../data/colleges_data.json');
 
 exports.addColleges = async (req, res) => {
   try {
-    const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
-    const data = JSON.parse(jsonData);
+    const data = req.body;
 
     for (const item of data) {
       await College.create({
@@ -21,11 +16,11 @@ exports.addColleges = async (req, res) => {
       });
     }
 
-    console.log('Colleges data added successfully');
-    
+    // console.log('Colleges data added successfully');
+    res.status(200).json({message:"Colleges data added successfully"});
 
   } catch (error) {
-    console.error(error);
+    res.status(500).json({message:"Error in adding colleges data"});
     
   }
 };
