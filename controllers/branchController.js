@@ -1,6 +1,7 @@
 const branch = require("../models/Branches");
 const fs = require('fs');
 const path = require('path');
+const Branch = require("../models/Branches");
 require('dotenv').config({ path: 'cred.env' });
 
 const jsonFilePath = path.join(__dirname, '../data/branches_data.json');
@@ -29,4 +30,16 @@ exports.addBranches = async(req,res) => {
         console.error(error);
         res.status(500).json({message:"Error in adding the Branches"});
     }
+};
+
+
+exports.getCompleteBranches = async (req, res) => {
+  try {
+    const Branches = await Branch.findAll(); // Retrieve all records from the Branches model
+
+    res.status(200).json(Branches); // Respond with the JSON data
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error in getting the list of branches" });
+  }
 };
