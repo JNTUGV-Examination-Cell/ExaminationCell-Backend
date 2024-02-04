@@ -75,6 +75,19 @@
         "staff_status": "active",
         "staff_college_code": "W2",
         "qr_code": "qr_code_3.png"
+    },
+    {
+        
+            "staff_id": 7382645612,
+            "id_no": 40122,
+            "full_name": "Deekshika",
+            "mobile": "6309660191",
+            "email": "deekshikajadyada0011@gmail.com",
+            "role": "COLLEGE_HEAD_LEVEL",
+            "staff_status": "active",
+            "staff_college_code": "9D",
+            "qr_code": "qr_code_3.png"
+        
     }
 
 ]
