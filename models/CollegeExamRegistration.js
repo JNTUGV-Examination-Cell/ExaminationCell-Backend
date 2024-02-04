@@ -1,11 +1,10 @@
 const { DataTypes } = require('sequelize');
+const examination = require('../models/Examination');
+const exam_students_list = require('../models/Exam_student_list');
+const college = require('../models/College');
 const sequelize = require('../config/connection');
-const Examination = require('./Examination');
-const Students = require('./Student');
-const College = require('./College');
 
-
-const College_Exam_fee = sequelize.define('college_exam_fee', {
+const CollegeExamRegistration = sequelize.define('CollegeExamRegistration', {
     id:{
         type:DataTypes.INTEGER,
         autoIncrement:true,
@@ -14,7 +13,7 @@ const College_Exam_fee = sequelize.define('college_exam_fee', {
     exam_code:{
         type:DataTypes.STRING,
         references:{
-            model: Examination,
+            model: examination,
             key: 'exam_code'
         },
         allowNull: false
@@ -22,7 +21,7 @@ const College_Exam_fee = sequelize.define('college_exam_fee', {
     college_code:{
         type:DataTypes.STRING,
         references:{
-            model:College,
+            model:college,
             key:'college_code'
         },
         allowNull: false
@@ -44,14 +43,13 @@ const College_Exam_fee = sequelize.define('college_exam_fee', {
         type:DataTypes.ENUM('Accepted','Rejected','Pending'),
         allowNull: false
     }
-    
 
     },{
 
-        tableName: 'college_exam_fee',    
+        tableName: 'CollegeExamRegistration',    
         timestamps: false  
     }
 
 
 );
-module.exports = College_Exam_fee;
+module.exports = CollegeExamRegistration;

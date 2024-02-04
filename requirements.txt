@@ -1,0 +1,46 @@
+< ---- Order of running the post api's to get the duplicate data into the database with data in the body ---------->
+
+1. Add Districts Data
+    Endpoint: /api/district/addDistricts
+
+2.Add Colleges Data
+    Endpoint: /api/college/addColleges
+
+3.Add Courses Data
+    Endpoint: /api/course/addCourse
+
+4.Add Branches Data
+    Endpoint: /api/branch/addBranches
+
+5.Add Regulations Data
+    Endpoint: /api/course/addRegulation
+
+6.Add Regulation Courses Data
+    Endpoint: /api/course/addRegulationCourses
+
+7.Add Regulation Course Set Data
+    Endpoint: /api/course/addRegulationCoursesset
+
+8.Add Subjects Data
+    Endpoint: /api/course/addSubject
+
+9.Add Staff Data
+    Endpoint: /api/staff/addStaff
+
+10.Add User Data
+    Endpoint: /api/user/addUsers
+
+11.Add Batches Data
+    Endpoint: /api/batch/addBatches
+
+12.Add Students Data
+    Endpoint: /api/Students/addStudent
+
+13.Add Exams Data
+    Endpoint: /api/examination/addExams
+
+14.Add Examination Students Data
+    Endpoint: /api/examstudents/addExam_students
+
+
+

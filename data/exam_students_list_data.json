@@ -1,61 +1,73 @@
 [
     {
       "exam_code": "RD110225",
+      "college_code":"9D",
       "student_id": 1,
       "qualified_status": "qualified"
     },
     {
       "exam_code": "R111223",
+      "college_code":"W2",
       "student_id": 2,
       "qualified_status": "qualified"
     },
     {
       "exam_code": "R111223",
+      "college_code":"W2",
       "student_id": 3,
       "qualified_status": "detained"
     },
     {
       "exam_code": "RI33011",
+      "college_code":"6H",
       "student_id": 4,
       "qualified_status": "qualified"
     },
     {
       "exam_code": "RI33011",
+      "college_code":"6H",
       "student_id": 5,
       "qualified_status": "qualified"
     },
     {
       "exam_code": "RI33011",
+      "college_code":"6H",
       "student_id": 6,   
       "qualified_status": "detained"
     },
     {
       "exam_code": "RC110223",
+      "college_code":"JG",
       "student_id": 7,
       "qualified_status": "qualified"
     },
     {
       "exam_code": "RC110223",
+      "college_code":"JG",
       "student_id": 1,
       "qualified_status": "qualified"
     },
     {
       "exam_code": "RC110223",
+      "college_code":"JG",
       "student_id": 3,
       "qualified_status": "detained"
     },
     {
       "exam_code": "RK35012",
+      "college_code":"6H",
       "student_id": 4,
       "qualified_status": "qualified"
     },
     {
       "exam_code": "RK35012",
+      "college_code":"6H",
       "student_id": 6,
       "qualified_status": "qualified"
     },
     {
       "exam_code": "RK35012",
+      "college_code":"6H",
       "student_id": 2,
       "qualified_status": "detained"
     }

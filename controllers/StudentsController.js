@@ -1,11 +1,9 @@
 const Students = require('../models/Student');
 const fs = require('fs');
-const path = require('path');
 const Batch = require('../models/Batch');
 const College = require("../models/College");
 
 
-const jsonFilePath = path.join(__dirname, '../data/Students_data.json');
 
 exports.addStudent = async (req, res) => {
   try {
@@ -43,7 +41,7 @@ exports.addStudent = async (req, res) => {
       });
     };
 
-    res.status(201).json({
+    res.status(200).json({
       success: true,
       message: "Successfully admission done",
     });    
