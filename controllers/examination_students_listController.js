@@ -87,13 +87,14 @@ exports.fetchdisqualifiedStudentData = async (req, res) => {
 //GET API to fetch registered student data from examination student list table based on exam code and college_code
 exports.fetchexamregisteredStudentData = async (req, res) => {
     const exam_code = req.params.exam_code;
+    const college_code=req.params.college_code;
     try {
         const studentIds = await Exam_students_list.findAll({
             where: { exam_code: exam_code },
             attributes: ['student_id']
         });
         const registeredStudentDetails = await Student.findAll({
-            where: {
+            where: {student_college_code:college_code,
                 student_id: {
                     [Op.in]: studentIds.map(student => student.student_id)
                 }
@@ -101,7 +102,6 @@ exports.fetchexamregisteredStudentData = async (req, res) => {
             attributes: ['student_id', 'roll_no', 'student_name', 'branch_id', 'mobile']
         });
         const response = {
-            status: 'registered',
             students: registeredStudentDetails.map(student => ({
                 student_id: student.student_id,
                 roll_no: student.roll_no,
@@ -129,13 +129,14 @@ exports.fetchexamregisteredStudentData = async (req, res) => {
 //GET API to fetch unregistered student data from examination student list table based on exam code and college_code
 exports.fetchexamunregisteredStudentData = async (req, res) => {
     const exam_code = req.params.exam_code;
+    const college_code=req.params.college_code;
     try {
         const studentIds = await Exam_students_list.findAll({
             where: { exam_code: exam_code },
             attributes: ['student_id']
         });
             const unregisteredStudentDetails = await Student.findAll({
-            where: {
+            where: {student_college_code:college_code,
                 student_id: {
                     [Op.notIn]: studentIds.map(student => student.student_id)
                 }
@@ -143,14 +144,13 @@ exports.fetchexamunregisteredStudentData = async (req, res) => {
             attributes: ['student_id', 'roll_no', 'student_name', 'branch_id', 'mobile']
         });
         const response = {
-            status: 'registered',
             students: unregisteredStudentDetails.map(student => ({
                 student_id: student.student_id,
                 roll_no: student.roll_no,
                 student_name: student.student_name,
                 branch_id: student.branch_id,
                 mobile: student.mobile,
-                registration_status: 'registered' // Add registration status property
+                registration_status: 'unregistered' // Add registration status property
             })),
         };
         // response = {
