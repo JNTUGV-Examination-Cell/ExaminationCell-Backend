@@ -8,4 +8,11 @@ const router = express.Router();
 // Description: Add all the branches
 router.post('/addBranches',branchController.addBranches);
 
+//METHOD :get
+//api : /api/branch/getCompleteBranches
+//Fetches the branches table records completely
+router.get("/getCompleteBranches",branchController.getCompleteBranches);
+
+
+
 module.exports = router;

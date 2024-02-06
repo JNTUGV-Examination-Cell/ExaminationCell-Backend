@@ -15,7 +15,6 @@ const College = sequelize.define('colleges', {
   college_code: {
     type: DataTypes.STRING,
     primaryKey: true,
-
   },
   district: {
     type: DataTypes.STRING,

@@ -1,11 +1,9 @@
 const Students = require('../models/Student');
 const fs = require('fs');
-const path = require('path');
 const Batch = require('../models/Batch');
 const College = require("../models/College");
 
 
-const jsonFilePath = path.join(__dirname, '../data/Students_data.json');
 
 exports.addStudent = async (req, res) => {
   try {
@@ -43,7 +41,7 @@ exports.addStudent = async (req, res) => {
       });
     };
 
-    res.status(201).json({
+    res.status(200).json({
       success: true,
       message: "Successfully admission done",
     });    
@@ -80,7 +78,7 @@ exports.fetchStudentsData = async(req,res) =>{
 //GET API to fetch data from students table based on student_college_code
 exports.fetchStudentsDataCollegeCode = async(req,res) =>{
 
-  const student_college_code = req.params.student_college_code;
+  const student_college_code = req.params.college_code;
 
   try{
     console.log(student_batch_id);

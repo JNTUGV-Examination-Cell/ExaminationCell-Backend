@@ -19,4 +19,4 @@ router.get("/getAllBatches/:college_code",batchController.getAllBatches);
 router.get("/getCompleteBatches",batchController.getCompleteBatches);
 
 
-module.exports = router;
+module.exports = router; 
