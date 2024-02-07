@@ -57,7 +57,6 @@ exports.addUser = async (req,res) => {
 exports.sendOtp = async (req, res) => {
     try {
         const { email, otpValue } = req.body;
-
         const data = await staff.findOne(
             { where: { email: email } },
             { attributes: ['staff_id'] }
