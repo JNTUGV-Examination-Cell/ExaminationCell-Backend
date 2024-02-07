@@ -23,3 +23,30 @@ exports.addfailstudents = async (req, res) => {
        
     }
   };
+
+
+  
+exports.fetchfaildStudents = async (req, res) => {
+  const subject_code = req.params.subject_code;
+  // const college_code=req.params.college_code;
+  try {
+    const fail_students = await Exam_Fail_List.findAll({where: { subject_code: subject_code}
+    });
+
+    // Check if any qualified students were found
+    if (fail_students.length === 0) {
+        console.log("No fail students found for the provided exam code");
+        return res.status(404).json({ message: "No fail students found for the provided exam code" });
+    }
+    // const studentIds = qualified_students.map(Student => Student.student_id);
+
+    // const student_details= await Student.findAll({where:{student_id:studentIds}})
+
+    res.status(200).json(fail_students);
+
+} catch (error) {
+    console.error("Error in fetching fail student data:", error);
+    res.status(500).json({ message: "Error in fetching student data" });
+}
+};
+
