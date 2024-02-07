@@ -9,10 +9,8 @@ const jsonFilePath = path.join(__dirname, '../data/examinations_data.json');
 //POST API to Add examinations data
 exports.addExams = async (req,res) => {
     try{
-      // const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
       const data = req.body;
-      // const data = JSON.parse(jsonData);
- 
+
       for (const item of data) {
         await Exam.create({
           exam_code: item.exam_code,
@@ -26,10 +24,9 @@ exports.addExams = async (req,res) => {
         });
       }
 
-      res.status(200).json({
-        message: 'Examinations data added successfully',
-      })
-      
+      // console.log('Examinations data added successfully');
+      res.status(200).json({message:"Examinations data added successfully"});
+
 
     }
     catch(error){

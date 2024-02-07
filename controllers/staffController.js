@@ -2,15 +2,12 @@ const staff = require("../models/Staff");
 const otp = require("../models/Otp");
 const user = require("../models/User");
 const fs = require('fs');
-const path = require('path');
 require('dotenv').config({ path: 'cred.env' });
 
-const jsonFilePath = path.join(__dirname, '../data/staff_data.json');
 
 exports.addStaff = async (req, res) => {
     try {
-      const jsonData = fs.readFileSync(jsonFilePath, 'utf8');
-      const data = JSON.parse(jsonData);
+        const data = req.body;
 
       for (const item of data) {
         await staff.create({
@@ -25,8 +22,8 @@ exports.addStaff = async (req, res) => {
           qr_code: `${process.env.HOST}/images/qr_codes/${item.qr_code}`   // Use environment variables
         });
       }
-  
-      console.log('Staff data added successfully');
+      res.status(200).json({ message: "Staff data added successfully" });
+    //   console.log('Staff data added successfully');
    
   
     } catch (error) {
