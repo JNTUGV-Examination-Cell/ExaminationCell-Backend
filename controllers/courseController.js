@@ -52,7 +52,17 @@ exports.addRegulation = async (req, res) => {
   }
 };
 
-
+//To fetech the total regulation data from the data base
+exports.getCompleteRegulations = async (req, res) => {
+  try{
+      const regulations = await regulation.findAll();
+      res.status(200).json(regulations);
+  }
+  catch(error){
+      console.error(error);
+      res.status(500).json({message: "Error in getting the list of regulations"})
+  }
+}
 
 //
 //
