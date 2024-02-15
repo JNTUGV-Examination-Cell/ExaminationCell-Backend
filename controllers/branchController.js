@@ -39,3 +39,5 @@ exports.getCompleteBranches = async (req, res) => {
     res.status(500).json({ message: "Error in getting the list of branches" });
   }
 };
+
+
