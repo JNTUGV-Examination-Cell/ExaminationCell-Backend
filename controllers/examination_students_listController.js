@@ -1,6 +1,7 @@
 const Exam_students_list = require("../models/Exam_student_list");
 const Student =require("../models/Student");
-const Examination=require("../models/Examination")
+const Examination=require("../models/Examination");
+const Branch=require("../models/Branches");
 const CollegeExamRegistration = require("../models/CollegeExamRegistration");
 const { Op } = require('sequelize');
 
@@ -82,29 +83,29 @@ exports.addfailstudents = async (req, res) => {
 };
 
 
-exports.fetchfaildStudents = async (req, res) => {
-    const subject_code = req.params.subject_code;
-    // const college_code=req.params.college_code;
-    try {
-      const fail_students = await Exam_students_list.findAll({where: { subject_code: subject_code}
-      });
+// exports.fetchfaildStudents = async (req, res) => {
+//     const subject_code = req.params.subject_code;
+//     // const college_code=req.params.college_code;
+//     try {
+
+//       const fail_students_roll = await Exam_students_list.findAll({where: { subject_code: subject_code,post_exam_status:'fail'},attributes:['roll_no']
+//       });
+//       console.log(fail_students_roll);
+//       // Check if any qualified students were found
+//       if (fail_students_roll.length === 0) {
+//           return res.status(404).json({ message: "No fail students found for the provided subject code" });
+//       }  
+//       const failStudentsRollNumbers = fail_students_roll.map(student => student.roll_no);
+//       const fail_students = await Student.findAll({where: {roll_no: failStudentsRollNumbers}});
+//     const branchids = fail_students.map(student=>student.branch_id);
+//     const result= await Branch.findAll({})
+//       res.status(200).json(fail_students);
   
-      // Check if any qualified students were found
-      if (fail_students.length === 0) {
-          console.log("No fail students found for the provided exam code");
-          return res.status(404).json({ message: "No fail students found for the provided exam code" });
-      }
-      // const studentIds = qualified_students.map(Student => Student.student_id);
-  
-      // const student_details= await Student.findAll({where:{student_id:studentIds}})
-  
-      res.status(200).json(fail_students);
-  
-  } catch (error) {
-      console.error("Error in fetching fail student data:", error);
-      res.status(500).json({ message: "Error in fetching student data" });
-  }
-  };
+//   } catch (error) {
+//       console.error("Error in fetching fail student data:", error);
+//       res.status(500).json({ message: "Error in fetching student data" });
+//   }
+//   };
   
 
 
