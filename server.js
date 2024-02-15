@@ -20,6 +20,7 @@ const Subject = require('./models/Subject');
 const Ipaddress = require('./models/Ipaddress');
 const Notification = require('./models/Notification');
 const examination = require('./models/Examination');
+const exam_notification= require('./models/Exam_notifications');
 const examination_students_list = require('./models/Exam_student_list');
 const CollegeExamRegistration = require('./models/CollegeExamRegistration');
 //routes
@@ -83,6 +84,7 @@ const models = [
   Regulation_Courses_Set,
   Subject,
   examination,
+  exam_notification,
   Ipaddress,
   Notification,
   examination_students_list,

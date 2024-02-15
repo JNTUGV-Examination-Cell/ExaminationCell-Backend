@@ -1,36 +1,35 @@
 const express = require("express");
 const examinationController = require("../controllers/examinationController");
-const examination_students_listController = require("../controllers/examination_students_listController");
+const exam_notificationController = require("../controllers/exam_notificationController.js");
 const router = express.Router();
 
 //METHOD: post
 //api:  /api/examination/addExams
 // Description: Adding examination data
 
-router.post('/addExams',examinationController.addExams);
+router.post('/addExams', examinationController.addExams);
 
 
 //METHOD: get
 //api/examination/fetchExamData
 // Description: To fetch examination data based on college_code
-router.get('/fetchExamData/:college_code',examinationController.fetchExamData);
+router.get('/fetchExamData/:college_code', examinationController.fetchExamData);
 
 
 //METHOD: get
 //api/examination/fetchAllExams
 // Description: To fetch All Examination happening in all colleges
-router.get('/fetchAllExams',examinationController.fetchAllExams);
+router.get('/fetchAllExams', examinationController.fetchAllExams);
 
 
+//METHOD: post
+//api/examination/addexam_notification
+// Description: To add examinationnotifications
+router.post("/addexam_notification", exam_notificationController.addexam_notification);
 
-
-
-
-
-
- 
-
-
-
+//METHOD: get
+//api/examination/fetchAllExam_notifications
+// Description: To fetch All Examination notifications
+router.get("/fetchAllExam_notifications",exam_notificationController.fetchAllExam_notifications);
 
 module.exports = router; 
