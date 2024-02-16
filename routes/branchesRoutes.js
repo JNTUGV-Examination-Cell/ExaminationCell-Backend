@@ -18,7 +18,7 @@ router.get("/getCompleteBranches",branchController.getCompleteBranches);
 
 //api : /api/branch/updateBranch
 //Updates the Branches table with new values by verifying the branch_id
-router.get("/updateBranch/:id",branchController.updateBranch);
+router.put("/updateBranch/:id",branchController.updateBranch);
 
 
 
