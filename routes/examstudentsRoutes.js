@@ -17,7 +17,7 @@ router.put('/addfailstudents',examination_students_listController.addfailstudent
 //METHOD: get
 //api/examstudents/fetchfaildStudents
 // Description: To fetch examination fail students data based on subject_code
-router.get('/fetchfaildStudents/:subject_code',examination_students_listController.fetchfaildStudents);
+router.get('/fetchfaildStudents',examination_students_listController.fetchfaildStudents);
  
 //METHOD: get
 //api/examstudents/fetchdisqualifiedStudentData/
@@ -36,7 +36,7 @@ router.get('/fetchexamregisteredStudentData/:exam_code',examination_students_lis
 router.get('/fetchexamunregisteredStudentData/:exam_code',examination_students_listController.fetchexamunregisteredStudentData);
 
 //METHOD: get
-//api/examstudents/fetchQualifiedStudents
+//api/examstudents/fetchQualifiedStudents/:exam_code
 // Description: To fetch qualified students data based on exam_code
 router.get('/fetchQualifiedStudents/:exam_code',examination_students_listController.fetchQualifiedStudents);
 
