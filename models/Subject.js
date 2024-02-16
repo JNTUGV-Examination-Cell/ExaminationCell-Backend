@@ -37,7 +37,7 @@ const Subject = sequelize.define('subjects',{
     },
     subject_code:{
         type:DataTypes.STRING,
-        allowNull:false
+        primaryKey:true,
     },
     subject_name:{
         type:DataTypes.STRING,

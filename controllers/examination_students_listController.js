@@ -13,7 +13,7 @@ exports.addExam_students = async (req, res) => {
 
         for (const item of data) {
             // Check if required fields are present
-            if (!item.exam_code || !item.student_id || !item.qualified_status || !item.college_code) {
+            if (!item.exam_code || !item.roll_no || !item.qualified_status || !item.college_code) {
                 return res.status(400).json({ message: "Invalid data format. Missing required fields." });
             }
 
@@ -21,7 +21,7 @@ exports.addExam_students = async (req, res) => {
             const existingRecord = await Exam_students_list.findOne({
                 where: {
                     exam_code: item.exam_code,
-                    student_id: item.student_id,
+                    roll_no: item.roll_no,
                     college_code: item.college_code,
                     qualified_status: item.qualified_status,
                 },
@@ -32,13 +32,14 @@ exports.addExam_students = async (req, res) => {
                 await Exam_students_list.create({
                     exam_code: item.exam_code,
                     college_code: item.college_code,
-                    student_id: item.student_id,
+                    roll_no: item.roll_no,
+                    subject_code:item.subject_code,
                     qualified_status: item.qualified_status,
                 });
-            }
+            } 
             else{
                 // console.log(`Record already exists for ${item.exam_code}, ${item.student_id}, ${item.qualified_status}`);
-                const errormessage=`Record already exists for ${item.exam_code}, ${item.student_id}, ${item.qualified_status} ,${item.college_code}`;
+                const errormessage=`Record already exists for ${item.exam_code}, ${item.roll_no}, ${item.qualified_status} ,${item.college_code}`;
                 res.status(400).json({ message: errormessage });
                 return  
             }
@@ -51,6 +52,62 @@ exports.addExam_students = async (req, res) => {
     }
 };
 
+exports.addfailstudents = async (req, res) => {
+    try {
+        const data = req.body;
+
+        for (const item of data) {
+            const currentDate = new Date();
+            await Exam_students_list.update(
+                { 
+                    date_time: currentDate, 
+                    examfail_reason: item.examfail_reason,
+                    post_exam_status:item.post_exam_status,
+                },
+                { 
+                    where: { 
+                        subject_code: item.subject_code, 
+                        roll_no: item.roll_no 
+                    } 
+                } 
+            );
+        }
+
+        res.status(200).json({ message: "Exam fail students data updated successfully" });
+
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ message: "Error in updating exam fail data" });
+    }
+};
+
+
+exports.fetchfaildStudents = async (req, res) => {
+    const subject_code = req.params.subject_code;
+    // const college_code=req.params.college_code;
+    try {
+      const fail_students = await Exam_students_list.findAll({where: { subject_code: subject_code}
+      });
+  
+      // Check if any qualified students were found
+      if (fail_students.length === 0) {
+          console.log("No fail students found for the provided exam code");
+          return res.status(404).json({ message: "No fail students found for the provided exam code" });
+      }
+      // const studentIds = qualified_students.map(Student => Student.student_id);
+  
+      // const student_details= await Student.findAll({where:{student_id:studentIds}})
+  
+      res.status(200).json(fail_students);
+  
+  } catch (error) {
+      console.error("Error in fetching fail student data:", error);
+      res.status(500).json({ message: "Error in fetching student data" });
+  }
+  };
+  
+
+
 exports.fetchQualifiedStudents = async (req, res) => {
     const exam_code = req.params.exam_code;
     try {
@@ -62,9 +119,9 @@ exports.fetchQualifiedStudents = async (req, res) => {
           console.log("No students found for the provided exam code");
           return res.status(404).json({ message: "No students found" });
       }
-      const studentIds = qualified_students.map(Student => Student.student_id);
+      const studentroll_no = qualified_students.map(Student => Student.roll_no);
 
-      const student_details= await Student.findAll({where:{student_id:studentIds}})
+      const student_details= await Student.findAll({where:{roll_no:studentroll_no}})
 
       res.status(200).json(student_details);
 
@@ -90,15 +147,15 @@ exports.fetchdisqualifiedStudentData = async (req, res) => {
                   [Op.or]: ['detained', 'condonated']
               }
           },
-          attributes: ['student_id'], // Include only the 'student_id' attribute in the result
+          attributes: ['roll_no'], // Include only the 'student_id' attribute in the result
       });
 
       if (studentsdata.length === 0) {
           console.log("No students found for the provided college and exam code");
           return res.status(404).json({ message: "No students found for the provided college and exam code" });
       }
-      const studentIds = studentsdata.map(Student => Student.student_id);
-      const student_details= await Student.findAll({where:{student_id:studentIds}})
+      const studentroll_no = studentsdata.map(Student => Student.roll_no);
+      const student_details= await Student.findAll({where:{roll_no:studentroll_no}})
       res.status(200).json(student_details);
   } catch (error) {
       console.error("Error in fetching student IDs:", error);
@@ -115,19 +172,28 @@ exports.fetchexamregisteredStudentData = async (req, res) => {
     try {
         const studentIds = await Exam_students_list.findAll({
             where: { exam_code: exam_code },
-            attributes: ['student_id']
+            attributes: ['roll_no']
         });
         const registeredStudentDetails = await Student.findAll({
-            where: {student_college_code:college_code,
+
+            where: {
+                student_college_code:college_code,
                 student_id: {
                     [Op.in]: studentIds.map(student => student.student_id)
                 }
+
             },
-            attributes: ['student_id', 'roll_no', 'student_name', 'branch_id', 'mobile']
+
+            where: {
+                roll_no: {
+                    [Op.in]: studentIds.map(student => student.roll_no)
+
+                }
+            },
+            attributes: ['roll_no', 'student_name', 'branch_id', 'mobile']
         });
         const response = {
             students: registeredStudentDetails.map(student => ({
-                student_id: student.student_id,
                 roll_no: student.roll_no,
                 student_name: student.student_name,
                 branch_id: student.branch_id,
@@ -157,19 +223,28 @@ exports.fetchexamunregisteredStudentData = async (req, res) => {
     try {
         const studentIds = await Exam_students_list.findAll({
             where: { exam_code: exam_code },
-            attributes: ['student_id']
+            attributes: ['roll_no']
         });
             const unregisteredStudentDetails = await Student.findAll({
-            where: {student_college_code:college_code,
+
+            where: {
+                student_college_code:college_code,
                 student_id: {
                     [Op.notIn]: studentIds.map(student => student.student_id)
                 }
+
+                },
+
+            where: {
+                roll_no: {
+                    [Op.notIn]: studentIds.map(student => student.roll_no)
+
+                }
             },
-            attributes: ['student_id', 'roll_no', 'student_name', 'branch_id', 'mobile']
+            attributes: [ 'roll_no', 'student_name', 'branch_id', 'mobile']
         });
         const response = {
             students: unregisteredStudentDetails.map(student => ({
-                student_id: student.student_id,
                 roll_no: student.roll_no,
                 student_name: student.student_name,
                 branch_id: student.branch_id,

@@ -8,6 +8,17 @@ const router = express.Router();
 // Description: Adding examination students list data
 router.post('/addExam_students',examination_students_listController.addExam_students);
 
+
+//METHOD: put
+//api:  /api/examstudents/addfailstudents
+// Description: Adding examination fail students list data
+router.put('/addfailstudents',examination_students_listController.addfailstudents);
+
+//METHOD: get
+//api/examstudents/fetchfaildStudents
+// Description: To fetch examination fail students data based on subject_code
+router.get('/fetchfaildStudents/:subject_code',examination_students_listController.fetchfaildStudents);
+ 
 //METHOD: get
 //api/examstudents/fetchdisqualifiedStudentData/
 // Description: To fetch examination data based on college_code

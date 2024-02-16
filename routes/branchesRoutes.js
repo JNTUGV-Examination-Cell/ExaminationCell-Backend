@@ -16,3 +16,4 @@ router.get("/getCompleteBranches",branchController.getCompleteBranches);
 
 
 module.exports = router;
+ 

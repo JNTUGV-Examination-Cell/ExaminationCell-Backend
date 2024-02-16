@@ -5,11 +5,11 @@ const Batch = require('./Batch');
 const Branches = require('./Branches');
 
 const Student = sequelize.define('students', {
-  student_id:{
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-  },
+  // student_id:{
+  //     type: DataTypes.INTEGER,
+  //     autoIncrement: true,
+  //     primaryKey: true,
+  // },
   student_college_code: {
     type: DataTypes.STRING,
     references: {
@@ -21,14 +21,15 @@ const Student = sequelize.define('students', {
   student_batch_id: {
     type: DataTypes.INTEGER,
     references: {
-        model: Batch,
+        model: Batch, 
         key: 'batch_id'
       },
     allowNull: false
   },
   roll_no: {
     type: DataTypes.STRING,
-    allowNull: false
+    primaryKey:true,
+    allowNull:false
 
   },
   student_name: {
