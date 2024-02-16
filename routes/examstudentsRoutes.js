@@ -42,7 +42,7 @@ router.get('/fetchQualifiedStudents/:exam_code',examination_students_listControl
 
 
 //Method: post
-// api/examstudents/addCollegeExam Registration
+// api/examstudents/addCollegeExamRegistration
 // Description : Registering the college for the specific exam
 router.post('/addCollegeExamRegistration',examination_students_listController.addCollegeExamRegistration);
 

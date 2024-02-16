@@ -169,6 +169,7 @@ exports.fetchdisqualifiedStudentData = async (req, res) => {
 //GET API to fetch registered student data from examination student list table based on exam code and college_code
 exports.fetchexamregisteredStudentData = async (req, res) => {
     const exam_code = req.params.exam_code;
+    const college_code=req.params.college_code;
     try {
         const studentIds = await Exam_students_list.findAll({
             where: { exam_code: exam_code },
@@ -183,7 +184,6 @@ exports.fetchexamregisteredStudentData = async (req, res) => {
             attributes: ['roll_no', 'student_name', 'branch_id', 'mobile']
         });
         const response = {
-            status: 'registered',
             students: registeredStudentDetails.map(student => ({
                 roll_no: student.roll_no,
                 student_name: student.student_name,
@@ -210,6 +210,7 @@ exports.fetchexamregisteredStudentData = async (req, res) => {
 //GET API to fetch unregistered student data from examination student list table based on exam code and college_code
 exports.fetchexamunregisteredStudentData = async (req, res) => {
     const exam_code = req.params.exam_code;
+    const college_code=req.params.college_code;
     try {
         const studentIds = await Exam_students_list.findAll({
             where: { exam_code: exam_code },
@@ -224,13 +225,12 @@ exports.fetchexamunregisteredStudentData = async (req, res) => {
             attributes: [ 'roll_no', 'student_name', 'branch_id', 'mobile']
         });
         const response = {
-            status: 'registered',
             students: unregisteredStudentDetails.map(student => ({
                 roll_no: student.roll_no,
                 student_name: student.student_name,
                 branch_id: student.branch_id,
                 mobile: student.mobile,
-                registration_status: 'registered' // Add registration status property
+                registration_status: 'unregistered' // Add registration status property
             })),
         };
         // response = {
@@ -246,49 +246,51 @@ exports.fetchexamunregisteredStudentData = async (req, res) => {
 
 
 // Post API for aading the college Exam Registration status
-exports.addCollegeExamRegistration = async(req,res)=>{
+exports.addCollegeExamRegistration = async (req, res) => {
     const data = req.body;
-    try{
-        if(data.length==0){
-            res.status(400).json({"message":"no data found"});
+    try {
+        if (data.length == 0) {
+            res.status(400).json({ "message": "no data found" });
         }
         const collegeData = await CollegeExamRegistration.findAll({
-            where:{
+            where: {
                 exam_code: data.exam_code,
                 college_code: data.college_code,
                 payment_status: data.payment_status,
             }
-        })
-        if(collegeData.length==0){
-            const  eligibleStudentsData = await Exam_students_list.findAll({
-                where:{
+        });
+        if (collegeData.length == 0) {
+            const eligibleStudentsData = await Exam_students_list.findAll({
+                where: {
                     college_code: data.college_code,
                     exam_code: data.exam_code,
                     qualified_status: "qualified"
                 }
-            
-            })
-            if (eligibleStudentsData.length == data.total_students){
+
+            });
+            if (eligibleStudentsData.length == data.total_students) {
                 await CollegeExamRegistration.create({
                     exam_code: data.exam_code,
                     college_code: data.college_code,
                     total_students: data.total_students,
+                    payment_date: data.payment_date,
                     amount: data.amount,
                     payment_status: data.payment_status
                 });
 
-                res.status(200).json({"message":`The College Exam Regsitration status for ${data.college_code} with ${data.exam_code} has been added sucessfully`})
+                res.status(200).json({ "message": `The College Exam Registration status for ${data.college_code} with ${data.exam_code} has been added successfully` });
 
-            }else{
-                res.status(200).json({"message":`The number of Qualified Students(${eligibleStudentsData.length}) and number of Students applied(${data.total_students}) are not equal for ${data.college_code} and ${data.exam_code} `});
+            } else {
+                res.status(200).json({ "message": `The number of Qualified Students(${eligibleStudentsData.length}) and number of Students applied(${data.total_students}) are not equal for ${data.college_code} and ${data.exam_code} ` });
             }
 
-        }else{
-            res.status(200).json({"message":`The data with ${data.college_code} and ${data.exam_code} is already in database`})
+        } else {
+            res.status(200).json({ "message": `The data with ${data.college_code} and ${data.exam_code} is already in the database` });
         }
 
-    }catch(err){
-        res.status(500).json({ "message": `Error in making the registraion of ${data.college_code} for ${data.exam_code}` },{"error": err});
+    } catch (err) {
+        res.status(500).json({ "message": `Error in making the registration of ${data.college_code} for ${data.exam_code}`, "error": err });
     }
 }
+
   
