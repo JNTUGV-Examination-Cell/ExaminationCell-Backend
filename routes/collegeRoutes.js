@@ -7,5 +7,9 @@ const collegeController = require("../controllers/collegeController");
 // Description: Add all the colleges into college table
 router.post('/addColleges',collegeController.addColleges);
 
+//METHOD: get
+//api:  /api/college/fetchColleges
+// Description: get all the colleges from college table
+router.get('/fetchColleges',collegeController.fetchColleges);
 
-module.exports = router;
+module.exports = router;
