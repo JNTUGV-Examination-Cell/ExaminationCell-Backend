@@ -23,3 +23,4 @@ router.put("/updateBranch/:id",branchController.updateBranch);
 
 
 module.exports = router;
+ 

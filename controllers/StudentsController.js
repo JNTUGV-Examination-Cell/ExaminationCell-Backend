@@ -29,7 +29,6 @@ exports.addStudent = async (req, res) => {
 
       // If roll_no doesn't exist, create a new student entry
       await Students.create({
-        student_id: item.student_id,
         student_college_code: item.student_college_code,
         student_batch_id: item.student_batch_id,
         roll_no: item.roll_no,
