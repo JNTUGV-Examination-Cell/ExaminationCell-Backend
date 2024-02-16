@@ -28,7 +28,7 @@ const Student = sequelize.define('students', {
   },
   roll_no: {
     type: DataTypes.STRING,
-    allowNull: false
+    primaryKey:true,
 
   },
   student_name: {

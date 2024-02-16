@@ -22,6 +22,7 @@ const Notification = require('./models/Notification');
 const examination = require('./models/Examination');
 const examination_students_list = require('./models/Exam_student_list');
 const CollegeExamRegistration = require('./models/CollegeExamRegistration');
+const ExamFailList = require('./models/Exam_Fail_List');
 //routes
 const collegeRoutes = require('./routes/collegeRoutes');
 const staffRoutes = require('./routes/staffRoutes');
@@ -35,6 +36,7 @@ const ipAddressRoutes = require('./routes/ipAddressRoutes');
 const examinationRoutes = require('./routes/examinationRoutes');
 const StudentsRoutes = require('./routes/StudentsRoutes');
 const examstudentRoutes = require('./routes/examstudentsRoutes');
+const examfaillistRoutes= require('./routes/examfaillistRoutes')
 
 // Enable CORS
 
@@ -61,6 +63,7 @@ app.use('/api/ipAddress', ipAddressRoutes);
 app.use('/api/examination', examinationRoutes);
 app.use('/api/Students', StudentsRoutes);
 app.use('/api/examstudents', examstudentRoutes);
+app.use('/api/examfail',examfaillistRoutes);
 
 
 //images accesseble links
@@ -86,7 +89,8 @@ const models = [
   Ipaddress,
   Notification,
   examination_students_list,
-  CollegeExamRegistration
+  CollegeExamRegistration,
+  ExamFailList
 ];
 
 const syncModels = async () => {

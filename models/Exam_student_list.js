@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const Examination = require('./Examination');
-const Students = require('./Student');
+const Student = require('../models/Student');
 const College = require('../models/College');
 
 
@@ -25,17 +25,16 @@ const Exam_students_list = sequelize.define('exam_students_list', {
             model: Examination,
             key: 'exam_code'
         },
-        allowNull: false
+        allowNull: false 
     },
     student_id:{
         type:DataTypes.INTEGER,
-        references:{
-            model:Students,
-            key:'student_id'
-        },
+        // references: {
+        //     model:Student,
+        //     key: 'student_id'
+        // },
         allowNull: false
-
-    },
+    }, 
     qualified_status:{
         type:DataTypes.ENUM('qualified','detained','condonated'),
         allowNull: false
@@ -43,7 +42,7 @@ const Exam_students_list = sequelize.define('exam_students_list', {
 
     },{
 
-        tableName: 'Exam_students_list',    
+        tableName: 'exam_students_list',    
         timestamps: false  
     }
 
