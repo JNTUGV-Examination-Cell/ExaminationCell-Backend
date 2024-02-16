@@ -4,7 +4,7 @@ const Examination=require("../models/Examination");
 const Branch=require("../models/Branches");
 const CollegeExamRegistration = require("../models/CollegeExamRegistration");
 const { Op } = require('sequelize');
-
+const Batch = require('../models/Batch');
 
 
 // //POST API to Add examinations data
@@ -25,6 +25,7 @@ exports.addExam_students = async (req, res) => {
                     roll_no: item.roll_no,
                     college_code: item.college_code,
                     qualified_status: item.qualified_status,
+                    subject_code: item.subject_code
                 },
             });
 
@@ -35,12 +36,12 @@ exports.addExam_students = async (req, res) => {
                     college_code: item.college_code,
                     roll_no: item.roll_no,
                     subject_code:item.subject_code,
-                    qualified_status: item.qualified_status,
+                    qualified_status: item.qualified_status
                 });
             } 
             else{
                 // console.log(`Record already exists for ${item.exam_code}, ${item.student_id}, ${item.qualified_status}`);
-                const errormessage=`Record already exists for ${item.exam_code}, ${item.roll_no}, ${item.qualified_status} ,${item.college_code}`;
+                const errormessage=`Record already exists for ${item.exam_code}, ${item.roll_no}, ${item.qualified_status} ,${item.college_code}, ${item.subject_code}`;
                 res.status(400).json({ message: errormessage });
                 return  
             }
@@ -58,6 +59,7 @@ exports.addfailstudents = async (req, res) => {
         const data = req.body;
 
         for (const item of data) {
+            if (item.qualified_status=="qualified" || item.qualified_status=="condonated"){
             const currentDate = new Date();
             await Exam_students_list.update(
                 { 
@@ -68,10 +70,13 @@ exports.addfailstudents = async (req, res) => {
                 { 
                     where: { 
                         subject_code: item.subject_code, 
-                        roll_no: item.roll_no 
+                        roll_no: item.roll_no,
+                         
                     } 
                 } 
             );
+        }
+    
         }
 
         res.status(200).json({ message: "Exam fail students data updated successfully" });
@@ -83,29 +88,46 @@ exports.addfailstudents = async (req, res) => {
 };
 
 
-// exports.fetchfaildStudents = async (req, res) => {
-//     const subject_code = req.params.subject_code;
-//     // const college_code=req.params.college_code;
-//     try {
+exports.fetchfaildStudents = async (req, res) => {
+    const { subject_code, college_code } = req.body;
 
-//       const fail_students_roll = await Exam_students_list.findAll({where: { subject_code: subject_code,post_exam_status:'fail'},attributes:['roll_no']
-//       });
-//       console.log(fail_students_roll);
-//       // Check if any qualified students were found
-//       if (fail_students_roll.length === 0) {
-//           return res.status(404).json({ message: "No fail students found for the provided subject code" });
-//       }  
-//       const failStudentsRollNumbers = fail_students_roll.map(student => student.roll_no);
-//       const fail_students = await Student.findAll({where: {roll_no: failStudentsRollNumbers}});
-//     const branchids = fail_students.map(student=>student.branch_id);
-//     const result= await Branch.findAll({})
-//       res.status(200).json(fail_students);
+    try {
+        const failedStudentData = [];
+        const data = await Exam_students_list.findAll({ where: { subject_code: subject_code, college_code: college_code, qualified_status: ["qualified", "condonated"], post_exam_status: "fail" } });
+        for (const entry of data) {
   
-//   } catch (error) {
-//       console.error("Error in fetching fail student data:", error);
-//       res.status(500).json({ message: "Error in fetching student data" });
-//   }
-//   };
+            const Studentdata = await Student.findOne({ where: { roll_no: entry.roll_no } });
+      
+            if (Studentdata) {
+                const StudentBranchdata = await Branch.findOne({ where: { branch_id: Studentdata.branch_id } });
+             
+
+                const StudentBatchdata = await Batch.findOne({ where: { batch_id: Studentdata.student_batch_id}});
+                const StudentStudingyear = 2024 - StudentBatchdata.starting_year;
+                // Construct an object containing the desired information
+                const failedStudentEntry = {
+                    roll_no: Studentdata.roll_no,
+                    student_name: Studentdata.student_name,
+                    branch_full_name: StudentBranchdata.branch_full_name,
+                    course: StudentBranchdata.course,
+                    year:StudentStudingyear
+                };
+                // Push the object into the failedStudentData array
+                failedStudentData.push(failedStudentEntry);
+            } else {
+                console.error("Student data not found for roll number:", entry.roll_no);
+            }
+        }
+        // Send the failedStudentData array as a response
+        res.status(200).json({ failedStudentData });
+
+    } catch (error) {
+        console.error("Error in fetching fail student data:", error);
+        res.status(500).json({ message: "Error in fetching student data" });
+    }
+};
+
+
   
 
 
