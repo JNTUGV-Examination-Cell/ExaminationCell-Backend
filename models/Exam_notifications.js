@@ -54,7 +54,7 @@ const Exam_notification = sequelize.define(
     },
     fee: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
     last_date: {
       type: DataTypes.STRING,
@@ -62,14 +62,13 @@ const Exam_notification = sequelize.define(
     },
     late_fee: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
 
     late_fee_lastdate: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false, 
     },
-
     notification_title: {
       type: DataTypes.STRING,
       allowNull: false,
