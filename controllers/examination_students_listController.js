@@ -1,9 +1,10 @@
 const Exam_students_list = require("../models/Exam_student_list");
 const Student =require("../models/Student");
-const Examination=require("../models/Examination")
+const Examination=require("../models/Examination");
+const Branch=require("../models/Branches");
 const CollegeExamRegistration = require("../models/CollegeExamRegistration");
 const { Op } = require('sequelize');
-
+const Batch = require('../models/Batch');
 
 
 // //POST API to Add examinations data
@@ -24,6 +25,7 @@ exports.addExam_students = async (req, res) => {
                     roll_no: item.roll_no,
                     college_code: item.college_code,
                     qualified_status: item.qualified_status,
+                    subject_code: item.subject_code
                 },
             });
 
@@ -34,12 +36,12 @@ exports.addExam_students = async (req, res) => {
                     college_code: item.college_code,
                     roll_no: item.roll_no,
                     subject_code:item.subject_code,
-                    qualified_status: item.qualified_status,
+                    qualified_status: item.qualified_status
                 });
             } 
             else{
                 // console.log(`Record already exists for ${item.exam_code}, ${item.student_id}, ${item.qualified_status}`);
-                const errormessage=`Record already exists for ${item.exam_code}, ${item.roll_no}, ${item.qualified_status} ,${item.college_code}`;
+                const errormessage=`Record already exists for ${item.exam_code}, ${item.roll_no}, ${item.qualified_status} ,${item.college_code}, ${item.subject_code}`;
                 res.status(400).json({ message: errormessage });
                 return  
             }
@@ -57,6 +59,7 @@ exports.addfailstudents = async (req, res) => {
         const data = req.body;
 
         for (const item of data) {
+            if (item.qualified_status=="qualified" || item.qualified_status=="condonated"){
             const currentDate = new Date();
             await Exam_students_list.update(
                 { 
@@ -67,10 +70,13 @@ exports.addfailstudents = async (req, res) => {
                 { 
                     where: { 
                         subject_code: item.subject_code, 
-                        roll_no: item.roll_no 
+                        roll_no: item.roll_no,
+                         
                     } 
                 } 
             );
+        }
+    
         }
 
         res.status(200).json({ message: "Exam fail students data updated successfully" });
@@ -83,28 +89,45 @@ exports.addfailstudents = async (req, res) => {
 
 
 exports.fetchfaildStudents = async (req, res) => {
-    const subject_code = req.params.subject_code;
-    // const college_code=req.params.college_code;
+    const { subject_code, college_code } = req.body;
+
     try {
-      const fail_students = await Exam_students_list.findAll({where: { subject_code: subject_code}
-      });
+        const failedStudentData = [];
+        const data = await Exam_students_list.findAll({ where: { subject_code: subject_code, college_code: college_code, qualified_status: ["qualified", "condonated"], post_exam_status: "fail" } });
+        for (const entry of data) {
   
-      // Check if any qualified students were found
-      if (fail_students.length === 0) {
-          console.log("No fail students found for the provided exam code");
-          return res.status(404).json({ message: "No fail students found for the provided exam code" });
-      }
-      // const studentIds = qualified_students.map(Student => Student.student_id);
-  
-      // const student_details= await Student.findAll({where:{student_id:studentIds}})
-  
-      res.status(200).json(fail_students);
-  
-  } catch (error) {
-      console.error("Error in fetching fail student data:", error);
-      res.status(500).json({ message: "Error in fetching student data" });
-  }
-  };
+            const Studentdata = await Student.findOne({ where: { roll_no: entry.roll_no } });
+      
+            if (Studentdata) {
+                const StudentBranchdata = await Branch.findOne({ where: { branch_id: Studentdata.branch_id } });
+             
+
+                const StudentBatchdata = await Batch.findOne({ where: { batch_id: Studentdata.student_batch_id}});
+                const StudentStudingyear = 2024 - StudentBatchdata.starting_year;
+                // Construct an object containing the desired information
+                const failedStudentEntry = {
+                    roll_no: Studentdata.roll_no,
+                    student_name: Studentdata.student_name,
+                    branch_full_name: StudentBranchdata.branch_full_name,
+                    course: StudentBranchdata.course,
+                    year:StudentStudingyear
+                };
+                // Push the object into the failedStudentData array
+                failedStudentData.push(failedStudentEntry);
+            } else {
+                console.error("Student data not found for roll number:", entry.roll_no);
+            }
+        }
+        // Send the failedStudentData array as a response
+        res.status(200).json({ failedStudentData });
+
+    } catch (error) {
+        console.error("Error in fetching fail student data:", error);
+        res.status(500).json({ message: "Error in fetching student data" });
+    }
+};
+
+
   
 
 
@@ -175,6 +198,7 @@ exports.fetchexamregisteredStudentData = async (req, res) => {
             attributes: ['roll_no']
         });
         const registeredStudentDetails = await Student.findAll({
+<<<<<<< HEAD
 
             where: {
                 student_college_code:college_code,
@@ -188,6 +212,11 @@ exports.fetchexamregisteredStudentData = async (req, res) => {
                 roll_no: {
                     [Op.in]: studentIds.map(student => student.roll_no)
 
+=======
+            where: {
+                roll_no: {
+                    [Op.in]: studentIds.map(student => student.roll_no)
+>>>>>>> 683ce730f3bfbdd2be6668c6fd59075b3e13b724
                 }
             },
             attributes: ['roll_no', 'student_name', 'branch_id', 'mobile']
@@ -226,6 +255,7 @@ exports.fetchexamunregisteredStudentData = async (req, res) => {
             attributes: ['roll_no']
         });
             const unregisteredStudentDetails = await Student.findAll({
+<<<<<<< HEAD
 
             where: {
                 student_college_code:college_code,
@@ -239,6 +269,11 @@ exports.fetchexamunregisteredStudentData = async (req, res) => {
                 roll_no: {
                     [Op.notIn]: studentIds.map(student => student.roll_no)
 
+=======
+            where: {
+                roll_no: {
+                    [Op.notIn]: studentIds.map(student => student.roll_no)
+>>>>>>> 683ce730f3bfbdd2be6668c6fd59075b3e13b724
                 }
             },
             attributes: [ 'roll_no', 'student_name', 'branch_id', 'mobile']
@@ -265,49 +300,51 @@ exports.fetchexamunregisteredStudentData = async (req, res) => {
 
 
 // Post API for aading the college Exam Registration status
-exports.addCollegeExamRegistration = async(req,res)=>{
+exports.addCollegeExamRegistration = async (req, res) => {
     const data = req.body;
-    try{
-        if(data.length==0){
-            res.status(400).json({"message":"no data found"});
+    try {
+        if (data.length == 0) {
+            res.status(400).json({ "message": "no data found" });
         }
         const collegeData = await CollegeExamRegistration.findAll({
-            where:{
+            where: {
                 exam_code: data.exam_code,
                 college_code: data.college_code,
                 payment_status: data.payment_status,
             }
-        })
-        if(collegeData.length==0){
-            const  eligibleStudentsData = await Exam_students_list.findAll({
-                where:{
+        });
+        if (collegeData.length == 0) {
+            const eligibleStudentsData = await Exam_students_list.findAll({
+                where: {
                     college_code: data.college_code,
                     exam_code: data.exam_code,
                     qualified_status: "qualified"
                 }
-            
-            })
-            if (eligibleStudentsData.length == data.total_students){
+
+            });
+            if (eligibleStudentsData.length == data.total_students) {
                 await CollegeExamRegistration.create({
                     exam_code: data.exam_code,
                     college_code: data.college_code,
                     total_students: data.total_students,
+                    payment_date: data.payment_date,
                     amount: data.amount,
                     payment_status: data.payment_status
                 });
 
-                res.status(200).json({"message":`The College Exam Regsitration status for ${data.college_code} with ${data.exam_code} has been added sucessfully`})
+                res.status(200).json({ "message": `The College Exam Registration status for ${data.college_code} with ${data.exam_code} has been added successfully` });
 
-            }else{
-                res.status(200).json({"message":`The number of Qualified Students(${eligibleStudentsData.length}) and number of Students applied(${data.total_students}) are not equal for ${data.college_code} and ${data.exam_code} `});
+            } else {
+                res.status(200).json({ "message": `The number of Qualified Students(${eligibleStudentsData.length}) and number of Students applied(${data.total_students}) are not equal for ${data.college_code} and ${data.exam_code} ` });
             }
 
-        }else{
-            res.status(200).json({"message":`The data with ${data.college_code} and ${data.exam_code} is already in database`})
+        } else {
+            res.status(200).json({ "message": `The data with ${data.college_code} and ${data.exam_code} is already in the database` });
         }
 
-    }catch(err){
-        res.status(500).json({ "message": `Error in making the registraion of ${data.college_code} for ${data.exam_code}` },{"error": err});
+    } catch (err) {
+        res.status(500).json({ "message": `Error in making the registration of ${data.college_code} for ${data.exam_code}`, "error": err });
     }
 }
+
   
