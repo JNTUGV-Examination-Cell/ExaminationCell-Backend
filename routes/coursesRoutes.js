@@ -36,4 +36,11 @@ router.post('/addRegulationCoursesset',courseController.addRegulationcoursesset)
 router.post('/addSubject',courseController.addSubject)
 
 
+//METHOD: get
+//api/course/fetchAllSubjects
+// Description: To fetch subjects
+router.get('/fetchAllSubjects',courseController.fetchAllSubjects);
+
+
+
 module.exports = router;

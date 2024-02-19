@@ -216,3 +216,21 @@ exports.addSubject = async (req, res) => {
 
   }
 };
+
+
+
+exports.fetchAllSubjects = async(req,res) =>{
+
+  try{
+      const subject = await subjects.findAll();
+
+      if(subject.length ===0){
+          console.log("No subjects found");
+      }
+
+      res.status(200).json(subject);
+      
+  }catch(error){
+      res.status(500).json({message:"Error in fetching subjects data"});
+  }
+};
