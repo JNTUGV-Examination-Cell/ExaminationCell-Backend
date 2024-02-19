@@ -24,3 +24,22 @@ exports.addDistricts = async (req, res) => {
 
   }
 };
+
+
+exports.fetchDistricts = async(req,res) =>{
+
+  try{
+      const districts = await Districts.findAll();
+
+      if(districts.length ===0){
+          console.log("No districts found");
+      }
+
+      res.status(200).json(districts);
+      
+  }catch(error){
+      res.status(500).json({message:"Error in fetching districts data"});
+  }
+
+
+}
