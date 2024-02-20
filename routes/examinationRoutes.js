@@ -1,6 +1,7 @@
 const express = require("express");
 const examinationController = require("../controllers/examinationController");
 const exam_notificationController = require("../controllers/exam_notificationController");
+const exam_notificationController = require("../controllers/exam_notificationController.js");
 const router = express.Router();
 
 //METHOD: post
@@ -25,6 +26,22 @@ router.get("/fetchAllExams", examinationController.fetchAllExams);
 router.post(
   "/addexam_notification",
   exam_notificationController.addexam_notification
+);
+
+//METHOD: post
+//api/examination/addexam_notification
+// Description: To add examinationnotifications
+router.post(
+  "/addexam_notification",
+  exam_notificationController.addexam_notification
+);
+
+//METHOD: get
+//api/examination/fetchAllExam_notifications
+// Description: To fetch All Examination notifications
+router.get(
+  "/fetchAllExam_notifications",
+  exam_notificationController.fetchAllExam_notifications
 );
 
 //METHOD: get

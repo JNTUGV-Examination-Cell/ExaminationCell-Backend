@@ -52,7 +52,17 @@ exports.addRegulation = async (req, res) => {
   }
 };
 
-
+//To fetech the total regulation data from the data base
+exports.getCompleteRegulations = async (req, res) => {
+  try{
+      const regulations = await regulation.findAll();
+      res.status(200).json(regulations);
+  }
+  catch(error){
+      console.error(error);
+      res.status(500).json({message: "Error in getting the list of regulations"})
+  }
+}
 
 //
 //
@@ -204,5 +214,23 @@ exports.addSubject = async (req, res) => {
     console.error(error);
     res.status(500).json({ message: "error in adding subject data" });
 
+  }
+};
+
+
+
+exports.fetchAllSubjects = async(req,res) =>{
+
+  try{
+      const subject = await subjects.findAll();
+
+      if(subject.length ===0){
+          console.log("No subjects found");
+      }
+
+      res.status(200).json(subject);
+      
+  }catch(error){
+      res.status(500).json({message:"Error in fetching subjects data"});
   }
 };

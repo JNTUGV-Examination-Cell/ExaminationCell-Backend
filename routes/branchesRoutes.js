@@ -14,5 +14,13 @@ router.post('/addBranches',branchController.addBranches);
 router.get("/getCompleteBranches",branchController.getCompleteBranches);
 
 
+//METHOD : put
+
+//api : /api/branch/updateBranch
+//Updates the Branches table with new values by verifying the branch_id
+router.put("/updateBranch/:id",branchController.updateBranch);
+
+
 
 module.exports = router;
+ 

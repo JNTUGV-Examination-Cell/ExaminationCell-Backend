@@ -13,6 +13,13 @@ router.post('/addCourse',courseController.addCourse);
 //api:  /api/course/addRegulation
 router.post('/addRegulation',courseController.addRegulation)
 
+
+//METHOD: get
+//api:  /api/branch/getCompleteRegulations
+//Fetches the regulations table records completely
+router.get('/getCompleteRegulations',courseController.getCompleteRegulations);
+
+
 //adding regulation course
 //METHOD: post
 //api:  /api/course/addRegulationCourses
@@ -27,6 +34,13 @@ router.post('/addRegulationCoursesset',courseController.addRegulationcoursesset)
 //METHOD: post
 //api:  /api/course/addSubject
 router.post('/addSubject',courseController.addSubject)
+
+
+//METHOD: get
+//api/course/fetchAllSubjects
+// Description: To fetch subjects
+router.get('/fetchAllSubjects',courseController.fetchAllSubjects);
+
 
 
 module.exports = router;

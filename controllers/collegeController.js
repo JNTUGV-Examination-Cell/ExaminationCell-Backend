@@ -24,3 +24,23 @@ exports.addColleges = async (req, res) => {
     
   }
 };
+
+
+
+
+exports.fetchColleges = async(req,res) =>{
+
+  try{
+    // console.log(student_batch_id);
+      const colleges = await College.findAll();
+
+      if(colleges.length ===0){
+          console.log("No colleges found for provided ");
+      }
+
+      res.status(200).json(colleges);
+      
+  }catch(error){
+      res.status(500).json({message:"Error in fetching colleges data"});
+  }
+}
