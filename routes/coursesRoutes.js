@@ -43,7 +43,7 @@ router.get('/fetchAllSubjects',courseController.fetchAllSubjects);
 
 
 //METHOD : PUT
-//api/subjects/updateSubject
+//api/course/updateSubject
 //Description : To update subjects
 
 router.put('/updateSubject/:sub_id',courseController.updateSubject);
