@@ -42,5 +42,12 @@ router.post('/addSubject',courseController.addSubject)
 router.get('/fetchAllSubjects',courseController.fetchAllSubjects);
 
 
+//METHOD : PUT
+//api/subjects/updateSubject
+//Description : To update subjects
+
+router.put('/updateSubject/:sub_id',courseController.updateSubject);
+
+
 
 module.exports = router;
