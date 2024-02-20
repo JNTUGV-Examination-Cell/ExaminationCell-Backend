@@ -2,6 +2,7 @@ const Students = require('../models/Student');
 const fs = require('fs');
 const Batch = require('../models/Batch');
 const College = require("../models/College");
+const Branch=require('../models/Branches');
 
 
 
@@ -26,7 +27,6 @@ exports.addStudent = async (req, res) => {
           success: false,
         }); 
       }
-
       // If roll_no doesn't exist, create a new student entry
       await Students.create({
         student_college_code: item.student_college_code,
@@ -82,7 +82,6 @@ exports.fetchStudentsDataCollegeCode = async(req,res) =>{
   try{
     console.log(student_batch_id);
       const student = await Students.findAll({where:{student_college_code:student_college_code}});
-
       if(student.length ===0){
           console.log("No Students found for provided  given college code");
       }
@@ -90,6 +89,39 @@ exports.fetchStudentsDataCollegeCode = async(req,res) =>{
       res.status(200).json(student);
       
   }catch(error){
+      res.status(500).json({message:"Error in fetching Students data"});
+  }
+
+
+}
+
+exports.fetchStudentsdataByRollnumber = async(req,res) =>{
+
+  const student_roll_no = req.params.roll_no;
+
+  try{
+    // const studentdata=[];
+      const student = await Students.findOne({where:{roll_no:student_roll_no}});
+      if(student.length ===0){
+          console.log("No Students found for provided  given college code");
+          res.status(400).json("no student with given roll number");
+      }
+      console.log(student)
+        const batchesdata=await Batch.findOne({where:{batch_id:student.student_batch_id}});
+        const branchesdata=await Branch.findOne({where:{branch_id:student.branch_id}});
+        const Studyingyear= 2024-batchesdata.Studyingyear;
+
+        const studentdata={
+          roll_no:student.roll_no,
+          student_name:student.student_name,
+          year:Studyingyear,
+          branch_full_nane:branchesdata.branch_full_name,
+          course:batchesdata.course
+        };
+      res.status(200).json(studentdata);
+      
+  }catch(error){
+    console.error(error);
       res.status(500).json({message:"Error in fetching Students data"});
   }
 

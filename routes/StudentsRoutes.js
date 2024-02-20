@@ -19,6 +19,11 @@ router.get('/fetchStudentsData/:student_batch_id',StudentsController.fetchStuden
 // Description: To fetch examination data based on college_code
 router.get('/fetchStudentsDataCollegeCode/:college_code',StudentsController.fetchStudentsDataCollegeCode);
 
+//METHOD: get
+//api/students/fetchStudentsdataByRollnumber/:roll_no
+// Description: To fetch students data with roll number
+router.get('/fetchStudentsdataByRollnumber/:roll_no',StudentsController.fetchStudentsdataByRollnumber);
+
 
 module.exports = router;
 
