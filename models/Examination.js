@@ -57,7 +57,7 @@ const Examination = sequelize.define('examinations', {
         allowNull: false
     }
 },{
-
+ 
     tableName: 'examinations',    
     timestamps: false  
 });

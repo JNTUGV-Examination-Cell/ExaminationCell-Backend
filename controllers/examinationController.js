@@ -26,8 +26,6 @@ exports.addExams = async (req,res) => {
 
       // console.log('Examinations data added successfully');
       res.status(200).json({message:"Examinations data added successfully"});
-
-
     }
     catch(error){
         console.error(error);

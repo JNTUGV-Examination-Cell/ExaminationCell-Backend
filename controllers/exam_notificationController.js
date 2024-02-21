@@ -10,10 +10,16 @@ exports.addexam_notification = async (req, res) => {
         date: currentdate,
         exam_code: item.exam_code,
         college_code:item.college_code,
+        batch_id:item.batch_id,
+        regulation_courses_set_id:item.regulation_courses_set_id,
         payment_status: item.payment_status,
         course: item.course,
         branch: item.branch,
-        year: item.year,
+        course_year: item.course_year,
+        exam_year:item.exam_year,
+        exam_month:item.exam_month,
+        exam_date:item.exam_date,
+        type:item.type,
         fee: item.fee,
         last_date: item.last_date,
         late_fee: item.late_fee,
@@ -21,7 +27,7 @@ exports.addexam_notification = async (req, res) => {
         notification_title: item.notification_title,
       });
     }
-
+ 
     res
       .status(200)
       .json({ message: "exam notificatin data added successfully" });
