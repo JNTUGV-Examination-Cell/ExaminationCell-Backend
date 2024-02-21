@@ -198,7 +198,7 @@ exports.fetchexamregisteredStudentData = async (req, res) => {
             attributes: ['roll_no']
         });
         const registeredStudentDetails = await Student.findAll({
-<<<<<<< HEAD
+
 
             where: {
                 student_college_code:college_code,
@@ -212,11 +212,12 @@ exports.fetchexamregisteredStudentData = async (req, res) => {
                 roll_no: {
                     [Op.in]: studentIds.map(student => student.roll_no)
 
-=======
+                }
+            },
             where: {
                 roll_no: {
                     [Op.in]: studentIds.map(student => student.roll_no)
->>>>>>> 683ce730f3bfbdd2be6668c6fd59075b3e13b724
+
                 }
             },
             attributes: ['roll_no', 'student_name', 'branch_id', 'mobile']
@@ -255,7 +256,7 @@ exports.fetchexamunregisteredStudentData = async (req, res) => {
             attributes: ['roll_no']
         });
             const unregisteredStudentDetails = await Student.findAll({
-<<<<<<< HEAD
+
 
             where: {
                 student_college_code:college_code,
@@ -268,12 +269,13 @@ exports.fetchexamunregisteredStudentData = async (req, res) => {
             where: {
                 roll_no: {
                     [Op.notIn]: studentIds.map(student => student.roll_no)
+                }
+            },
 
-=======
             where: {
                 roll_no: {
                     [Op.notIn]: studentIds.map(student => student.roll_no)
->>>>>>> 683ce730f3bfbdd2be6668c6fd59075b3e13b724
+
                 }
             },
             attributes: [ 'roll_no', 'student_name', 'branch_id', 'mobile']

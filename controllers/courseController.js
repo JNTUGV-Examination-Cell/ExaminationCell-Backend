@@ -1,8 +1,9 @@
 const course = require("../models/Courses");
 const regulation = require("../models/Regulation")
 const regulation_courses = require("../models/Regulation_Course")
-const regulation_course_set = require("../models/Regulation_Courses_Set")
-const subjects = require("../models/Subject")
+const regulation_course_set = require("../models/Regulation_Courses_Set");
+/*const Subject = require("../models/Subject");*/
+const subjects = require("../models/Subject");
 
 require('dotenv').config({ path: 'cred.env' });
 
@@ -232,5 +233,61 @@ exports.fetchAllSubjects = async(req,res) =>{
       
   }catch(error){
       res.status(500).json({message:"Error in fetching subjects data"});
+  }
+};
+
+
+
+
+exports.updateSubject = async (req, res) => {
+  try {
+    console.log("Received updateSubject request");
+    const { sub_id } = req.params;
+    console.log("sub_id:", sub_id);
+    const {
+      regulation_courses_set_id,
+      regulation_course_title,
+      branch_id,
+      subject_code,
+      subject_name,
+      course,
+      external_pass_mark,
+      total_pass_mark,
+      total_external_mark,
+      subject_total_mark,
+      credits,
+      subject_type,
+      subject_status
+    } = req.body;
+
+    // Find the subject by sub_id
+    const existingSubject = await subjects.findByPk(sub_id);
+
+    if (!existingSubject) {
+      return res.status(404).json({ message: "Subject not found" });
+    }
+
+    // Update the subject fields
+    existingSubject.regulation_courses_set_id = regulation_courses_set_id;
+    existingSubject.regulation_course_title = regulation_course_title;
+    existingSubject.branch_id = branch_id;
+    existingSubject.subject_code = subject_code;
+    existingSubject.subject_name = subject_name;
+    existingSubject.course = course;
+    existingSubject.external_pass_mark = external_pass_mark;
+    existingSubject.total_pass_mark = total_pass_mark;
+    existingSubject.total_external_mark = total_external_mark;
+    existingSubject.subject_total_mark = subject_total_mark;
+    existingSubject.credits = credits;
+    existingSubject.subject_type = subject_type;
+    existingSubject.subject_status = subject_status;
+
+    // Save the updated subject
+    await existingSubject.save();
+
+    res.status(200).json({ message: "Subject updated successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error updating subject" });
   }
 };

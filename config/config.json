@@ -1,7 +1,11 @@
 {
     "database": "examination_cell",
 	"username": "postgres",
+
 	"password": "Yatheesha@01",
+
+	
+
 	"dialect": "postgres",
 	"define": {
 	  "freezeTableName": "true",
