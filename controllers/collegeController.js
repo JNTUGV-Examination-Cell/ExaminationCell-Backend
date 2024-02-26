@@ -25,9 +25,6 @@ exports.addColleges = async (req, res) => {
   }
 };
 
-
-
-
 exports.fetchColleges = async(req,res) =>{
 
   try{

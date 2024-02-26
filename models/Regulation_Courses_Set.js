@@ -18,7 +18,7 @@ const Regulation_Course_Set = sequelize.define('regulation_course_sets',{
     },
     regulation_course_set:{
         type:DataTypes.STRING,
-        allowNull:false
+        allowNull:false,
     },
     regualtion_course_set_type:{
         type:DataTypes.STRING, 
