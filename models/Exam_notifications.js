@@ -9,9 +9,8 @@ const Exam_notification = sequelize.define(
   "exam_notification",
   {
     notification_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       primaryKey: true,
-      autoIncrement: true,
       allowNull: false,
     },
     date: { 
@@ -123,4 +122,4 @@ Exam_notification.afterCreate(async (notification, options) => {
   }
 });
 
-module.exports = Exam_notification;  
+module.exports = Exam_notification;
