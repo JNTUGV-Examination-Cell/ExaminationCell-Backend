@@ -1,12 +1,18 @@
 const Exam_notification = require("../models/Exam_notifications");
+const Regulation_Course = require("../models/Regulation_Course");
+const Regulation_Course_Set = require("../models/Regulation_Courses_Set");
 
 exports.addexam_notification = async (req, res) => {
   try {
     const data = req.body;
-
+ 
     for (const item of data) {
       const currentdate = new Date();
+      const regulationsoursetitle=await Regulation_Course_Set.findOne({where:{regulation_courses_set_id:item.regulation_courses_set_id}});
+      const regulationdata=await Regulation_Course.findOne({where:{regulation_courses_title:regulationsoursetitle.regulation_courses_title}})
+      const notification_id = generateNotificationId(regulationdata.regulation,regulationdata.studying_year,item.semester,item.exam_type, currentdate);
       await Exam_notification.create({
+        notification_id:notification_id,
         date: currentdate,
         exam_code: item.exam_code,
         college_code:item.college_code,
@@ -37,6 +43,10 @@ exports.addexam_notification = async (req, res) => {
     res.status(500).json({ message: "Error in adding exam notification data" });
   }
 };
+const generateNotificationId = (regualtion,studying_year,semester,exam_type,currentDate) => {
+  const timestamp = currentDate.getFullYear();
+  return `${regualtion}${studying_year}${semester}${timestamp}${exam_type.charAt(0)}`;
+}
 
 exports.fetchAllExam_notifications = async (req, res) => {
   try {
