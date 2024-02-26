@@ -12,4 +12,10 @@ router.post('/addColleges',collegeController.addColleges);
 // Description: get all the colleges from college table
 router.get('/fetchColleges',collegeController.fetchColleges);
 
+//METHOD: put
+//api:  /api/college/updatecolleges
+// Description: get all the colleges from college table
+router.put('/updatecolleges',collegeController.updatecolleges);
+
+
 module.exports = router;
