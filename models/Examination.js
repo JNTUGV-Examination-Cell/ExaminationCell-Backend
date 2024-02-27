@@ -51,14 +51,13 @@ const Examination = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    date: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-  },
-  {
-    tableName: "examinations",
-    timestamps: false,
-  }
-);
+    date:{
+        type: DataTypes.INTEGER,
+        allowNull: false
+    }
+},{
+ 
+    tableName: 'examinations',    
+    timestamps: false  
+});
 module.exports = Examination;
