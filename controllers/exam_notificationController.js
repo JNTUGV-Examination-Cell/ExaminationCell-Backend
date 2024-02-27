@@ -10,12 +10,10 @@ exports.addexam_notification = async (req, res) => {
       const currentdate = new Date();
       const regulationsoursetitle=await Regulation_Course_Set.findOne({where:{regulation_courses_set_id:item.regulation_courses_set_id}});
       const regulationdata=await Regulation_Course.findOne({where:{regulation_courses_title:regulationsoursetitle.regulation_courses_title}})
-      const notification_id = generateNotificationId(regulationdata.regulation,regulationdata.studying_year,item.semester,item.exam_type, currentdate);
+      const notification_id = generateNotificationId(regulationdata.regulation,regulationdata.studying_year,item.semester,item.type, currentdate);
       await Exam_notification.create({
         notification_id:notification_id,
         date: currentdate,
-        exam_code: item.exam_code,
-        college_code:item.college_code,
         batch_id:item.batch_id,
         regulation_courses_set_id:item.regulation_courses_set_id,
         payment_status: item.payment_status,
@@ -32,12 +30,11 @@ exports.addexam_notification = async (req, res) => {
         late_fee_lastdate: item.late_fee_lastdate,
         notification_title: item.notification_title,
       });
-    }
+    } 
  
-    res
+    res 
       .status(200)
       .json({ message: "exam notificatin data added successfully" });
-    // console.log("Districts data added successfully");
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error in adding exam notification data" });
@@ -45,6 +42,7 @@ exports.addexam_notification = async (req, res) => {
 };
 const generateNotificationId = (regualtion,studying_year,semester,exam_type,currentDate) => {
   const timestamp = currentDate.getFullYear();
+  
   return `${regualtion}${studying_year}${semester}${timestamp}${exam_type.charAt(0)}`;
 }
 
