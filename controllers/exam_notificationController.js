@@ -43,7 +43,7 @@ exports.addexam_notification = async (req, res) => {
 const generateNotificationId = (regualtion,studying_year,semester,exam_type,currentDate) => {
   const timestamp = currentDate.getFullYear();
   
-  return `${regualtion}${studying_year}${semester}${timestamp}${exam_type.charAt(0)}`;
+  return `${regualtion}${studying_year}${semester}${timestamp}${exam_type.charAt(0).toUpperCase()}`;
 }
 
 exports.fetchAllExam_notifications = async (req, res) => {
