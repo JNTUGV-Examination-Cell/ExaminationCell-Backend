@@ -40,10 +40,10 @@ exports.addexam_notification = async (req, res) => {
     res.status(500).json({ message: "Error in adding exam notification data" });
   }
 };
-const generateNotificationId = (regualtion,studying_year,semester,exam_type,currentDate) => {
+const generateNotificationId = (regulation,studying_year,semester,exam_type,currentDate) => {
   const timestamp = currentDate.getFullYear();
   
-  return `${regualtion}${studying_year}${semester}${timestamp}${exam_type.charAt(0).toUpperCase()}`;
+  return `${regulation}${studying_year}${semester}${timestamp}${exam_type.charAt(0).toUpperCase()}`;
 }
 
 exports.fetchAllExam_notifications = async (req, res) => {

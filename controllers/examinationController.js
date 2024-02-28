@@ -40,8 +40,7 @@ exports.fetchExamData = async (req, res) => {
   const college_code = req.params.college_code;
 
   try {
-    console.log(college_code);
-    const exams = await Exam.findAll({ where: { college_code: college_code } });
+    const exams = await Exam.findAll();
 
     if (exams.length === 0) {
       console.log("No examinations found for provided college code");
