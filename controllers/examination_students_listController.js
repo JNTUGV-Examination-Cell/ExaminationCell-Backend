@@ -13,15 +13,15 @@ exports.addExam_students = async (req, res) => {
         const data = req.body;
 
         for (const item of data) {
+            const examids=await Examination.findOne({where:{exam_code: item.exam_code,college_code: item.college_code,}});
             // Check if required fields are present
-            if (!item.exam_code || !item.roll_no || !item.qualified_status || !item.college_code) {
+            if (!examids.exam_id || !item.roll_no || !item.qualified_status || !item.college_code) {
                 return res.status(400).json({ message: "Invalid data format. Missing required fields." });
             }
-
             // Check if a record with the same values already exists
             const existingRecord = await Exam_students_list.findOne({
                 where: {
-                    exam_code: item.exam_code,
+                    exam_id: examids.exam_id,
                     roll_no: item.roll_no,
                     college_code: item.college_code,
                     qualified_status: item.qualified_status,
@@ -32,7 +32,7 @@ exports.addExam_students = async (req, res) => {
             // If a matching record doesn't exist, insert the data
             if (!existingRecord) {
                 await Exam_students_list.create({
-                    exam_code: item.exam_code,
+                    exam_id: examids.exam_id,
                     college_code: item.college_code,
                     roll_no: item.roll_no,
                     subject_code:item.subject_code,
@@ -41,7 +41,7 @@ exports.addExam_students = async (req, res) => {
             } 
             else{
                 // console.log(`Record already exists for ${item.exam_code}, ${item.student_id}, ${item.qualified_status}`);
-                const errormessage=`Record already exists for ${item.exam_code}, ${item.roll_no}, ${item.qualified_status} ,${item.college_code}, ${item.subject_code}`;
+                const errormessage=`Record already exists for ${item.exam_id}, ${item.roll_no}, ${item.qualified_status} ,${item.college_code}, ${item.subject_code}`;
                 res.status(400).json({ message: errormessage });
                 return  
             }
