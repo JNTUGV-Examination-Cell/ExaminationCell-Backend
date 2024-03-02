@@ -69,7 +69,8 @@ exports.addfailstudents = async (req, res) => {
                 },
                 { 
                     where: { 
-                        subject_code: item.subject_code, 
+                        subject_code: item.subject_code,
+                        exam_code:item.exam_code,
                         roll_no: item.roll_no,
                          
                     } 
