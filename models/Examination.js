@@ -1,19 +1,19 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const College = require('./College');
 const Batch = require('./Batch');
 const Regulation_course_set = require('./Regulation_Courses_Set');
+const College = require('./College');
 
 
 const Examination = sequelize.define('examinations', {
     id:{
         type : DataTypes.INTEGER,
         autoIncrement: true,
+        primaryKey:true,
     },
     exam_code:{
         type : DataTypes.STRING,
-        primaryKey: true
-
+        allowNull:false,
     },
     batch_id:{
         type : DataTypes.INTEGER,

@@ -46,5 +46,4 @@ router.get('/fetchQualifiedStudents/:exam_code',examination_students_listControl
 // Description : Registering the college for the specific exam
 router.post('/addCollegeExamRegistration',examination_students_listController.addCollegeExamRegistration);
 
-
 module.exports = router;  

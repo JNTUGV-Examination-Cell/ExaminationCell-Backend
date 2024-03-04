@@ -1,9 +1,6 @@
 const Exam = require("../models/Examination");
 const Student =require("../models/Student");
-const fs = require('fs');
-const path = require('path');
 const regulation_course_set = require('../models/Regulation_Courses_Set');
-const jsonFilePath = path.join(__dirname, '../data/examinations_data.json');
 
 
 //POST API to Add examinations data
@@ -40,11 +37,11 @@ exports.fetchExamData = async (req, res) => {
   const college_code = req.params.college_code;
 
   try {
-    console.log(college_code);
     const exams = await Exam.findAll({ where: { college_code: college_code } });
 
     if (exams.length === 0) {
-      console.log("No examinations found for provided college code");
+      // console.log("No examinations found for provided college code");
+      res.status(400).json({message:"No examinations found for provided college code"})
     }
 
     for (const exam of exams) {

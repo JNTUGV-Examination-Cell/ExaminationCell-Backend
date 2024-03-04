@@ -12,10 +12,6 @@ const CollegeExamRegistration = sequelize.define('CollegeExamRegistration', {
     },
     exam_code:{
         type:DataTypes.STRING,
-        references:{
-            model: examination,
-            key: 'exam_code'
-        },
         allowNull: false
     },
     college_code:{

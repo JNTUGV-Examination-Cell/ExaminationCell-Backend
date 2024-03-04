@@ -7,6 +7,7 @@ const { Op } = require('sequelize');
 const Batch = require('../models/Batch');
 
 
+
 // //POST API to Add examinations data
 exports.addExam_students = async (req, res) => {
     try {
@@ -70,8 +71,7 @@ exports.addfailstudents = async (req, res) => {
                 { 
                     where: { 
                         subject_code: item.subject_code, 
-                        roll_no: item.roll_no,
-                         
+                        roll_no: item.roll_no, 
                     } 
                 } 
             );
@@ -314,5 +314,3 @@ exports.addCollegeExamRegistration = async (req, res) => {
         res.status(500).json({ "message": `Error in making the registration of ${data.college_code} for ${data.exam_code}`, "error": err });
     }
 }
-
-  
