@@ -16,22 +16,22 @@ const Exam_notification = sequelize.define(
       type: DataTypes.DATE,
       allowNull: false,
     },
-    batch_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: Batch,
-        key: 'batch_id'
-      },
-      allowNull: false
-    },
-    regulation_courses_set_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: Regulation_course_set, 
-        key: 'regulation_courses_set_id'
-      },
-      allowNull: false,
-    },
+    // batch_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: Batch,
+    //     key: 'batch_id'
+    //   },
+    //   allowNull: false
+    // },
+    // regulation_courses_set_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: Regulation_course_set, 
+    //     key: 'regulation_courses_set_id'
+    //   },
+    //   allowNull: false,
+    // },
     payment_status: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -91,22 +91,4 @@ const Exam_notification = sequelize.define(
     timestamps: false,
   }
 );
-
-Exam_notification.afterCreate(async (notification, options) => {
-  try {
-    await Examination.create({
-      exam_code: notification.notification_id,
-      batch_id: notification.batch_id,
-      college_code:'H9',
-      regulation_courses_set_id: notification.regulation_courses_set_id,
-      type: notification.type,
-      month: notification.exam_month,
-      year: notification.exam_year,
-      date: notification.exam_date
-    });
-  } catch (error) {
-    console.error('Error creating examination:', error);
-  }
-});
-
 module.exports = Exam_notification;

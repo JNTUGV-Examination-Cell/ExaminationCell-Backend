@@ -6,7 +6,7 @@ const College = require('./College');
 
 
 const Examination = sequelize.define('examinations', {
-    exam_id:{
+    id:{
         type : DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey:true,

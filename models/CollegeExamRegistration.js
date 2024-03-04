@@ -10,12 +10,8 @@ const CollegeExamRegistration = sequelize.define('CollegeExamRegistration', {
         autoIncrement:true,
         primaryKey:true
     },
-    exam_id:{
-        type:DataTypes.INTEGER,
-        references:{
-            model: examination,
-            key: 'exam_id'
-        },
+    exam_code:{
+        type:DataTypes.STRING,
         allowNull: false
     },
     college_code:{

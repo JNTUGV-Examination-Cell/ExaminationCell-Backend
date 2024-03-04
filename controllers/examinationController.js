@@ -37,11 +37,11 @@ exports.fetchExamData = async (req, res) => {
   const college_code = req.params.college_code;
 
   try {
-    console.log(college_code);
     const exams = await Exam.findAll({ where: { college_code: college_code } });
 
     if (exams.length === 0) {
-      console.log("No examinations found for provided college code");
+      // console.log("No examinations found for provided college code");
+      res.status(400).json({message:"No examinations found for provided college code"})
     }
 
     for (const exam of exams) {
