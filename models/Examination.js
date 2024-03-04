@@ -15,6 +15,14 @@ const Examination = sequelize.define('examinations', {
         type : DataTypes.STRING,
         allowNull:false,
     },
+  college_code:{
+    type:DataTypes.STRING,
+    references:{
+        model:College,
+        key:'college_code'
+    },
+    allowNull:false
+  },
     batch_id:{
         type : DataTypes.INTEGER,
         references:{
