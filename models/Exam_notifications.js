@@ -16,22 +16,6 @@ const Exam_notification = sequelize.define(
       type: DataTypes.DATE,
       allowNull: false,
     },
-    // batch_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: Batch,
-    //     key: 'batch_id'
-    //   },
-    //   allowNull: false
-    // },
-    // regulation_courses_set_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: Regulation_course_set, 
-    //     key: 'regulation_courses_set_id'
-    //   },
-    //   allowNull: false,
-    // },
     payment_status: {
       type: DataTypes.STRING,
       allowNull: false,
