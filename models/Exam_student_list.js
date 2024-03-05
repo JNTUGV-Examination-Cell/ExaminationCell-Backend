@@ -20,12 +20,8 @@ const Exam_students_list = sequelize.define('exam_students_list', {
         },
         allowNull: false
     },
-    exam_id:{
-        type:DataTypes.INTEGER,
-        references:{
-            model: Examination,
-            key: 'exam_id'
-        },
+    exam_code:{
+        type:DataTypes.STRING,
         allowNull: false 
     },
     subject_code:{

@@ -6,7 +6,7 @@ const College = require('./College');
 
 
 const Examination = sequelize.define('examinations', {
-    exam_id:{
+    id:{
         type : DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey:true,
@@ -15,6 +15,8 @@ const Examination = sequelize.define('examinations', {
         type : DataTypes.STRING,
         allowNull:false,
     },
+
+
 
   college_code:{
     type:DataTypes.STRING,
@@ -25,7 +27,8 @@ const Examination = sequelize.define('examinations', {
     allowNull:false
   },
 
-    batch_id:{
+
+ batch_id:{
         type : DataTypes.INTEGER,
         references:{
             model: Batch,
