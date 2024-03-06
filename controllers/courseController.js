@@ -302,3 +302,26 @@ exports.updateSubject = async (req, res) => {
     res.status(500).json({ message: "Error updating subject" });
   }
 };
+
+
+exports.fetchSubjectsByRegulationCoursesSetId = async (req, res) => {
+  const { regulation_courses_set_id } = req.params;
+  console.log("Received request with regulation courses set ID:", regulation_courses_set_id);
+
+  try {
+    const getsubjects = await subjects.findAll({
+      attributes: ['subject_name', 'subject_code'],
+      where: { regulation_courses_set_id: regulation_courses_set_id }
+    });
+
+    if (getsubjects.length === 0) {
+      console.log("No subjects found for the provided regulation_courses_set_id");
+      return res.status(404).json({ message: "No subjects found" });
+    }
+
+    res.status(200).json(getsubjects);
+  } catch (error) {
+    console.error("Error in fetching subjects:", error);
+    res.status(500).json({ message: "Error in fetching subjects" });
+  }
+};
