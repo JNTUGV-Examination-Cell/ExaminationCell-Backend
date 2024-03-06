@@ -15,7 +15,7 @@ router.post('/addRegulation',courseController.addRegulation)
 
 
 //METHOD: get
-//api:  /api/branch/getCompleteRegulations
+//api:  /api/course/getCompleteRegulations
 //Fetches the regulations table records completely
 router.get('/getCompleteRegulations',courseController.getCompleteRegulations);
 
@@ -48,6 +48,9 @@ router.get('/fetchAllSubjects',courseController.fetchAllSubjects);
 
 router.put('/updateSubject/:sub_id',courseController.updateSubject);
 
-
+//Method :Get
+//api/course/getCompleteCourses
+//Description :To fetch Courses
+router.get('/getCompleteCourses',courseController.getCompleteCourses);
 
 module.exports = router;

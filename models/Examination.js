@@ -15,6 +15,9 @@ const Examination = sequelize.define('examinations', {
         type : DataTypes.STRING,
         allowNull:false,
     },
+
+
+
   college_code:{
     type:DataTypes.STRING,
     references:{
@@ -23,7 +26,9 @@ const Examination = sequelize.define('examinations', {
     },
     allowNull:false
   },
-    batch_id:{
+
+
+ batch_id:{
         type : DataTypes.INTEGER,
         references:{
             model: Batch,

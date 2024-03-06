@@ -1,8 +1,5 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-const Examination = require("../models/Examination");
-const Batch = require('../models/Batch');
-const Regulation_course_set = require('../models/Regulation_Courses_Set');
 
 const Exam_notification = sequelize.define(
   "exam_notification",
@@ -32,16 +29,8 @@ const Exam_notification = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    exam_year: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    exam_month: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    exam_date: {
-      type: DataTypes.INTEGER,
+    exam_full_date: {
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     type: {
@@ -58,7 +47,7 @@ const Exam_notification = sequelize.define(
     },
     late_fee: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: true, 
     },
 
     late_fee_lastdate: {
