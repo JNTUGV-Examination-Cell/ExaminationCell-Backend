@@ -38,7 +38,7 @@ exports.getCompleteCourses = async (req, res) => {
     res.status(200).json(Courses); // Respond with the JSON data
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Error in getting courses" });
+    res.status(500).json({ message: "Error in getting the Courses" });
   }
 };
 

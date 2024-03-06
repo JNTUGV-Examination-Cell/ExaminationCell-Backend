@@ -15,7 +15,7 @@ router.post('/addRegulation',courseController.addRegulation)
 
 
 //METHOD: get
-//api:  /api/branch/getCompleteRegulations
+//api:  /api/course/getCompleteRegulations
 //Fetches the regulations table records completely
 router.get('/getCompleteRegulations',courseController.getCompleteRegulations);
 
