@@ -53,4 +53,11 @@ router.put('/updateSubject/:sub_id',courseController.updateSubject);
 //Description :To fetch Courses
 router.get('/getCompleteCourses',courseController.getCompleteCourses);
 
+
+//Method : get
+//api/course/fetchSubjectsByRegulationCoursesSetId/:regulation_courses_set_id
+//Description : Fetch subject_name and subject_code based on reg_course_set_id
+router.get('/fetchSubjectsByRegulationCoursesSetId/:regulation_courses_set_id',courseController.fetchSubjectsByRegulationCoursesSetId);
+
+
 module.exports = router;

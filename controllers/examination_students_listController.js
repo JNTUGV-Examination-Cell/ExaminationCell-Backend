@@ -5,6 +5,7 @@ const Branch=require("../models/Branches");
 const CollegeExamRegistration = require("../models/CollegeExamRegistration");
 const { Op } = require('sequelize');
 const Batch = require('../models/Batch');
+const Subject = require('../models/Subject');
 
 
 
@@ -314,3 +315,8 @@ exports.addCollegeExamRegistration = async (req, res) => {
         res.status(500).json({ "message": `Error in making the registration of ${data.college_code} for ${data.exam_code}`, "error": err });
     }
 }
+
+
+
+
+  
