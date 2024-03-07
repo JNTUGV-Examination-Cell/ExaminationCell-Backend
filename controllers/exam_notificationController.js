@@ -11,15 +11,12 @@ exports.addexam_notification = async (req, res) => {
     let message= "";
     for (const item of data) {
       const currentdate = new Date();
-      const examdate= new Date(item.exam_date);
-      const year = examdate.getFullYear();
-      const month = examdate.getMonth() + 1;
-      const date = examdate.getDate();
+      const [date, month, year] = item.exam_date.split('-');
+      const examdate = new Date(`${year}-${month}-${date}`);
       const regulation_title=item.course+" "+item.regulation;
       const regulation_courseset_ids=await Regulation_Course_Set.findOne({where:{regulation_courses_title:regulation_title}});
       const regulationcourses=await Regulation_Course.findOne({where:{regulation_courses_title:regulation_courseset_ids.regulation_courses_title}});
       const batch_ids=await Batch.findOne({where:{batch_college_code:item.college_code,regulation_course_title:regulation_courseset_ids.regulation_courses_title}});
-      // console.log(batch_ids);
       const notification_id = generateNotificationId(item.regulation,regulationcourses.studying_year,regulationcourses.regulation_courses_id,item.semester,item.type, currentdate);
       await Exam_notification.create({
         notification_id:notification_id,
@@ -36,7 +33,6 @@ exports.addexam_notification = async (req, res) => {
         late_fee_lastdate: item.late_fee_lastdate,
         notification_title: item.notification_title,
       }); 
-      console.log(batch_ids);
       message = message + "exam notificatin data added successfully  ";
       for(const value of colleges){
         if(await Examination.findOne({where:{exam_code:notification_id,college_code:value.college_code,batch_id:batch_ids.batch_id}}))
@@ -78,4 +74,4 @@ exports.fetchAllExam_notifications = async (req, res) => {
       .status(500)
       .json({ message: "Error in fetching all exam_notification data" });
   }
-};
+};   
