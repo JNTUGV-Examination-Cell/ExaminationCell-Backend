@@ -68,9 +68,9 @@ const Subject = sequelize.define('subjects',{
         allowNull:false
     },
     credits:{
-        type:DataTypes.INTEGER,
+        type:DataTypes.FLOAT,
         allowNull:false
-    },
+    },   
     subject_type:{
         type:DataTypes.STRING,
         allowNull:false
