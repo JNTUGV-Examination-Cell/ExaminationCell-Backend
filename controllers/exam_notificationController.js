@@ -4,6 +4,9 @@ const Examination=require("../models/Examination");
 const College=require("../models/College");
 const Regulation_Course_Set = require("../models/Regulation_Courses_Set");
 const Batch = require("../models/Batch");
+const subjects = require("../models/Subject");
+
+
 exports.addexam_notification = async (req, res) => {
   try {
     const data = req.body;
@@ -75,3 +78,58 @@ exports.fetchAllExam_notifications = async (req, res) => {
       .json({ message: "Error in fetching all exam_notification data" });
   }
 };   
+
+
+
+
+exports.analyzeNotification = async (req, res) => {
+  try {
+    const { notification_id } = req.params;
+
+    // Extract data from notification_id
+    const regulation_code = notification_id.substring(0, 3);
+    const course_id = notification_id.substring(3, 4);
+    const course_year = notification_id.substring(6, 11);
+    const type = notification_id.substring(11, 12);
+
+    // Query the database for relevant data
+    const regulation = await regulation.findOne({
+      where: { regulation_code }
+    });
+
+    const course = await course.findByPk(course_id);
+
+    const examNotification = await Exam_notification.findOne({
+      where: { course_year, type }
+    });
+
+    if (!regulation || !course || !examNotification) {
+      return res.status(404).json({ message: "Data not found" });
+    }
+
+    // Construct the response object
+    const response = {
+      regulation: regulation.regulation, // Assuming 'regulation' is the field name in the 'Regulation' model
+      course_name: course.course_name, // Assuming 'course_name' is the field name in the 'Course' model
+      course_full_name: examNotification.course_full_name, // Assuming 'course_full_name' is the field name in the 'Exam_notification' model
+      course_year,
+      type
+    };
+
+    // Fetch subject names from the subject table
+    const subjects = await subjects.findAll({
+      attributes: ['subject_name'],
+      where: {
+        regulation_courses_set_id: examNotification.regulation_courses_set_id, // Assuming 'regulation_courses_set_id' is the field name in the 'Exam_notification' model
+        branch_id: examNotification.branch_id // Assuming 'branch_id' is the field name in the 'Exam_notification' model
+      }
+    });
+
+    response.subjects = subjects.map(subject => subject.subject_name);
+
+    res.status(200).json(response);
+  } catch (error) {
+    console.error("Error in analyzing notification_id:", error);
+    res.status(500).json({ message: "Error in analyzing notification_id" });
+  }
+};

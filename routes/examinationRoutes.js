@@ -32,4 +32,9 @@ router.post("/addexam_notification", exam_notificationController.addexam_notific
 // Description: To fetch All Examination notifications
 router.get("/fetchAllExam_notifications",exam_notificationController.fetchAllExam_notifications);
 
+
+//method : get
+//api/examination/analyzeNotification
+router.get("/analyzeNotification",exam_notificationController.analyzeNotification);
+
 module.exports = router; 

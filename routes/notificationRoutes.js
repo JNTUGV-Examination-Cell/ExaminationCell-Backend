@@ -9,4 +9,6 @@ const router = express.Router();
 router.post('/addNotifications',notificationController.addNotifications);
 
 
+
+
 module.exports = router;
