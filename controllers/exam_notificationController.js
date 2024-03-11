@@ -82,54 +82,51 @@ exports.fetchAllExam_notifications = async (req, res) => {
 
 
 
-exports.analyzeNotification = async (req, res) => {
+exports.getExaminationSubjects = async (req, res) => {
   try {
-    const { notification_id } = req.params;
+    const { notification_id } = req.body;
+
 
     // Extract data from notification_id
-    const regulation_code = notification_id.substring(0, 3);
-    const course_id = notification_id.substring(3, 4);
-    const course_year = notification_id.substring(6, 11);
-    const type = notification_id.substring(11, 12);
-
-    // Query the database for relevant data
-    const regulation = await regulation.findOne({
-      where: { regulation_code }
-    });
-
-    const course = await course.findByPk(course_id);
-
-    const examNotification = await Exam_notification.findOne({
-      where: { course_year, type }
-    });
-
-    if (!regulation || !course || !examNotification) {
-      return res.status(404).json({ message: "Data not found" });
-    }
-
-    // Construct the response object
-    const response = {
-      regulation: regulation.regulation, // Assuming 'regulation' is the field name in the 'Regulation' model
-      course_name: course.course_name, // Assuming 'course_name' is the field name in the 'Course' model
-      course_full_name: examNotification.course_full_name, // Assuming 'course_full_name' is the field name in the 'Exam_notification' model
-      course_year,
-      type
-    };
-
-    // Fetch subject names from the subject table
-    const subjects = await subjects.findAll({
-      attributes: ['subject_name'],
+    const examinationResult = await Examination.findOne({
+      attributes: ['batch_id'],
       where: {
-        regulation_courses_set_id: examNotification.regulation_courses_set_id, // Assuming 'regulation_courses_set_id' is the field name in the 'Exam_notification' model
-        branch_id: examNotification.branch_id // Assuming 'branch_id' is the field name in the 'Exam_notification' model
+        exam_code: notification_id,
       }
     });
 
-    response.subjects = subjects.map(subject => subject.subject_name);
+    const batch_id = examinationResult ? examinationResult.batch_id : null;
 
-    res.status(200).json(response);
+
+    if (!batch_id) {
+      return res.status(404).json({ message: "Batch not found for the given notification_id" });
+    }
+
+    const batchResult = await Batch.findOne({
+      attributes: ['regulation_course_title'],
+      where: {
+        batch_id: batch_id,
+      }
+    });
+
+    const regulation_course_title = batchResult ? batchResult.regulation_course_title : null;
+
+    if (!regulation_course_title) {
+      return res.status(404).json({ message: "Regulation course title not found for the given batch_id" });
+    }
+
+    // Fetch subject names from the subject table
+    const subjects_data = await subjects.findAll({
+      attributes: ['subject_name', 'subject_code'],
+      where: {
+        regulation_course_title: regulation_course_title,
+      }
+    });
+
+    res.status(200).json(subjects_data);
   } catch (error) {
     console.error("Error in analyzing notification_id:", error);
     res.status(500).json({ message: "Error in analyzing notification_id" });
   }
 };
+
