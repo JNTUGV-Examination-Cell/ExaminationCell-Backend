@@ -21,10 +21,6 @@ const Exam_notification = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    branch: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     course_year: {
       type: DataTypes.STRING,
       allowNull: false,

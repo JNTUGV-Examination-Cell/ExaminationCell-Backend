@@ -34,7 +34,7 @@ router.get("/fetchAllExam_notifications",exam_notificationController.fetchAllExa
 
 
 //method : get
-//api/examination/analyzeNotification
-router.get("/analyzeNotification",exam_notificationController.analyzeNotification);
+//api/examination/getExaminationSubjects
+router.get("/getExaminationSubjects",exam_notificationController.getExaminationSubjects);
 
 module.exports = router; 
