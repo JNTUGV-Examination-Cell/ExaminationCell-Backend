@@ -37,4 +37,8 @@ router.get("/fetchAllExam_notifications",exam_notificationController.fetchAllExa
 //api/examination/getExaminationSubjects
 router.get("/getExaminationSubjects",exam_notificationController.getExaminationSubjects);
 
+//method : get
+//api/examination/fetchCollegeNameByExamCode
+router.get("/fetchCollegeNameByExamCode/:exam_code",examinationController.fetchCollegeNameByExamCode);
+
 module.exports = router; 

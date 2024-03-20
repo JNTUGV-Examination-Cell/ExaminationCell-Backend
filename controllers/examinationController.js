@@ -1,6 +1,8 @@
 const Exam = require("../models/Examination");
 const Student =require("../models/Student");
 const regulation_course_set = require('../models/Regulation_Courses_Set');
+const Examination=require("../models/Examination");
+const College = require('../models/College');
 
 
 //POST API to Add examinations data
@@ -67,3 +69,34 @@ exports.fetchAllExams = async(req,res) => {
     res.status(500).json({ message: "Error in fetching all exam data" });
   }
 }
+
+
+exports.fetchCollegeNameByExamCode = async (req, res) => {
+  try {
+    const { exam_code } = req.params;
+
+    const examination = await Examination.findOne({
+      where: { exam_code },
+      attributes: ['college_code']
+    });
+
+    if (!examination) {
+      return res.status(404).json({ message: "Examination not found" });
+    }
+
+    const college = await College.findOne({
+      where: { college_code: examination.college_code },
+      attributes: ['college_name']
+    });
+
+    if (!college) {
+      return res.status(404).json({ message: "College not found" });
+    }
+
+    res.status(200).json({ college_name: college.college_name });
+  } catch (error) {
+    console.error("Error in fetching college name:", error);
+    res.status(500).json({ message: "Error in fetching college name" });
+  }
+};
+
